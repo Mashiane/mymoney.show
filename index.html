@@ -1,0 +1,130 @@
+﻿<!DOCTYPE HTML>
+<html manifest="OfflineApp.appcache">
+<head>
+<meta charset="utf-8">
+<title>MyMoney.Show</title>
+<meta name="generator" content="NSB/AppStudio 3.2.8.1$" />
+<meta name="date" content="2013-10-29 03:06:57.037000" />
+<meta name="version" content="1.0.6" />
+<meta name="viewport" content="width=device-width minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="YES" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="">
+<meta name="copyright" content="Copyright NdimkaMbulelo (Pty) Ltd" />
+<link rel="apple-touch-icon" href="C:/adt-bundle/workspace/MyMoney.Show/Files/wallet.png" />
+<link rel="apple-touch-startup-image" href="C:/adt-bundle/workspace/MyMoney.Show/Files/wallet.png" />
+<link rel="shortcut icon" sizes="1024x1024" href="nsb/images/1024.png"/>
+<script src="messages.js"></script>
+<script src="nsb/hfunc.js"></script>
+<link href="nsb/nsbstyle.css" rel="stylesheet">
+<script src="nsb/fastclick.js"></script>
+<script src="nsb/complexfunctions.js"></script>
+<script src="nsb/iscroll.js"></script>
+<script src="nsb/jquery.js"></script>
+<script src="nsb/jquery.mobile.js"></script>
+<link href="nsb/jquery.mobile.css" rel="stylesheet">
+<script src="jqwidgets/jqxcore.js"></script>
+<link href="jqwidgets/styles/jqx.base.css" rel="stylesheet">
+<link href="jqwidgets/styles/jqx.classic.css" rel="stylesheet">
+<script src="jqwidgets/jqxdata.js"></script>
+<script src="jqwidgets/jqxbuttons.js"></script>
+<script src="jqwidgets/jqxscrollbar.js"></script>
+<script src="jqwidgets/jqxlistbox.js"></script>
+<script src="jqwidgets/jqxcheckbox.js"></script>
+<script src="jqwidgets/jqxdropdownlist.js"></script>
+<script src="jqwidgets/jqxnumberinput.js"></script>
+<script src="jqwidgets/jqxmenu.js"></script>
+<script src="jqwidgets/jqxgrid.js"></script>
+<script src="jqwidgets/jqxgrid.pager.js"></script>
+<script src="jqwidgets/jqxgrid.selection.js"></script>
+<script src="jqwidgets/jqxgrid.filter.js"></script>
+<script src="jqwidgets/jqxgrid.grouping.js"></script>
+<script src="jqwidgets/jqxgrid.columnsresize.js"></script>
+<script src="jqwidgets/jqxgrid.sort.js"></script>
+<script src="jqwidgets/jqxgrid.edit.js"></script>
+<script src="jqwidgets/jqxgrid.aggregates.js"></script>
+<script src="jqwidgets/jqxgrid.columnsreorder.js"></script>
+<script src="jqwidgets/jqxgrid.storage.js"></script>
+<script src="jqwidgets/jqxdata.export.js"></script>
+<script src="jqwidgets/jqxgrid.export.js"></script>
+<script src="jqwidgets/jqxpanel.js"></script>
+
+
+
+<style type="text/css">
+#lstWhatToDo_scroller {position: absolute; width:100%; height:282px; left:0px; top:45px;}
+#lstWhatToDo {position:absolute; left:0px; top:0px; width:100%; height:auto }
+
+#hBar {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#mycategoriesList_scroller {position: absolute; width:100%; height:32px; left:0px; top:44px;}
+#mycategoriesList {position:absolute; left:0px; top:0px; width:100%; height:auto }
+#mycategoriesList {left:0px; top:44px;}
+#mycatTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#myaccountsList_scroller {position: absolute; width:100%; height:32px; left:0px; top:35px;}
+#myaccountsList {position:absolute; left:0px; top:0px; width:100%; height:auto }
+
+#myaccountTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#mypaymentsList_scroller {position: absolute; width:100%; height:32px; left:0px; top:44px;}
+#mypaymentsList {position:absolute; left:0px; top:0px; width:100%; height:auto }
+#mypaymentsList {left:0px; top:44px;}
+#mypaymentsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#myreportsList_scroller {position: absolute; width:100%; height:32px; left:0px; top:35px;}
+#myreportsList {position:absolute; left:0px; top:0px; width:100%; height:auto }
+#myreportsList {left:0px; top:35px;}
+#myreportTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#myinstitutionsList_scroller {position: absolute; width:100%; height:300px; left:0px; top:68px;}
+#myinstitutionsList {position:absolute; left:0px; top:0px; width:100%; height:auto }
+
+#myinstitutionsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#maintainCategoriesMenu {position:absolute; left:0px; right:auto; top:42px; bottom:auto; height:0px; width:0px}
+#maintainCategoriesTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#Label1 {position:absolute; left:10px; right:auto; top:89px; bottom:auto; height:20px; width:45px}
+#txtAddCategoryName { text-align: left; font-size: 13px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 32px;   }
+#txtAddCategoryName_wrapper > div { position: absolute; width: 222px; left: 82px; top: 87px; margin: 0 -0.4em;   }
+#categoriesListList_scroller {position: absolute; width:100%; height:366px; left:0px; top:50px;}
+#categoriesListList {position:absolute; left:0px; top:0px; width:100%; height:auto }
+
+#categorieslistTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#categoryMovementTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdCategoryMovements_wrapper {position:absolute; left:-2px; top:45px; height:160px; width:320px}
+#grdCategoryMovements {position:relative; left:0px; top:0px; height:100%; width:100%}
+body * {font-family:helvetica}
+</style>
+</head>
+<body style="margin:0px;background-image:url('nsb/images/backgroundStripes.png');">
+<script src="61.js"></script>
+<div data-role="page" id="Page_MyMoneyShow" data-theme="c" style="background-image:url('nsb/images/backgroundStripes.png');">
+<form id="WhatToDo" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="63.js"></script>
+</form>
+<form id="MyCategories" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="65.js"></script>
+</form>
+<form id="MyAccounts" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="67.js"></script>
+</form>
+<form id="MyPayments" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="69.js"></script>
+</form>
+<form id="MyReports" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="71.js"></script>
+</form>
+<form id="MyInstitutions" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="73.js"></script>
+</form>
+<form id="MaintainCategories" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="75.js"></script>
+</form>
+<form id="CategoriesList" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="77.js"></script>
+</form>
+<form id="CategoryMovements" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="79.js"></script>
+</form>
+</div>
+<script src="81.js"></script>
+<script src="mymoneyshow.js"></script>
+
+</body>
+</html>
