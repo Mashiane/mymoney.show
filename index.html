@@ -4,17 +4,17 @@
 <meta charset="utf-8">
 <title>MyMoney.Show</title>
 <meta name="generator" content="NSB/AppStudio 3.2.8.1$" />
-<meta name="date" content="2013-10-29 03:06:57.037000" />
-<meta name="version" content="1.0.6" />
+<meta name="date" content="2013-10-29 19:15:12.580000" />
+<meta name="version" content="1.0.13" />
 <meta name="viewport" content="width=device-width minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="YES" />
 <meta name="mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-<meta name="apple-mobile-web-app-title" content="">
+<meta name="apple-mobile-web-app-title" content="MyMoney.Show">
 <meta name="copyright" content="Copyright NdimkaMbulelo (Pty) Ltd" />
-<link rel="apple-touch-icon" href="C:/adt-bundle/workspace/MyMoney.Show/Files/wallet.png" />
-<link rel="apple-touch-startup-image" href="C:/adt-bundle/workspace/MyMoney.Show/Files/wallet.png" />
-<link rel="shortcut icon" sizes="1024x1024" href="nsb/images/1024.png"/>
+<link rel="apple-touch-icon" href="icon.png" />
+<link rel="apple-touch-startup-image" href="icon.png" />
+<link rel="shortcut icon" sizes="1024x1024" href="icon.png"/>
 <script src="messages.js"></script>
 <script src="nsb/hfunc.js"></script>
 <link href="nsb/nsbstyle.css" rel="stylesheet">
@@ -49,11 +49,12 @@
 <script src="jqwidgets/jqxdata.export.js"></script>
 <script src="jqwidgets/jqxgrid.export.js"></script>
 <script src="jqwidgets/jqxpanel.js"></script>
+<script src="jqwidgets/jqxchart.js"></script>
 
 
 
 <style type="text/css">
-#lstWhatToDo_scroller {position: absolute; width:100%; height:282px; left:0px; top:45px;}
+#lstWhatToDo_scroller {position: absolute; width:100%; height:282px; left:0px; top:42px;}
 #lstWhatToDo {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #hBar {position: absolute; width:100%; height:40px; left:0px; top:0px;}
@@ -89,41 +90,100 @@
 #categoryMovementTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #grdCategoryMovements_wrapper {position:absolute; left:-2px; top:45px; height:160px; width:320px}
 #grdCategoryMovements {position:relative; left:0px; top:0px; height:100%; width:100%}
+#categoryBudgetsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdCategoryBudgets_wrapper {position:absolute; left:-2px; top:74px; height:160px; width:320px}
+#grdCategoryBudgets {position:relative; left:0px; top:0px; height:100%; width:100%}
+#lblCatName {position:absolute; left:1px; right:auto; top:49px; bottom:auto; height:20px; width:304px}
+#categoryYearlyChart_wrapper {position:absolute; left:0px; top:273px; height:160px; width:320px}
+#categoryYearlyChart {position:relative; left:0px; top:0px; height:100%; width:100%}
+#catPerformanceTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#catPerformanceChart_wrapper {position:absolute; left:0px; top:153px; height:160px; width:320px}
+#catPerformanceChart {position:relative; left:0px; top:0px; height:100%; width:100%}
+#catReportTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdCatReport_wrapper {position:absolute; left:-2px; top:77px; height:160px; width:320px}
+#grdCatReport {position:relative; left:0px; top:0px; height:100%; width:100%}
+#accListTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#lstAccounts_scroller {position: absolute; width:100%; height:366px; left:0px; top:43px;}
+#lstAccounts {position:absolute; left:0px; top:0px; width:100%; height:auto }
+
+#accMovementTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdAccountMovements_wrapper {position:absolute; left:-2px; top:57px; height:160px; width:320px}
+#grdAccountMovements {position:relative; left:0px; top:0px; height:100%; width:100%}
+#accountBudgetsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdAccountBudgets_wrapper {position:absolute; left:-2px; top:74px; height:160px; width:320px}
+#grdAccountBudgets {position:relative; left:0px; top:0px; height:100%; width:100%}
+#lblAccName {position:absolute; left:1px; right:auto; top:49px; bottom:auto; height:20px; width:304px}
+#accountYearlyChart_wrapper {position:absolute; left:0px; top:273px; height:160px; width:320px}
+#accountYearlyChart {position:relative; left:0px; top:0px; height:100%; width:100%}
+#accPerformanceTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#accPerformanceChart_wrapper {position:absolute; left:0px; top:153px; height:160px; width:320px}
+#accPerformanceChart {position:relative; left:0px; top:0px; height:100%; width:100%}
+#accReportTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdAccReport_wrapper {position:absolute; left:-2px; top:77px; height:234px; width:320px}
+#grdAccReport {position:relative; left:0px; top:0px; height:100%; width:100%}
+#imgSplash {position:absolute; left:25px; right:auto; top:31px; bottom:auto; height:44px; width:44px}
 body * {font-family:helvetica}
 </style>
 </head>
 <body style="margin:0px;background-image:url('nsb/images/backgroundStripes.png');">
-<script src="61.js"></script>
+<script src="63.js"></script>
 <div data-role="page" id="Page_MyMoneyShow" data-theme="c" style="background-image:url('nsb/images/backgroundStripes.png');">
 <form id="WhatToDo" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="63.js"></script>
-</form>
-<form id="MyCategories" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="65.js"></script>
 </form>
-<form id="MyAccounts" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="MyCategories" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="67.js"></script>
 </form>
-<form id="MyPayments" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="MyAccounts" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="69.js"></script>
 </form>
-<form id="MyReports" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="MyPayments" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="71.js"></script>
 </form>
-<form id="MyInstitutions" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="MyReports" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="73.js"></script>
 </form>
-<form id="MaintainCategories" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="MyInstitutions" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="75.js"></script>
 </form>
-<form id="CategoriesList" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="MaintainCategories" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="77.js"></script>
 </form>
-<form id="CategoryMovements" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="CategoriesList" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="79.js"></script>
 </form>
-</div>
+<form id="CategoryMovements" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="81.js"></script>
+</form>
+<form id="CategoryBudgets" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="83.js"></script>
+</form>
+<form id="CategoryPerformance" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="85.js"></script>
+</form>
+<form id="CategoryReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="87.js"></script>
+</form>
+<form id="frmAccountsList" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="89.js"></script>
+</form>
+<form id="AccountMovements" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="91.js"></script>
+</form>
+<form id="AccountBudgets" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="93.js"></script>
+</form>
+<form id="AccountPerformance" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="95.js"></script>
+</form>
+<form id="AccountReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="97.js"></script>
+</form>
+<form id="Splash" action="" method="GET" onsubmit="return false;" style="display:block; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="99.js"></script>
+</form>
+</div>
+<script src="101.js"></script>
 <script src="mymoneyshow.js"></script>
 
 </body>

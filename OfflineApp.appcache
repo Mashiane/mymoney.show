@@ -1,15 +1,15 @@
 CACHE MANIFEST
 mymoneyshow.js
 CACHE:
-nsb/images/1024.png
 nsb/images/icons-36-white.png
+jqwidgets/styles/images/icon-right.png
 jqwidgets/jqxgrid.pager.js
 nsb/jquery.mobile.css
 jqwidgets/jqxgrid.filter.js
 jqwidgets/styles/images/sortdesc.png
 jqwidgets/jqxdata.export.js
 nsb/images/ajax-loader.gif
-jqwidgets/styles/images/icon-left.png
+jqwidgets/jqxchart.js
 jqwidgets/jqxgrid.columnsreorder.js
 nsb/hfunc.js
 jqwidgets/jqxgrid.export.js
@@ -29,13 +29,12 @@ jqwidgets/jqxnumberinput.js
 jqwidgets/jqxgrid.sort.js
 jqwidgets/jqxbuttons.js
 nsb/fastclick.js
-jqwidgets/styles/images/icon-right.png
+jqwidgets/styles/images/icon-left.png
 jqwidgets/jqxgrid.edit.js
 nsb/images/icons-36-black.png
 jqwidgets/jqxpanel.js
 jqwidgets/styles/images/sortremove.png
 jqwidgets/jqxlistbox.js
-C:/adt-bundle/workspace/MyMoney.Show/Files/wallet.png
 jqwidgets/jqxgrid.columnsresize.js
 jqwidgets/styles/images/icon-down.png
 jqwidgets/styles/jqx.base.css
@@ -47,6 +46,7 @@ jqwidgets/styles/jqx.classic.css
 nsb/images/icons-18-white.png
 nsb/images/backgroundStripes.png
 nsb/nsbstyle.css
+icon.png
 nsb/images/icons-18-black.png
 jqwidgets/jqxgrid.selection.js
 jqwidgets/jqxgrid.grouping.js
@@ -56,4 +56,4 @@ messages.js
 NETWORK:
 *
 
-# buildtime: 1383041216.82
+# buildtime: 1383099312.19
