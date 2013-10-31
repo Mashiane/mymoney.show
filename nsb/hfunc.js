@@ -1977,7 +1977,7 @@ NSB.overwriteIfVersionSame = 3
     
 NSB.msgboxDefaultRtn = function(buttonClicked, inputTxt) {}
 
-NSB.addProperties = function(ctrl, actualCtrl) {
+NSB.addProperties = function(ctrl, actualCtrl, noHeight) {
     actualCtrl = actualCtrl || ctrl;
 	if(actualCtrl.id==undefined){console.log("NSB.addProperties: ctrl is undefined");console.log(ctrl)};
 	if(typeof ctrl.getAttribute == "undefined") return; //for partly formed select_jqm
@@ -1995,6 +1995,7 @@ NSB.addProperties = function(ctrl, actualCtrl) {
         set: function(n) {if(ctrl.nodeName=='CANVAS')ctrl.width=parseInt(n);actualCtrl.style.width = n + (typeof n === 'number' ? 'px' : ''); },
         get: function() { return actualCtrl.offsetWidth; }
     });
+    if(noHeight!=true){
     NSB.defineProperty(ctrl, 'Height', {
         set: function(n){ 
           if(ctrl.nodeName=='CANVAS') ctrl.height=parseInt(n);
@@ -2002,7 +2003,7 @@ NSB.addProperties = function(ctrl, actualCtrl) {
           if(ctrl.nodeName=='TEXTAREA') ctrl.style.maxHeight=textBoxCtrl.style.height;
           },
         get: function() { return textBoxCtrl.offsetHeight; }
-    });
+    });}
     if (ctrl.nodeName === 'LABEL') {
         NSB.defineProperty(ctrl, 'Caption', {
             set: function(n) { actualCtrl.textContent = n; },

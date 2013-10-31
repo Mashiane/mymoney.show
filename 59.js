@@ -505,7 +505,7 @@ var  catFrom;
 var  catYear;
 var  catName;
 var  sqlList;
-var  DBjson;
+var  rCnt;
 
 function Main() {
   dbName = "mymoneyshow.db";
@@ -515,40 +515,6 @@ function Main() {
     NSB.MsgBox("Error opening db");
   }
   sqlList = [];
- // category movements handling
-  cmData = [];
-  cmSource = {localdata: cmData, datatype: "array"}
-  cmDataAdapter = new $.jqx.dataAdapter(cmSource);
-  grdCategoryMovements_settings.source = cmDataAdapter;
-  grdCategoryMovements_settings.theme = "energyblue";
-  grdCategoryMovements_settings.columns = [  {text: "Year" , dataField: "yearon" , width: 60, columntype: "number" },  {text: "Category" , dataField: "category" , width: 150 },  {text: "Actual" , dataField: "actual" , width:100, align: "right" , cellsalign: "right" ,  minwidth: 100, cellsformat: "F2" , columntype: "number"}  ];
-  $("#grdCategoryMovements").jqxGrid(grdCategoryMovements_settings);
- // set category budget
-  grdCategoryBudgets_settings.source = cmDataAdapter;
-  grdCategoryMovements_settings.theme = "energyblue";
-  grdCategoryBudgets_settings.columns = [  {text: "Period" , dataField: "period" , width: 60 },  {text: "Budget" , columntype: "number" , align: "right" , dataField: "budget" , width:100, cellsalign: "right" , minwidth: 100, cellsformat: "F2" },  {text: "Actual" , columntype: "number" , align: "right" , dataField: "actual" , width:100, cellsalign: "right" , minwidth: 100, cellsformat: "F2" }  ];
-  $("#grdCategoryBudgets").jqxGrid(grdCategoryBudgets_settings);
- // set account budget
-  grdAccountBudgets_settings.source = cmDataAdapter;
-  grdCategoryMovements_settings.theme = "energyblue";
-  grdAccountBudgets_settings.columns = [  {text: "Period" , dataField: "period" , width: 60 },  {text: "Budget" , columntype: "number" , align: "right" , dataField: "budget" , width:100, cellsalign: "right" , minwidth: 100, cellsformat: "F2" },  {text: "Actual" , columntype: "number" , align: "right" , dataField: "actual" , width:100, cellsalign: "right" , minwidth: 100, cellsformat: "F2" }  ];
-  $("#grdAccountBudgets").jqxGrid(grdAccountBudgets_settings);
- // set category report grid
-  grdCatReport_settings.source = cmDataAdapter;
-  grdCategoryMovements_settings.theme = "energyblue";
-  grdCatReport_settings.columns = [  {text: "Account" , dataField: "account" , width: 150 },  {text: "Amount" , columntype: "number" , align: "right" , dataField: "amount" , width:100, cellsalign: "right" , minwidth: 100, cellsformat: "F2" },  {text: "Percentage" , columntype: "number" , align: "right" , dataField: "percentage" , width:100, cellsalign: "right" , minwidth: 100, cellsformat: "F2" }  ];
-  $("#grdCatReport").jqxGrid(grdCatReport_settings);
- // set account report
-  grdAccReport_settings.source = cmDataAdapter;
-  grdCategoryMovements_settings.theme = "energyblue";
-  grdAccReport_settings.columns = [  {text: "Account" , dataField: "account" , width: 150 },  {text: "Amount" , columntype: "number" , align: "right" , dataField: "amount" , width:100, cellsalign: "right" , minwidth: 100, cellsformat: "F2" },  {text: "Percentage" , columntype: "number" , align: "right" , dataField: "percentage" , width:100, cellsalign: "right" , minwidth: 100, cellsformat: "F2" }  ];
-  $("#grdAccReport").jqxGrid(grdAccReport_settings);
-
- // set account movement grid
-  grdAccountMovements_settings.source = cmDataAdapter;
-  grdCategoryMovements_settings.theme = "energyblue";
-  grdAccountMovements_settings.columns = [  {text: "Year" , columntype: "number" , dataField: "yearon" , width: 60 },  {text: "Account" , dataField: "account" , width: 150 },  {text: "Actual" , columntype: "number" , align: "right" , dataField: "actual" , width:100, cellsalign: "right" , minwidth: 100, cellsformat: "F2" }  ];
-  $("#grdAccountMovements").jqxGrid(grdAccountMovements_settings);
 }
 
 
@@ -586,7 +552,7 @@ function saveInstitution() { savethefunction_rvar="";
  var  s;
   sqlList = [];
   s = Join([this.id, "'"  +  this.name  +  "'"], ",");
-  sqlList[0] = ["INSERT INTO Institutions (Id, Name) VALUES ( "  +  s  +  ")" , saveInstOk, saveInstError];
+  sqlList[0] = ["INSERT OR REPLACE INTO Institutions (Id, Name) VALUES ( "  +  s  +  ")" , saveInstOk, saveInstError];
   Sql(dbObj, sqlList);
 return savethefunction_rvar; }
 
@@ -632,7 +598,7 @@ function saveCategory() { savethefunction_rvar="";
  var  s;
   sqlList = [];
   s = Join([this.id, "'"  +  this.categoryname  +  "'" , this.transactions], ",");
-  sqlList[0] = ["INSERT INTO Categories (CategoryId, CategoryName, Transactions) VALUES ( "  +  s  +  ")" , saveCatOk, saveCatError];
+  sqlList[0] = ["INSERT OR REPLACE INTO Categories (CategoryId, CategoryName, Transactions) VALUES ( "  +  s  +  ")" , saveCatOk, saveCatError];
   Sql(dbObj, sqlList);
 return savethefunction_rvar; }
 
@@ -651,86 +617,11 @@ window.addEventListener('load', function() {
   NSB.addDisableProperty(categoryMovementTitle);
   if(typeof(categoryMovementTitle_left)!='undefined') categoryMovementTitle_left.onclick=function() {categoryMovementTitle.onclick(categoryMovementTitle_left.getAttribute('nsbvalue'))};
   if(typeof(categoryMovementTitle_right)!='undefined') categoryMovementTitle_right.onclick=function() {categoryMovementTitle.onclick(categoryMovementTitle_right.getAttribute('nsbvalue'))};
-grdCategoryMovements_settings={
-altrows:true,
-altstart:1,
-altstep:1,
-autoheight:false,
-autoloadstate:false,
-autosavestate:false,
-autoshowcolumnsmenubutton:true,
-autoshowfiltericon:true,
-closeablegroups:false,
-columnsheight:25,
-columnsmenu:false,
-columnsmenuwidth:15,
-columnsreorder:false,
-columnsresize:false,
-disabled:false,
-editable:false,
-editmode:'selectedcell',
-enableanimations:true,
-enablebrowserselection:false,
-enableellipsis:true,
-enablehover:true,
-enablerowdetailsindent:true,
-enabletooltips:false,
-filterable:false,
-groupable:false,
-
-groupindentwidth:20,
-groupsexpandedbydefault:false,
-groupsheaderheight:34,
-
-
-height:'415',
-horizontalscrollbarlargestep:50,
-horizontalscrollbarstep:5,
-
-keyboardnavigation:true,
-pageable:false,
-pagerheight:28,
-
-pagesize:10,
-ready:function(){ grdCategoryMovementsReady() },
-
-
-
-
-rowdetails:false,
-rowdetailstemplate:null,
-rowsheight:25,
-scrollbarsize:15,
-selectedrowindex:-1,
-selectionmode:'singlerow',
-showaggregates:false,
-showemptyrow:true,
-showfiltercolumnbackground:true,
-showfiltermenuitems:true,
-showfilterrow:false,
-showgroupmenuitems:true,
-showgroupsheader:true,
-showheader:true,
-showpinnedcolumnbackground:true,
-showrowdetailscolumn:true,
-showsortcolumnbackground:true,
-showsortmenuitems:true,
-showstatusbar:false,
-showtoolbar:false,
-sortable:false,
-sorttogglestates:2,
-statusbarheight:34,
-theme:'energyblue',
-toolbarheight:34,
-updatedelay:0,
-verticalscrollbarlargestep:400,
-verticalscrollbarstep:5,
-virtualmode:false,
-width:'100%',
-columns:eval([{text:'Grid'},{text:'Two'},{text:'Three'}]) }
-  grdCategoryMovements.style.position='relative';
-  $('#grdCategoryMovements').jqxGrid (grdCategoryMovements_settings)
-  NSB.addProperties(grdCategoryMovements,grdCategoryMovements_wrapper);
+  grdCategoryMovements_ref = new iScroll('grdCategoryMovements_scroller',{ bounce:true, zoom:false });
+  grdCategoryMovements.refresh=function(){setTimeout(NSB.refresh,100,grdCategoryMovements_ref)};
+  grdCategoryMovements.GridRefreshWidth=function(){setTimeout(NSB.GridRefreshWidth,10,grdCategoryMovements)};
+  NSB.Grid_init('grdCategoryMovements');
+  NSB.addProperties(grdCategoryMovements,grdCategoryMovements_scroller)
   CategoryMovements.style.display = 'none';
 }, false);
 CategoryMovements.onsubmit=function(event){window.event.cancelBubble=true;window.event.returnValue=false};
@@ -738,32 +629,40 @@ NSB.addProperties(CategoryMovements);
 function LoadCategoryMovements() { savethefunction_rvar="";
   document.body.style.cursor = 'wait';
   NSB.ShowProgress("Loading category movements...");
+  rCnt = grdCategoryMovements.getRowCount();
+  grdCategoryMovements.deleteRows(rCnt);
   sqlList = [];
   sqlList[0] = ["SELECT [YearOn],[AccountName],[Actual] FROM [Category_Movement] ORDER BY [YearOn] DESC,AccountName" , cmHandler, cmError];
   Sql(dbObj, sqlList);
 }
 
 function cmHandler(transaction, results) { savethefunction_rvar="";
-  cmData = [];
-  for   (i = 0; i  <= results.rows.length - 1; i ++) {
-   var  row;
-    row = {}
-    row["yearon"] = results.rows.item(i)["YearOn"];
-    row["category"] = results.rows.item(i)["AccountName"];
-    row["actual"] = results.rows.item(i)["Actual"];
-    cmData[i] = row;
+  rCnt = 1;
+ var  sAmt;
+  for   (i = 0; i  <= (results.rows.length - 1); i ++) {
+    sAmt = results.rows.item(i)["Actual"];
+    sAmt = FormatNumber(sAmt,2);
+    grdCategoryMovements.addRows(1);
+    grdCategoryMovements.setValue(rCnt,0,results.rows.item(i)["YearOn"]);
+    grdCategoryMovements.setValue(rCnt,1,results.rows.item(i)["AccountName"]);
+    grdCategoryMovements.setValue(rCnt,2,sAmt);
+ //Paints each row in alernating color.
+    for   (col = 0; col  <= 2; col ++) {
+ //Paints each row in alernating color.
+        if((Math.abs(rCnt) % 2) == 1) {
+          grdCategoryMovements.cell(rCnt,col).style.backgroundColor = RGB(255,255,240);
+ } else {
+          grdCategoryMovements.cell(rCnt,col).style.backgroundColor = RGB(240,248,255);
+        }
+      }
+    rCnt = rCnt + 1;
   }
-  cmSource = {localdata: cmData, datatype: "array"}
-  cmDataAdapter = new $.jqx.dataAdapter(cmSource);
-  grdCategoryMovements_settings.source = cmDataAdapter;
-  $("#grdCategoryMovements").jqxGrid(grdCategoryMovements_settings);
-  $("#grdCategoryMovements").jqxGrid("autoresizecolumns");
+  grdCategoryMovements.refresh;
   NSB.ShowProgress(False);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
 function cmError(transaction, results) { savethefunction_rvar="";
- //Called On failure of Sql command
   NSB.ShowProgress(False);
   NSB.MsgBox("SQL Error");
   document.body.style.cursor = 'default';
@@ -785,106 +684,25 @@ CategoryMovements.onshow = function() { savethefunction_rvar="";
   LoadCategoryMovements();
 return savethefunction_rvar; }
 
-function grdCategoryMovementsReady() { savethefunction_rvar="";
-  console.log("Grid load complete");
+grdCategoryMovements.onclick = function() { savethefunction_rvar="";
+ var  gRowCol, gCol, gRow;
+  gRowCol = Split(event.target.id, "_");
+  gRow = gRowCol[1];
+  gCol = gRowCol[2];
+  catYear = grdCategoryMovements.getValue(gRow, 0);
+  catName = grdCategoryMovements.getValue(gRow, 1);
+  catKey = catYear  +  "-"  +  catName;
+  lblCatName.textContent = Replace(catKey, "-" , " : ");
+  catFrom = "catmovements";
+  ChangeForm(CategoryBudgets);
 return savethefunction_rvar; }
 
-grdCategoryMovements.onrowselect = function(event) { savethefunction_rvar="";
-   if(event.args.rowindex<0 )  { return savethefunction_rvar; }
-   cmData=$("#grdCategoryMovements").jqxGrid("getrowdata" ,event.args.rowindex);
-   catKey = cmData.yearon  +  "-"  +  cmData.category;
-   lblCatName.textContent = Replace(catKey, "-" , " : ");
-   catYear = cmData.yearon;
-   catName = cmData.category;
-   catFrom = "catmovements";
-   ChangeForm(CategoryBudgets);
-return savethefunction_rvar; }
 window.addEventListener('load', function() {
   CategoryBudgets.style.display = 'block';
   NSB.addProperties(categoryBudgetsTitle);
   NSB.addDisableProperty(categoryBudgetsTitle);
   if(typeof(categoryBudgetsTitle_left)!='undefined') categoryBudgetsTitle_left.onclick=function() {categoryBudgetsTitle.onclick(categoryBudgetsTitle_left.getAttribute('nsbvalue'))};
   if(typeof(categoryBudgetsTitle_right)!='undefined') categoryBudgetsTitle_right.onclick=function() {categoryBudgetsTitle.onclick(categoryBudgetsTitle_right.getAttribute('nsbvalue'))};
-grdCategoryBudgets_settings={
-altrows:true,
-altstart:1,
-altstep:1,
-autoheight:false,
-autoloadstate:false,
-autosavestate:false,
-autoshowcolumnsmenubutton:true,
-autoshowfiltericon:true,
-closeablegroups:false,
-columnsheight:25,
-columnsmenu:false,
-columnsmenuwidth:15,
-columnsreorder:false,
-columnsresize:false,
-disabled:false,
-editable:false,
-editmode:'selectedcell',
-enableanimations:true,
-enablebrowserselection:false,
-enableellipsis:true,
-enablehover:true,
-enablerowdetailsindent:true,
-enabletooltips:false,
-filterable:false,
-groupable:false,
-
-groupindentwidth:20,
-groupsexpandedbydefault:false,
-groupsheaderheight:34,
-
-
-height:'380',
-horizontalscrollbarlargestep:50,
-horizontalscrollbarstep:5,
-
-keyboardnavigation:true,
-pageable:false,
-pagerheight:28,
-
-pagesize:10,
-ready:function(){ grdCategoryMovementsReady() },
-
-
-
-
-rowdetails:false,
-rowdetailstemplate:null,
-rowsheight:25,
-scrollbarsize:15,
-selectedrowindex:-1,
-selectionmode:'singlerow',
-showaggregates:false,
-showemptyrow:true,
-showfiltercolumnbackground:true,
-showfiltermenuitems:true,
-showfilterrow:false,
-showgroupmenuitems:true,
-showgroupsheader:true,
-showheader:true,
-showpinnedcolumnbackground:true,
-showrowdetailscolumn:true,
-showsortcolumnbackground:true,
-showsortmenuitems:true,
-showstatusbar:false,
-showtoolbar:false,
-sortable:false,
-sorttogglestates:2,
-statusbarheight:34,
-theme:'energyblue',
-toolbarheight:34,
-updatedelay:0,
-verticalscrollbarlargestep:400,
-verticalscrollbarstep:5,
-virtualmode:false,
-width:'100%',
-columns:eval([{text:'Grid'},{text:'Two'},{text:'Three'}]) }
-  grdCategoryBudgets.style.position='relative';
-  $('#grdCategoryBudgets').jqxGrid (grdCategoryBudgets_settings)
-  NSB.addProperties(grdCategoryBudgets,grdCategoryBudgets_wrapper);
 
 
   NSB.addProperties(lblCatName);
@@ -894,6 +712,11 @@ categoryYearlyChart_settings={'title':'', 'background':'white',
 'showToolTips':'true', 'toolTipDelay':'500' }
 categoryYearlyChart.style.position='relative';
 NSB.addProperties(categoryYearlyChart,categoryYearlyChart_wrapper);
+  grdCategoryBudgets_ref = new iScroll('grdCategoryBudgets_scroller',{ bounce:true, zoom:false });
+  grdCategoryBudgets.refresh=function(){setTimeout(NSB.refresh,100,grdCategoryBudgets_ref)};
+  grdCategoryBudgets.GridRefreshWidth=function(){setTimeout(NSB.GridRefreshWidth,10,grdCategoryBudgets)};
+  NSB.Grid_init('grdCategoryBudgets');
+  NSB.addProperties(grdCategoryBudgets,grdCategoryBudgets_scroller)
   CategoryBudgets.style.display = 'none';
 }, false);
 CategoryBudgets.onsubmit=function(event){window.event.cancelBubble=true;window.event.returnValue=false};
@@ -901,15 +724,18 @@ NSB.addProperties(CategoryBudgets);
 function LoadCategoryBudgets() { savethefunction_rvar="";
   document.body.style.cursor = 'wait';
   NSB.ShowProgress("Loading category budgets...");
+  rCnt = grdCategoryBudgets.getRowCount();
+  grdCategoryBudgets.deleteRows(rCnt);
   sqlList = [];
   sqlList[0] = ["SELECT * FROM [Category_Movement] WHERE Id = '"  +  catKey  +  "'" , cbHandler, cbError];
   Sql(dbObj, sqlList);
 }
 
 function cbHandler(transaction, results) { savethefunction_rvar="";
-  cmData = [];
   catBudgetChart = [];
+ var  sAmt1, sAmt2;
   for   (i = 0; i  <= results.rows.length - 1; i ++) {
+    rCnt = 1;
     for   (y = 0; y  <= 11; y ++) {
      var  mName;
      var  ddmmyyyy;
@@ -920,21 +746,47 @@ function cbHandler(transaction, results) { savethefunction_rvar="";
       row["period"] = mName;
       row["budget"] = results.rows.item(i)["Budget"  +  mName];
       row["actual"] = results.rows.item(i)["Actual"  +  mName];
-      cmData[y] = row;
       catBudgetChart[y] = row;
+
+ // load grid
+      sAmt1 = results.rows.item(i)["Budget"  +  mName];
+      sAmt2 = results.rows.item(i)["Actual"  +  mName];
+      sAmt1 = FormatNumber(sAmt1,2);
+      sAmt2 = FormatNumber(sAmt2,2);
+      grdCategoryBudgets.addRows(1);
+      grdCategoryBudgets.setValue(rCnt,0,mName);
+      grdCategoryBudgets.setValue(rCnt,1,sAmt1);
+      grdCategoryBudgets.setValue(rCnt,2,sAmt2);
+ //Paints each row in alernating color.
+    for   (col = 0; col  <= 2; col ++) {
+ //Paints each row in alernating color.
+        if((Math.abs(rCnt) % 2) == 1) {
+          grdCategoryBudgets.cell(rCnt,col).style.backgroundColor = RGB(255,255,240);
+ } else {
+          grdCategoryBudgets.cell(rCnt,col).style.backgroundColor = RGB(240,248,255);
+        }
+      }
+      rCnt = rCnt + 1;
     }
-   var  row;
-    row = {}
-    row["period"] = "Total";
-    row["budget"] = results.rows.item(i)["Budget"];
-    row["actual"] = results.rows.item(i)["Actual"];
-    cmData[12] = row;
+    sAmt1 = results.rows.item(i)["Budget"];
+    sAmt2 = results.rows.item(i)["Actual"];
+    sAmt1 = FormatNumber(sAmt1,2);
+    sAmt2 = FormatNumber(sAmt2,2);
+    grdCategoryBudgets.addRows(1);
+    grdCategoryBudgets.setValue(rCnt,0,"Total");
+    grdCategoryBudgets.setValue(rCnt,1,sAmt1);
+    grdCategoryBudgets.setValue(rCnt,2,sAmt2);
+ //Paints each row in alernating color.
+    for   (col = 0; col  <= 2; col ++) {
+ //Paints each row in alernating color.
+        if((Math.abs(rCnt) % 2) == 1) {
+          grdCategoryBudgets.cell(rCnt,col).style.backgroundColor = RGB(255,255,240);
+ } else {
+          grdCategoryBudgets.cell(rCnt,col).style.backgroundColor = RGB(240,248,255);
+        }
+      }
   }
-  cmSource = {localdata: cmData, datatype: "array"}
-  cmDataAdapter = new $.jqx.dataAdapter(cmSource);
-  grdCategoryBudgets_settings.source = cmDataAdapter;
-  $("#grdCategoryBudgets").jqxGrid(grdCategoryBudgets_settings);
-  $("#grdCategoryBudgets").jqxGrid("autoresizecolumns");
+  grdCategoryBudgets.refresh;
 
  // define the chart
   categoryYearlyChart_settings.showBorderLine = False;
@@ -1085,86 +937,11 @@ window.addEventListener('load', function() {
   NSB.addDisableProperty(catReportTitle);
   if(typeof(catReportTitle_left)!='undefined') catReportTitle_left.onclick=function() {catReportTitle.onclick(catReportTitle_left.getAttribute('nsbvalue'))};
   if(typeof(catReportTitle_right)!='undefined') catReportTitle_right.onclick=function() {catReportTitle.onclick(catReportTitle_right.getAttribute('nsbvalue'))};
-grdCatReport_settings={
-altrows:true,
-altstart:1,
-altstep:1,
-autoheight:false,
-autoloadstate:false,
-autosavestate:false,
-autoshowcolumnsmenubutton:true,
-autoshowfiltericon:true,
-closeablegroups:false,
-columnsheight:25,
-columnsmenu:false,
-columnsmenuwidth:15,
-columnsreorder:false,
-columnsresize:false,
-disabled:false,
-editable:false,
-editmode:'selectedcell',
-enableanimations:true,
-enablebrowserselection:false,
-enableellipsis:true,
-enablehover:true,
-enablerowdetailsindent:true,
-enabletooltips:false,
-filterable:false,
-groupable:false,
-
-groupindentwidth:20,
-groupsexpandedbydefault:false,
-groupsheaderheight:34,
-
-
-height:'415',
-horizontalscrollbarlargestep:50,
-horizontalscrollbarstep:5,
-
-keyboardnavigation:true,
-pageable:false,
-pagerheight:28,
-
-pagesize:10,
-ready:function(){ grdCategoryMovementsReady() },
-
-
-
-
-rowdetails:false,
-rowdetailstemplate:null,
-rowsheight:25,
-scrollbarsize:15,
-selectedrowindex:-1,
-selectionmode:'singlerow',
-showaggregates:false,
-showemptyrow:true,
-showfiltercolumnbackground:true,
-showfiltermenuitems:true,
-showfilterrow:false,
-showgroupmenuitems:true,
-showgroupsheader:true,
-showheader:true,
-showpinnedcolumnbackground:true,
-showrowdetailscolumn:true,
-showsortcolumnbackground:true,
-showsortmenuitems:true,
-showstatusbar:false,
-showtoolbar:false,
-sortable:false,
-sorttogglestates:2,
-statusbarheight:34,
-theme:'energyblue',
-toolbarheight:34,
-updatedelay:0,
-verticalscrollbarlargestep:400,
-verticalscrollbarstep:5,
-virtualmode:false,
-width:'100%',
-columns:eval([{text:'Grid'},{text:'Two'},{text:'Three'}]) }
-  grdCatReport.style.position='relative';
-  $('#grdCatReport').jqxGrid (grdCatReport_settings)
-  NSB.addProperties(grdCatReport,grdCatReport_wrapper);
+  grdCatReport_ref = new iScroll('grdCatReport_scroller',{ bounce:true, zoom:false });
+  grdCatReport.refresh=function(){setTimeout(NSB.refresh,100,grdCatReport_ref)};
+  grdCatReport.GridRefreshWidth=function(){setTimeout(NSB.GridRefreshWidth,10,grdCatReport)};
+  NSB.Grid_init('grdCatReport');
+  NSB.addProperties(grdCatReport,grdCatReport_scroller)
   CategoryReport.style.display = 'none';
 }, false);
 CategoryReport.onsubmit=function(event){window.event.cancelBubble=true;window.event.returnValue=false};
@@ -1173,6 +950,8 @@ var  cTotal;
 function LoadCategoryReport() { savethefunction_rvar="";
   document.body.style.cursor = 'wait';
   NSB.ShowProgress("Loading category report...");
+  rCnt = grdCatReport.getRowCount();
+  grdCatReport.deleteRows(rCnt);
  var  sQRY;
   sqlList = [];
   sQRY = "SELECT AccountName, SUM(Actual) AS Actual FROM Category_Movement WHERE Actual > 0";
@@ -1194,23 +973,31 @@ return savethefunction_rvar; }
 
  // define the grid data
 function crepHandler(transaction, results) { savethefunction_rvar="";
-  cmData = [];
+  rCnt = 1;
+ var  sAmt;
   for   (i = 0; i  <= results.rows.length - 1; i ++) {
    var  row;
    var  sPerc = 0;
-    row = {}
-    row["account"] = results.rows.item(i)["AccountName"];
-    row["amount"] = results.rows.item(i)["Actual"];
- //sPerc = Round((CDbl(row["amount"]) / CDbl(sTotal)) * 100, 2)
- //sPerc = row["amount"] / sTotal
-    row["percentage"] = sPerc;
-    cmData[i] = row;
+ // load grid
+ //sPerc = Round((CDbl(results.rows.item(i)["Actual"]) / CDbl(sTotal)) * 100, 2)
+    sAmt = results.rows.item(i)["Actual"];
+    sAmt = FormatNumber(sAmt,2);
+    grdCatReport.addRows(1);
+    grdCatReport.setValue(rCnt,0,results.rows.item(i)["AccountName"]);
+    grdCatReport.setValue(rCnt,1,sAmt);
+    grdCatReport.setValue(rCnt,2,sPerc);
+ //Paints each row in alernating color.
+    for   (col = 0; col  <= 2; col ++) {
+ //Paints each row in alernating color.
+        if((Math.abs(rCnt) % 2) == 1) {
+          grdCatReport.cell(rCnt,col).style.backgroundColor = RGB(255,255,240);
+ } else {
+          grdCatReport.cell(rCnt,col).style.backgroundColor = RGB(240,248,255);
+        }
+      }
+    rCnt = rCnt + 1;
   }
-  cmSource = {localdata: cmData, datatype: "array"}
-  cmDataAdapter = new $.jqx.dataAdapter(cmSource);
-  grdCatReport_settings.source = cmDataAdapter;
-  $("#grdCatReport").jqxGrid(grdCatReport_settings);
-  $("#grdCatReport").jqxGrid("autoresizecolumns");
+  grdCatReport.refresh;
   NSB.ShowProgress(False);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
@@ -1321,86 +1108,11 @@ window.addEventListener('load', function() {
   NSB.addDisableProperty(accMovementTitle);
   if(typeof(accMovementTitle_left)!='undefined') accMovementTitle_left.onclick=function() {accMovementTitle.onclick(accMovementTitle_left.getAttribute('nsbvalue'))};
   if(typeof(accMovementTitle_right)!='undefined') accMovementTitle_right.onclick=function() {accMovementTitle.onclick(accMovementTitle_right.getAttribute('nsbvalue'))};
-grdAccountMovements_settings={
-altrows:true,
-altstart:1,
-altstep:1,
-autoheight:false,
-autoloadstate:false,
-autosavestate:false,
-autoshowcolumnsmenubutton:true,
-autoshowfiltericon:true,
-closeablegroups:false,
-columnsheight:25,
-columnsmenu:false,
-columnsmenuwidth:15,
-columnsreorder:false,
-columnsresize:false,
-disabled:false,
-editable:false,
-editmode:'selectedcell',
-enableanimations:true,
-enablebrowserselection:false,
-enableellipsis:true,
-enablehover:true,
-enablerowdetailsindent:true,
-enabletooltips:false,
-filterable:false,
-groupable:false,
-
-groupindentwidth:20,
-groupsexpandedbydefault:false,
-groupsheaderheight:34,
-
-
-height:'414',
-horizontalscrollbarlargestep:50,
-horizontalscrollbarstep:5,
-
-keyboardnavigation:true,
-pageable:false,
-pagerheight:28,
-
-pagesize:10,
-ready:function(){ grdCategoryMovementsReady() },
-
-
-
-
-rowdetails:false,
-rowdetailstemplate:null,
-rowsheight:25,
-scrollbarsize:15,
-selectedrowindex:-1,
-selectionmode:'singlerow',
-showaggregates:false,
-showemptyrow:true,
-showfiltercolumnbackground:true,
-showfiltermenuitems:true,
-showfilterrow:false,
-showgroupmenuitems:true,
-showgroupsheader:true,
-showheader:true,
-showpinnedcolumnbackground:true,
-showrowdetailscolumn:true,
-showsortcolumnbackground:true,
-showsortmenuitems:true,
-showstatusbar:false,
-showtoolbar:false,
-sortable:false,
-sorttogglestates:2,
-statusbarheight:34,
-theme:'energyblue',
-toolbarheight:34,
-updatedelay:0,
-verticalscrollbarlargestep:400,
-verticalscrollbarstep:5,
-virtualmode:false,
-width:'100%',
-columns:eval([{text:'Grid'},{text:'Two'},{text:'Three'}]) }
-  grdAccountMovements.style.position='relative';
-  $('#grdAccountMovements').jqxGrid (grdAccountMovements_settings)
-  NSB.addProperties(grdAccountMovements,grdAccountMovements_wrapper);
+  grdAccountMovements_ref = new iScroll('grdAccountMovements_scroller',{ bounce:true, zoom:false });
+  grdAccountMovements.refresh=function(){setTimeout(NSB.refresh,100,grdAccountMovements_ref)};
+  grdAccountMovements.GridRefreshWidth=function(){setTimeout(NSB.GridRefreshWidth,10,grdAccountMovements)};
+  NSB.Grid_init('grdAccountMovements');
+  NSB.addProperties(grdAccountMovements,grdAccountMovements_scroller)
   AccountMovements.style.display = 'none';
 }, false);
 AccountMovements.onsubmit=function(event){window.event.cancelBubble=true;window.event.returnValue=false};
@@ -1408,26 +1120,36 @@ NSB.addProperties(AccountMovements);
 function LoadAccountMovements() { savethefunction_rvar="";
   document.body.style.cursor = 'wait';
   NSB.ShowProgress("Loading account movements...");
+  rCnt = grdAccountMovements.getRowCount();
+  grdAccountMovements.deleteRows(rCnt);
   sqlList = [];
   sqlList[0] = ["SELECT [YearOn],[AccountName],[Actual] FROM [Accounts_Movement] ORDER BY [YearOn] DESC,AccountName" , amHandler, amError];
   Sql(dbObj, sqlList);
 }
 
 function amHandler(transaction, results) { savethefunction_rvar="";
-  cmData = [];
+  rCnt = 1;
+ var  sAmt;
   for   (i = 0; i  <= results.rows.length - 1; i ++) {
-   var  row;
-    row = {}
-    row["yearon"] = results.rows.item(i)["YearOn"];
-    row["account"] = results.rows.item(i)["AccountName"];
-    row["actual"] = results.rows.item(i)["Actual"];
-    cmData[i] = row;
+ // load grid
+    sAmt = results.rows.item(i)["Actual"];
+    sAmt = FormatNumber(sAmt,2);
+    grdAccountMovements.addRows(1);
+    grdAccountMovements.setValue(rCnt,0,results.rows.item(i)["YearOn"]);
+    grdAccountMovements.setValue(rCnt,1,results.rows.item(i)["AccountName"]);
+    grdAccountMovements.setValue(rCnt,2,sAmt);
+ //Paints each row in alernating color.
+    for   (col = 0; col  <= 2; col ++) {
+ //Paints each row in alernating color.
+        if((Math.abs(rCnt) % 2) == 1) {
+          grdAccountMovements.cell(rCnt,col).style.backgroundColor = RGB(255,255,240);
+ } else {
+          grdAccountMovements.cell(rCnt,col).style.backgroundColor = RGB(240,248,255);
+        }
+      }
+    rCnt = rCnt + 1;
   }
-  cmSource = {localdata: cmData, datatype: "array"}
-  cmDataAdapter = new $.jqx.dataAdapter(cmSource);
-  grdAccountMovements_settings.source = cmDataAdapter;
-  $("#grdAccountMovements").jqxGrid(grdAccountMovements_settings);
-  $("#grdAccountMovements").jqxGrid("autoresizecolumns");
+  grdAccountMovements.refresh;
   NSB.ShowProgress(False);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
@@ -1458,15 +1180,17 @@ function grdAccountMovementsReady() { savethefunction_rvar="";
   console.log("Grid load complete");
 return savethefunction_rvar; }
 
-grdAccountMovements.onrowselect = function(event) { savethefunction_rvar="";
-   if(event.args.rowindex<0 )  { return savethefunction_rvar; }
-   cmData=$("#grdAccountMovements").jqxGrid("getrowdata" ,event.args.rowindex);
-   catKey = cmData.yearon  +  "-"  +  cmData.account;
-   lblAccName.textContent = Replace(catKey, "-" , " : ");
-   catYear = cmData.yearon;
-   catName = cmData.account;
-   catFrom = "accmovements";
-   ChangeForm(AccountBudgets);
+grdAccountMovements.onclick = function() { savethefunction_rvar="";
+ var  gRowCol, gCol, gRow;
+  gRowCol = Split(event.target.id, "_");
+  gRow = gRowCol[1];
+  gCol = gRowCol[2];
+  catYear = grdAccountMovements.getValue(gRow, 0);
+  catName = grdAccountMovements.getValue(gRow, 1);
+  catKey = catYear  +  "-"  +  catName;
+  lblAccName.textContent = Replace(catKey, "-" , " : ");
+  catFrom = "accmovements";
+  ChangeForm(AccountBudgets);
 return savethefunction_rvar; }
 window.addEventListener('load', function() {
   AccountBudgets.style.display = 'block';
@@ -1474,86 +1198,6 @@ window.addEventListener('load', function() {
   NSB.addDisableProperty(accountBudgetsTitle);
   if(typeof(accountBudgetsTitle_left)!='undefined') accountBudgetsTitle_left.onclick=function() {accountBudgetsTitle.onclick(accountBudgetsTitle_left.getAttribute('nsbvalue'))};
   if(typeof(accountBudgetsTitle_right)!='undefined') accountBudgetsTitle_right.onclick=function() {accountBudgetsTitle.onclick(accountBudgetsTitle_right.getAttribute('nsbvalue'))};
-grdAccountBudgets_settings={
-altrows:true,
-altstart:1,
-altstep:1,
-autoheight:false,
-autoloadstate:false,
-autosavestate:false,
-autoshowcolumnsmenubutton:true,
-autoshowfiltericon:true,
-closeablegroups:false,
-columnsheight:25,
-columnsmenu:false,
-columnsmenuwidth:15,
-columnsreorder:false,
-columnsresize:false,
-disabled:false,
-editable:false,
-editmode:'selectedcell',
-enableanimations:true,
-enablebrowserselection:false,
-enableellipsis:true,
-enablehover:true,
-enablerowdetailsindent:true,
-enabletooltips:false,
-filterable:false,
-groupable:false,
-
-groupindentwidth:20,
-groupsexpandedbydefault:false,
-groupsheaderheight:34,
-
-
-height:'380',
-horizontalscrollbarlargestep:50,
-horizontalscrollbarstep:5,
-
-keyboardnavigation:true,
-pageable:false,
-pagerheight:28,
-
-pagesize:10,
-ready:function(){ grdCategoryMovementsReady() },
-
-
-
-
-rowdetails:false,
-rowdetailstemplate:null,
-rowsheight:25,
-scrollbarsize:15,
-selectedrowindex:-1,
-selectionmode:'singlerow',
-showaggregates:false,
-showemptyrow:true,
-showfiltercolumnbackground:true,
-showfiltermenuitems:true,
-showfilterrow:false,
-showgroupmenuitems:true,
-showgroupsheader:true,
-showheader:true,
-showpinnedcolumnbackground:true,
-showrowdetailscolumn:true,
-showsortcolumnbackground:true,
-showsortmenuitems:true,
-showstatusbar:false,
-showtoolbar:false,
-sortable:false,
-sorttogglestates:2,
-statusbarheight:34,
-theme:'energyblue',
-toolbarheight:34,
-updatedelay:0,
-verticalscrollbarlargestep:400,
-verticalscrollbarstep:5,
-virtualmode:false,
-width:'100%',
-columns:eval([{text:'Grid'},{text:'Two'},{text:'Three'}]) }
-  grdAccountBudgets.style.position='relative';
-  $('#grdAccountBudgets').jqxGrid (grdAccountBudgets_settings)
-  NSB.addProperties(grdAccountBudgets,grdAccountBudgets_wrapper);
 
 
   NSB.addProperties(lblAccName);
@@ -1563,6 +1207,11 @@ accountYearlyChart_settings={'title':'', 'background':'white',
 'showToolTips':'true', 'toolTipDelay':'500' }
 accountYearlyChart.style.position='relative';
 NSB.addProperties(accountYearlyChart,accountYearlyChart_wrapper);
+  grdAccountBudgets_ref = new iScroll('grdAccountBudgets_scroller',{ bounce:true, zoom:false });
+  grdAccountBudgets.refresh=function(){setTimeout(NSB.refresh,100,grdAccountBudgets_ref)};
+  grdAccountBudgets.GridRefreshWidth=function(){setTimeout(NSB.GridRefreshWidth,10,grdAccountBudgets)};
+  NSB.Grid_init('grdAccountBudgets');
+  NSB.addProperties(grdAccountBudgets,grdAccountBudgets_scroller)
   AccountBudgets.style.display = 'none';
 }, false);
 AccountBudgets.onsubmit=function(event){window.event.cancelBubble=true;window.event.returnValue=false};
@@ -1572,15 +1221,19 @@ var  accBudgetChart;
 function LoadAccountBudgets() { savethefunction_rvar="";
   document.body.style.cursor = 'wait';
   NSB.ShowProgress("Loading account budgets...");
+  rCnt = grdAccountBudgets.getRowCount();
+  grdAccountBudgets.deleteRows(rCnt);
   sqlList = [];
   sqlList[0] = ["SELECT * FROM [Accounts_Movement] WHERE Id = '"  +  catKey  +  "'" , abHandler, abError];
   Sql(dbObj, sqlList);
 }
 
 function abHandler(transaction, results) { savethefunction_rvar="";
-  cmData = [];
   accBudgetChart = [];
+ var  sAmt1;
+ var  sAmt2;
   for   (i = 0; i  <= results.rows.length - 1; i ++) {
+    rCnt = 1;
     for   (y = 0; y  <= 11; y ++) {
      var  mName;
      var  ddmmyyyy;
@@ -1591,21 +1244,47 @@ function abHandler(transaction, results) { savethefunction_rvar="";
       row["period"] = mName;
       row["budget"] = results.rows.item(i)["Budget"  +  mName];
       row["actual"] = results.rows.item(i)["Actual"  +  mName];
-      cmData[y] = row;
       accBudgetChart[y] = row;
+
+ // load grid
+      sAmt1= results.rows.item(i)["Budget"  +  mName];
+      sAmt2= results.rows.item(i)["Actual"  +  mName];
+      sAmt2 = FormatNumber(sAmt2,2);
+      sAmt1 = FormatNumber(sAmt1,2);
+      grdAccountBudgets.addRows(1);
+      grdAccountBudgets.setValue(rCnt,0,mName);
+      grdAccountBudgets.setValue(rCnt,1,sAmt1);
+      grdAccountBudgets.setValue(rCnt,2,sAmt2);
+ //Paints each row in alernating color.
+    for   (col = 0; col  <= 2; col ++) {
+ //Paints each row in alernating color.
+        if((Math.abs(rCnt) % 2) == 1) {
+          grdAccountBudgets.cell(rCnt,col).style.backgroundColor = RGB(255,255,240);
+ } else {
+          grdAccountBudgets.cell(rCnt,col).style.backgroundColor = RGB(240,248,255);
+        }
+      }
+      rCnt = rCnt + 1;
     }
-   var  row;
-    row = {}
-    row["period"] = "Total";
-    row["budget"] = results.rows.item(i)["Budget"];
-    row["actual"] = results.rows.item(i)["Actual"];
-    cmData[12] = row;
+    sAmt1= results.rows.item(i)["Budget"];
+    sAmt2= results.rows.item(i)["Actual"];
+    sAmt2 = FormatNumber(sAmt2,2);
+    sAmt1 = FormatNumber(sAmt1,2);
+    grdAccountBudgets.addRows(1);
+    grdAccountBudgets.setValue(rCnt,0,"Total");
+    grdAccountBudgets.setValue(rCnt,1,sAmt1);
+    grdAccountBudgets.setValue(rCnt,2,sAmt2);
+ //Paints each row in alernating color.
+    for   (col = 0; col  <= 2; col ++) {
+ //Paints each row in alernating color.
+        if((Math.abs(rCnt) % 2) == 1) {
+          grdAccountBudgets.cell(rCnt,col).style.backgroundColor = RGB(255,255,240);
+ } else {
+          grdAccountBudgets.cell(rCnt,col).style.backgroundColor = RGB(240,248,255);
+        }
+      }
   }
-  cmSource = {localdata: cmData, datatype: "array"}
-  cmDataAdapter = new $.jqx.dataAdapter(cmSource);
-  grdAccountBudgets_settings.source = cmDataAdapter;
-  $("#grdAccountBudgets").jqxGrid(grdAccountBudgets_settings);
-  $("#grdAccountBudgets").jqxGrid("autoresizecolumns");
+  grdAccountBudgets.refresh;
 
  // define the chart
   accountYearlyChart_settings.showBorderLine = False;
@@ -1751,86 +1430,11 @@ window.addEventListener('load', function() {
   NSB.addDisableProperty(accReportTitle);
   if(typeof(accReportTitle_left)!='undefined') accReportTitle_left.onclick=function() {accReportTitle.onclick(accReportTitle_left.getAttribute('nsbvalue'))};
   if(typeof(accReportTitle_right)!='undefined') accReportTitle_right.onclick=function() {accReportTitle.onclick(accReportTitle_right.getAttribute('nsbvalue'))};
-grdAccReport_settings={
-altrows:true,
-altstart:1,
-altstep:1,
-autoheight:false,
-autoloadstate:false,
-autosavestate:false,
-autoshowcolumnsmenubutton:true,
-autoshowfiltericon:true,
-closeablegroups:false,
-columnsheight:25,
-columnsmenu:false,
-columnsmenuwidth:15,
-columnsreorder:false,
-columnsresize:false,
-disabled:false,
-editable:false,
-editmode:'selectedcell',
-enableanimations:true,
-enablebrowserselection:false,
-enableellipsis:true,
-enablehover:true,
-enablerowdetailsindent:true,
-enabletooltips:false,
-filterable:false,
-groupable:false,
-
-groupindentwidth:20,
-groupsexpandedbydefault:false,
-groupsheaderheight:34,
-
-
-height:'416',
-horizontalscrollbarlargestep:50,
-horizontalscrollbarstep:5,
-
-keyboardnavigation:true,
-pageable:false,
-pagerheight:28,
-
-pagesize:10,
-ready:function(){ grdCategoryMovementsReady() },
-
-
-
-
-rowdetails:false,
-rowdetailstemplate:null,
-rowsheight:25,
-scrollbarsize:15,
-selectedrowindex:-1,
-selectionmode:'singlerow',
-showaggregates:false,
-showemptyrow:true,
-showfiltercolumnbackground:true,
-showfiltermenuitems:true,
-showfilterrow:false,
-showgroupmenuitems:true,
-showgroupsheader:true,
-showheader:true,
-showpinnedcolumnbackground:true,
-showrowdetailscolumn:true,
-showsortcolumnbackground:true,
-showsortmenuitems:true,
-showstatusbar:false,
-showtoolbar:false,
-sortable:false,
-sorttogglestates:2,
-statusbarheight:34,
-theme:'energyblue',
-toolbarheight:34,
-updatedelay:0,
-verticalscrollbarlargestep:400,
-verticalscrollbarstep:5,
-virtualmode:false,
-width:'100%',
-columns:eval([{text:'Grid'},{text:'Two'},{text:'Three'}]) }
-  grdAccReport.style.position='relative';
-  $('#grdAccReport').jqxGrid (grdAccReport_settings)
-  NSB.addProperties(grdAccReport,grdAccReport_wrapper);
+  grdAccReport_ref = new iScroll('grdAccReport_scroller',{ bounce:true, zoom:false });
+  grdAccReport.refresh=function(){setTimeout(NSB.refresh,100,grdAccReport_ref)};
+  grdAccReport.GridRefreshWidth=function(){setTimeout(NSB.GridRefreshWidth,10,grdAccReport)};
+  NSB.Grid_init('grdAccReport');
+  NSB.addProperties(grdAccReport,grdAccReport_scroller)
   AccountReport.style.display = 'none';
 }, false);
 AccountReport.onsubmit=function(event){window.event.cancelBubble=true;window.event.returnValue=false};
@@ -1838,6 +1442,8 @@ NSB.addProperties(AccountReport);
 function LoadAccountReport() { savethefunction_rvar="";
   document.body.style.cursor = 'wait';
   NSB.ShowProgress("Loading account report...");
+  rCnt = grdAccReport.getRowCount();
+  grdAccReport.deleteRows(rCnt);
  var  sQRY;
   sqlList = [];
   sQRY = "SELECT AccountName, SUM(Actual) AS Actual FROM Accounts_Movement WHERE Actual > 0";
@@ -1847,21 +1453,31 @@ function LoadAccountReport() { savethefunction_rvar="";
 }
 
 function arepHandler(transaction, results) { savethefunction_rvar="";
-  cmData = [];
+  rCnt = 1;
+ var  sAmt;
   for   (i = 0; i  <= results.rows.length - 1; i ++) {
    var  row;
-    row = {}
-    row["account"] = results.rows.item(i)["AccountName"];
-    row["amount"] = results.rows.item(i)["Actual"];
-    row["percentage"] = 0;
-    cmData[i] = row;
+   var  sPerc;
+    sPerc = 0;
+ // load grid
+    sAmt = results.rows.item(i)["Actual"];
+    sAmt = FormatNumber(sAmt,2);
+    grdAccReport.addRows(1);
+    grdAccReport.setValue(rCnt,0,results.rows.item(i)["AccountName"]);
+    grdAccReport.setValue(rCnt,1,sAmt);
+    grdAccReport.setValue(rCnt,2,sPerc);
+ //Paints each row in alernating color.
+    for   (col = 0; col  <= 2; col ++) {
+ //Paints each row in alernating color.
+        if((Math.abs(rCnt) % 2) == 1) {
+          grdAccReport.cell(rCnt,col).style.backgroundColor = RGB(255,255,240);
+ } else {
+          grdAccReport.cell(rCnt,col).style.backgroundColor = RGB(240,248,255);
+        }
+      }
+    rCnt = rCnt + 1;
   }
-  cmSource = {localdata: cmData, datatype: "array"}
-  cmDataAdapter = new $.jqx.dataAdapter(cmSource);
-  grdAccReport_settings.source = cmDataAdapter;
-  $("#grdAccReport").jqxGrid(grdAccReport_settings);
- //$("#grdAccReport.jqx-widget-content").css("font-size","30px");
-  $("#grdAccReport").jqxGrid("autoresizecolumns");
+  grdAccReport.refresh;
   NSB.ShowProgress(False);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
@@ -1916,8 +1532,8 @@ function WhatToDoShow() {
 
 window.addEventListener('load', function() {
   Splash.style.display = 'block';
-  if (typeof(Splash.onshow)=='function') Splash.onshow();
   Main();
+  if (typeof(Splash.onshow)=='function') Splash.onshow();
   
 }, false);
 
