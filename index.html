@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <title>MyMoney.Show</title>
-<meta name="generator" content="NSB/AppStudio 3.2.8.2$" />
-<meta name="date" content="2013-10-31 15:16:37.466000" />
-<meta name="version" content="1.0.27" />
+<meta name="generator" content="NSB/AppStudio 3.2.8.3$" />
+<meta name="date" content="2013-11-02 14:58:17.005000" />
+<meta name="version" content="1.0.31" />
 <meta name="viewport" content="width=device-width minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="YES" />
 <meta name="mobile-web-app-capable" content="yes" />
@@ -26,7 +26,7 @@
 <link href="nsb/jquery.mobile.css" rel="stylesheet">
 <script src="jqwidgets/jqxcore.js"></script>
 <link href="jqwidgets/styles/jqx.base.css" rel="stylesheet">
-<link href="jqwidgets/styles/jqx.classic.css" rel="stylesheet">
+<link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet">
 <script src="jqwidgets/jqxchart.js"></script>
 <script src="jqwidgets/jqxdata.js"></script>
 
@@ -101,6 +101,19 @@
 #grdAccReport_scroller {position: absolute; width:70px; height:380px; left:0px; top:42px; right:auto; bottom:auto;}
 #grdAccReport {position:absolute; left:0px; top:0px; width:100%; height:auto }
 #imgSplash {position:absolute; left:1px; right:auto; top:0px; bottom:auto; height:460px; width:320px}
+#paymentsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdPayments_scroller {position: absolute; width:70px; height:380px; left:0px; top:42px; right:auto; bottom:auto;}
+#grdPayments {position:absolute; left:0px; top:0px; width:100%; height:auto }
+#payPeriods_scroller {position: absolute; width:100%; height:300px; left:0px; top:0px;}
+#payPeriods {position:absolute; left:0px; top:0px; width:100%; height:auto }
+
+#payTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#finReportTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdFinReport_scroller {position: absolute; width:70px; height:380px; left:0px; top:42px; right:auto; bottom:auto;}
+#grdFinReport {position:absolute; left:0px; top:0px; width:100%; height:auto }
+#chartsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#chartObj_wrapper {position:absolute; left:0px; top:153px; height:160px; width:320px}
+#chartObj {position:relative; left:0px; top:0px; height:100%; width:100%}
 body * {font-family:helvetica}
 </style>
 </head>
@@ -143,7 +156,7 @@ body * {font-family:helvetica}
 <form id="CategoryReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="45.js"></script>
 </form>
-<form id="frmAccountsList" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="AccountsList" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="47.js"></script>
 </form>
 <form id="AccountMovements" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
@@ -161,8 +174,20 @@ body * {font-family:helvetica}
 <form id="Splash" action="" method="GET" onsubmit="return false;" style="display:block; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="57.js"></script>
 </form>
-</div>
+<form id="PaymentsReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="59.js"></script>
+</form>
+<form id="PaymentsSelector" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="61.js"></script>
+</form>
+<form id="FinancialReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="63.js"></script>
+</form>
+<form id="Charts" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="65.js"></script>
+</form>
+</div>
+<script src="67.js"></script>
 <script src="mymoneyshow.js"></script>
 
 </body>

@@ -1,4 +1,4 @@
 
-CategoryMovements.innerHTML=[  NSB.HeaderBar_jqm("categoryMovementTitle", "Category Movements", "Back", "arrow-l", "", "false", " data-theme=c style='' class=' ' "),
-  NSB.Grid("grdCategoryMovements", "1", "3", "", "60,150,100", "Year,Category,Actual", "left,left,right", "style=", ""),
+CategoryMovements.innerHTML=[  NSB.HeaderBar_jqm("categoryMovementTitle", "Category Movements", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
+  NSB.Grid("grdCategoryMovements", "1", "17", "", "", "Year,Category,,,Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec,Total", "left,left,center,center,right,right,right,right,right,right,right,right,right,right,right,right,right", "style=", ""),
   ].join('');
