@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>MyMoney.Show</title>
 <meta name="generator" content="NSB/AppStudio 3.2.8.3$" />
-<meta name="date" content="2013-11-02 16:05:26.261000" />
-<meta name="version" content="1.0.34" />
+<meta name="date" content="2013-11-02 21:27:33.279000" />
+<meta name="version" content="1.0.35" />
 <meta name="viewport" content="width=device-width minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="YES" />
 <meta name="mobile-web-app-capable" content="yes" />
@@ -29,6 +29,7 @@
 <link href="jqwidgets/styles/jqx.energyblue.css" rel="stylesheet">
 <script src="jqwidgets/jqxchart.js"></script>
 <script src="jqwidgets/jqxdata.js"></script>
+<link href="nsb/css/style.css" rel="stylesheet">
 
 
 
@@ -67,53 +68,77 @@
 
 #categorieslistTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #categoryMovementTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdCategoryMovements_scroller {position: absolute; width:70px; height:380px; left:0px; top:0px; right:auto; bottom:auto;}
+#grdCategoryMovements_scroller {position: absolute; width:70px; height:32px; left:0px; top:0px; right:auto; bottom:auto;}
 #grdCategoryMovements {position:absolute; left:0px; top:0px; width:100%; height:auto }
 #categoryBudgetsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #lblCatName {position:absolute; left:1px; right:auto; top:49px; bottom:auto; height:20px; width:304px}
 #categoryYearlyChart_wrapper {position:absolute; left:0px; top:0px; height:30px; width:320px}
 #categoryYearlyChart {position:relative; left:0px; top:0px; height:100%; width:100%}
-#grdCategoryBudgets_scroller {position: absolute; width:70px; height:380px; left:0px; top:0px; right:auto; bottom:auto;}
+#grdCategoryBudgets_scroller {position: absolute; width:70px; height:32px; left:0px; top:0px; right:auto; bottom:auto;}
 #grdCategoryBudgets {position:absolute; left:0px; top:0px; width:100%; height:auto }
 #catPerformanceTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #catPerformanceChart_wrapper {position:absolute; left:0px; top:0px; height:30px; width:320px}
 #catPerformanceChart {position:relative; left:0px; top:0px; height:100%; width:100%}
 #catReportTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdCatReport_scroller {position: absolute; width:70px; height:380px; left:0px; top:0px; right:auto; bottom:auto;}
+#grdCatReport_scroller {position: absolute; width:70px; height:32px; left:0px; top:0px; right:auto; bottom:auto;}
 #grdCatReport {position:absolute; left:0px; top:0px; width:100%; height:auto }
 #accListTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #lstAccounts_scroller {position: absolute; width:100%; height:366px; left:0px; top:0px;}
 #lstAccounts {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #accMovementTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdAccountMovements_scroller {position: absolute; width:70px; height:380px; left:0px; top:0px; right:auto; bottom:auto;}
+#grdAccountMovements_scroller {position: absolute; width:70px; height:32px; left:0px; top:0px; right:auto; bottom:auto;}
 #grdAccountMovements {position:absolute; left:0px; top:0px; width:100%; height:auto }
 #accountBudgetsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #lblAccName {position:absolute; left:1px; right:auto; top:43px; bottom:auto; height:20px; width:304px}
 #accountYearlyChart_wrapper {position:absolute; left:0px; top:0px; height:30px; width:320px}
 #accountYearlyChart {position:relative; left:0px; top:0px; height:100%; width:100%}
-#grdAccountBudgets_scroller {position: absolute; width:70px; height:380px; left:0px; top:0px; right:auto; bottom:auto;}
+#grdAccountBudgets_scroller {position: absolute; width:70px; height:32px; left:0px; top:0px; right:auto; bottom:auto;}
 #grdAccountBudgets {position:absolute; left:0px; top:0px; width:100%; height:auto }
 #accPerformanceTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #accPerformanceChart_wrapper {position:absolute; left:0px; top:0px; height:30px; width:320px}
 #accPerformanceChart {position:relative; left:0px; top:0px; height:100%; width:100%}
 #accReportTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdAccReport_scroller {position: absolute; width:70px; height:380px; left:0px; top:42px; right:auto; bottom:auto;}
+#grdAccReport_scroller {position: absolute; width:70px; height:32px; left:0px; top:0px; right:auto; bottom:auto;}
 #grdAccReport {position:absolute; left:0px; top:0px; width:100%; height:auto }
 #imgSplash {position:absolute; left:1px; right:auto; top:0px; bottom:auto; height:460px; width:320px}
 #paymentsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdPayments_scroller {position: absolute; width:70px; height:380px; left:0px; top:42px; right:auto; bottom:auto;}
+#grdPayments_scroller {position: absolute; width:70px; height:32px; left:0px; top:0px; right:auto; bottom:auto;}
 #grdPayments {position:absolute; left:0px; top:0px; width:100%; height:auto }
 #payPeriods_scroller {position: absolute; width:100%; height:300px; left:0px; top:0px;}
 #payPeriods {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #payTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #finReportTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdFinReport_scroller {position: absolute; width:70px; height:380px; left:0px; top:42px; right:auto; bottom:auto;}
+#grdFinReport_scroller {position: absolute; width:70px; height:32px; left:0px; top:0px; right:auto; bottom:auto;}
 #grdFinReport {position:absolute; left:0px; top:0px; width:100%; height:auto }
 #chartsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#chartObj_wrapper {position:absolute; left:0px; top:153px; height:160px; width:320px}
+#chartObj_wrapper {position:absolute; left:0px; top:0px; height:32px; width:320px}
 #chartObj {position:relative; left:0px; top:0px; height:100%; width:100%}
+#accTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#lblAccountNo {position:absolute; left:6px; right:auto; top:58px; bottom:auto; height:20px; width:102px}
+#lblAccountName {position:absolute; left:6px; right:auto; top:98px; bottom:auto; height:20px; width:70px}
+#lblAccountCategory {position:absolute; left:6px; right:auto; top:149px; bottom:auto; height:20px; width:90px}
+#lblAccountInstitution {position:absolute; left:6px; right:auto; top:195px; bottom:auto; height:20px; width:84px}
+#lblAccountOpenBal {position:absolute; left:6px; right:auto; top:244px; bottom:auto; height:20px; width:98px}
+#lblAccountCurrBal {position:absolute; left:6px; right:auto; top:293px; bottom:auto; height:20px; width:89px}
+#lblAccountInstallment {position:absolute; left:6px; right:auto; top:339px; bottom:auto; height:20px; width:109px}
+#lblAccountType {position:absolute; left:6px; right:auto; top:385px; bottom:auto; height:20px; width:109px}
+#txtAccountNo { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 42px;   }
+#txtAccountNo_wrapper > div { position: absolute; width: 183px; left: 111px; right:auto; top: 47px; margin: 0 -0.4em;   }
+#txtAccountName { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 42px;   }
+#txtAccountName_wrapper > div { position: absolute; width: 183px; left: 111px; right:auto; top: 94px; margin: 0 -0.4em;   }
+#txtAccountOpenBal { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 42px;   }
+#txtAccountOpenBal_wrapper > div { position: absolute; width: 183px; left: 111px; right:auto; top: 235px; margin: 0 -0.4em;   }
+#txtAccountCurrBal { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 42px;   }
+#txtAccountCurrBal_wrapper > div { position: absolute; width: 183px; left: 111px; right:auto; top: 281px; margin: 0 -0.4em;   }
+#txtAccountInstallment { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 42px;   }
+#txtAccountInstallment_wrapper > div { position: absolute; width: 183px; left: 111px; right:auto; top: 329px; margin: 0 -0.4em;   }
+#lblAccountPayFrom {position:absolute; left:6px; right:auto; top:426px; bottom:auto; height:20px; width:109px}
+#chkAccountPayFrom {position:absolute; left:106px; right:auto; top:414px; bottom:auto; height:32px; width:95px}
+#cboAccountCategory {position:absolute; left:106px; right:auto; top:141px; bottom:auto; height:40px; width:196px}
+#cboAccountType {position:absolute; left:106px; right:auto; top:376px; bottom:auto; height:40px; width:196px}
+#cboAccountInstitution {position:absolute; left:106px; right:auto; top:189px; bottom:auto; height:40px; width:196px}
 body * {font-family:helvetica}
 </style>
 </head>
@@ -186,8 +211,11 @@ body * {font-family:helvetica}
 <form id="Charts" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="65.js"></script>
 </form>
-</div>
+<form id="Account" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="67.js"></script>
+</form>
+</div>
+<script src="69.js"></script>
 <script src="mymoneyshow.js"></script>
 
 </body>
