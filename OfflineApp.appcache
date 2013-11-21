@@ -12,6 +12,7 @@ nsb/images/ajax-loader.gif
 nsb/css/style.css
 nsb/hfunc.js
 jqwidgets/styles/jqx.base.css
+nsb/messages.js
 nsb/jquery.mobile.js
 jqwidgets/styles/jqx.energyblue.css
 nsb/nsbstyle.css
@@ -26,9 +27,8 @@ nsb/iscroll.js
 icon.png
 nsb/images/icons-18-black.png
 nsb/images/ajax-loader.png
-messages.js
 
 NETWORK:
 *
 
-# buildtime: 1383477971.82
+# buildtime: 1384568899.81

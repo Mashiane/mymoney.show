@@ -5,6 +5,7 @@ var False=false; FALSE=false;
 var _jsString=String; //allow javascript string object to be in vbScript code
 var _JSSTRING=_jsString; _jsSTRING=_jsString; _jsstring=_jsString;
 var savethefunction_rvar=null;
+var NSB = NSB || {};  // setup the NSB namespace, if needed
 
 //vbScript GetRef function: GetRef(sub name)
 function getRef(str) {
@@ -382,7 +383,7 @@ function IsDate(dt) {
 
 //vbScript CDate
 function CDate(dt) {
-    if (typeof(dt)==undefined) {return 'undefined'};
+    if (typeof(dt)=='undefined') {return 'undefined'};
     if (IsDate(dt)) {
         if (VARTYPE(dt.toString(),1) == 'date') {
             return FormatDateTime(dt,2); //date
@@ -619,7 +620,7 @@ function Second(tm) {
 
 //vbScript CStr function: Cstr(value)
 function CStr(val) {
-   if (typeof(val)==undefined) {return 'undefined'};
+   if (typeof(val)=='undefined') {return 'undefined'};
     if (isNumeric(val)) {
         return val.toString();
     }
@@ -2168,7 +2169,7 @@ NSB.MsgBox = function(rtnFunc, prompt, buttons, title) {
         if (typeof(rtnFunc)!='function' && !title){ //looking for less than 4 parameters
             title=buttons; buttons=prompt; prompt=rtnFunc; rtnFunc=NSB.msgboxDefaultRtn;}
         var imgicon = NSB._parseIcon(buttons);
-        if (!prompt || prompt==null || typeof(prompt)=='undefined') { prompt = ''; }
+        if (prompt==null || typeof(prompt)=='undefined') { prompt = ''; }
         if (title==null || typeof(title)=='undefined') { title = document.title; }
         if (title=='') title=' ';
         if (!buttons || buttons==null || typeof(buttons)=='undefined') { buttons = '0'; }
@@ -2638,6 +2639,18 @@ Dialog.Manager = {
     }
 };
 
+function browserWarningMessage(msg){
+  if ((navigator.userAgent.indexOf('AppleWebKit') === -1) && 
+      (navigator.userAgent.indexOf('Chrome') === -1) && 
+      (navigator.userAgent.indexOf('MSIE 1') === -1) && 
+      (navigator.userAgent.indexOf('BlackBerry') === -1) && 
+      (navigator.userAgent.indexOf('RIM') === -1) && 
+      (navigator.userAgent.indexOf('Tablet PC') === -1)) {
+         alert(msg + ' (' + navigator.userAgent + ')');
+         if(typeof(browserWarningMessageAfterScript)=='function') browserWarningMessageAfterScript();
+  }
+}
+
 //Global code
 
 if (typeof navigator !== 'undefined' && navigator.onLine && typeof window.applicationCache !== 'undefined'){
@@ -2661,7 +2674,6 @@ if (typeof document !== 'undefined') {
     document.ontouchmove = function(e) { e.preventDefault(); };
     /mobile/i.test(navigator.userAgent) && !location.hash && setTimeout(function(){if (!pageYOffset) window.scrollTo(0,0)},500);
     NSB.MsgBoxStyle = (navigator.userAgent.match(/(android)|(Chrome)/i)) ? '-android' : '';
-
 
 document.addEventListener(
   (document.hidden==undefined) ? "webkitvisibilitychange" : "visibilitychange", 
