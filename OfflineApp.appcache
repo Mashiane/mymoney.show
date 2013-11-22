@@ -2,6 +2,21 @@ CACHE MANIFEST
 mymoneyshow.js
 chart.png
 view.png
+payto.png
+delete.png
+edit.png
+duplicate.png
+reverse.png
+drill.png
+
+
+
+
+
+
+
+
+
 CACHE:
 nsb/fastclick.js
 nsb/images/icons-36-white.png
@@ -31,4 +46,4 @@ nsb/images/ajax-loader.png
 NETWORK:
 *
 
-# buildtime: 1384568899.81
+# buildtime: 1385159882.36
