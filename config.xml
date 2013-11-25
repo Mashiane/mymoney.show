@@ -13,7 +13,6 @@ version = "1.0.58">
 <icon src='72.png' width='72' height='72' />
 <icon src='114.png' width='114' height='114' />
 <icon src='144.png' width='144' height='144' />
-<preference name="splash-screen-duration" value="500" />
 <gap:splash src="196.png"/>
 
 <!-- Platforms: Uncomment this section and customize as needed.
