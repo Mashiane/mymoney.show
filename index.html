@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>MyMoney.Show</title>
 <meta name="generator" content="NSB/AppStudio 3.2.8.8$" />
-<meta name="date" content="2013-11-23 00:38:02.728000" />
-<meta name="version" content="1.0.57" />
+<meta name="date" content="2013-11-25 15:14:59.478000" />
+<meta name="version" content="1.0.58" />
 <meta name="viewport" content="width=device-width minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no" />
 <meta name="apple-mobile-web-app-capable" content="YES" />
 <meta name="mobile-web-app-capable" content="yes" />
@@ -114,10 +114,6 @@
 #chartsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #chartObj_wrapper {position:absolute; left:0px; top:42px; height:32px; width:320px}
 #chartObj {position:relative; left:0px; top:0px; height:100%; width:100%}
-#payYears_scroller {position: absolute; width:100%; height:300px; left:0px; top:42px;}
-#payYears {position:absolute; left:0px; top:0px; width:100%; height:auto }
-
-#payYearsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #payYearChartTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #payYearChart_wrapper {position:absolute; left:0px; top:42px; height:30px; width:320px}
 #payYearChart {position:relative; left:0px; top:0px; height:100%; width:100%}
@@ -129,9 +125,6 @@
 #finposTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #grdFinPosition_scroller {position: absolute; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
 #grdFinPosition {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#costTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdCost_scroller {position: absolute; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
-#grdCost {position:absolute; left:0px; top:0px; width:100%; height:auto }
 #MultiInput1_scroller {position: absolute; width:300px; height:168px; left:0px; top:45px}
 #MultiInput1 {position:absolute; left:0px; top:0px; width:300px; height:auto;}
 #MultiInput1 {left:0px; top:45px;}
@@ -166,6 +159,18 @@
 #txtAccountInstallment_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 317px; margin: 0 -0.4em;   }
 #cboAccountType {position:absolute; left:112px; right:auto; top:361px; bottom:auto; height:40px; width:196px}
 #chkAccountPayFrom {position:absolute; left:113px; right:auto; top:400px; bottom:auto; height:32px; width:95px}
+#msTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdMS_scroller {position: absolute; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
+#grdMS {position:absolute; left:0px; top:0px; width:100%; height:auto }
+#mscTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#msChart_wrapper {position:absolute; left:0px; top:42px; height:30px; width:320px}
+#msChart {position:relative; left:0px; top:0px; height:100%; width:100%}
+#historyTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#historyChart1_wrapper {position:absolute; left:0px; top:42px; height:30px; width:320px}
+#historyChart1 {position:relative; left:0px; top:0px; height:100%; width:100%}
+#ieTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#ieChart1_wrapper {position:absolute; left:0px; top:42px; height:30px; width:320px}
+#ieChart1 {position:relative; left:0px; top:0px; height:100%; width:100%}
 body * {font-family:helvetica}
 </style>
 </head>
@@ -174,7 +179,7 @@ body * {font-family:helvetica}
 <div data-role="page" id="Page_MyMoneyShow" data-theme="c" style="background-image:url('nsb/images/backgroundStripes.png');">
 <form id="WhatToDo" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script>
-WhatToDo.innerHTML=[  NSB.List_jqm("lstWhatToDo", "ul", "none", "b", "b", 'My Categories,My Institutions,My Accounts,My Payments,My Reports,Read Me First', "", "N,N,N", "style=", 'class=" "', "100%", true, false, false, "arrow-r"),
+WhatToDo.innerHTML=[  NSB.List_jqm("lstWhatToDo", "ul", "none", "b", "b", 'My Categories,My Institutions,My Accounts,My Payments,My Reports,Demo Mode,Read Me First', "", "N,N,N", "style=", 'class=" "', "100%", true, false, false, "arrow-r"),
   NSB.HeaderBar_jqm("hBar", "MyMoney.Show", "", "false", "", "false", " data-theme=b style='' class=' ' "),
   ].join('');
 </script>
@@ -202,7 +207,7 @@ MyPayments.innerHTML=[  NSB.List_jqm("mypaymentsList", "ul", "none", "b", "b", '
 </form>
 <form id="MyReports" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script>
-MyReports.innerHTML=[  NSB.List_jqm("myreportsList", "ul", "none", "b", "b", 'Cost Measurements,My Financial Position,Assets vs Liabilities,Incomes vs Expenses,My Financial Report', "", "N,N,N", "style=", 'class=" "', "100%", false, false, false, "arrow-r"),
+MyReports.innerHTML=[  NSB.List_jqm("myreportsList", "ul", "none", "b", "b", 'Monthly Summary,Monthly Summary Charts,Monthly Income vs Expenses,History Chart,My Financial Position,Assets vs Liabilities,Incomes vs Expenses,My Financial Report', "", "N,N,N", "style=", 'class=" "', "100%", false, false, false, "arrow-r"),
   NSB.HeaderBar_jqm("myreportTitle", "My Reports", "Home", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
   ].join('');
 </script>
@@ -331,13 +336,6 @@ Charts.innerHTML=[  NSB.HeaderBar_jqm("chartsTitle", "Charts", "Back", "arrow-l"
   ].join('');
 </script>
 </form>
-<form id="PaymentsYearsSelector" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script>
-PaymentsYearsSelector.innerHTML=[  NSB.List_jqm("payYears", "ul", "none", "b", "b", '', "", "N,N,N", "style=", 'class=" "', "100%", true, false, false, "false"),
-  NSB.HeaderBar_jqm("payYearsTitle", "Payment Years", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
-  ].join('');
-</script>
-</form>
 <form id="PaymentsYearsChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script>
 PaymentsYearsChart.innerHTML=[  NSB.HeaderBar_jqm("payYearChartTitle", "Top 10 Categories", "Back", "arrow-l", "Refresh", "refresh", " data-theme=b style='' class=' ' "),
@@ -358,13 +356,6 @@ MaintainInstitutions.innerHTML=[  NSB.FooterBar_jqm('miMenu', 'Add,Save,Delete',
 <script>
 FinancialPosition.innerHTML=[  NSB.HeaderBar_jqm("finposTitle", "Financial Position", "Back", "arrow-l", "Refresh", "refresh", " data-theme=b style='' class=' ' "),
   NSB.Grid("grdFinPosition", "1", "3", "", "", "Title,Description,Amount", "left,left,right", "style=", ""),
-  ].join('');
-</script>
-</form>
-<form id="CostMeasurements" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script>
-CostMeasurements.innerHTML=[  NSB.HeaderBar_jqm("costTitle", "Cost Measurements", "Back", "arrow-l", "Refresh", "refresh", " data-theme=b style='' class=' ' "),
-  NSB.Grid("grdCost", "1", "6", "", "", "Type,Category,Account,Amount,Cost Split,Cost 2 Income", "left,left,left,right,right,right", "style=", ""),
   ].join('');
 </script>
 </form>
@@ -399,6 +390,34 @@ Account.innerHTML=[  NSB.MultiInput("MultiInput2", 9, "smallfield", "", "Account
   ].join('');
 </script>
 </form>
+<form id="MonthlySummary" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script>
+MonthlySummary.innerHTML=[  NSB.HeaderBar_jqm("msTitle", "Monthly Summary", "Back", "arrow-l", "Refresh", "refresh", " data-theme=b style='' class=' ' "),
+  NSB.Grid("grdMS", "1", "5", "", "", "Category,Budget,Amount,Cost Split,Cost 2 Income", "left,left,right,right,right", "style=", ""),
+  ].join('');
+</script>
+</form>
+<form id="MonthlySummaryChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script>
+MonthlySummaryChart.innerHTML=[  NSB.HeaderBar_jqm("mscTitle", "Monthly Summary", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
+  "<div id='msChart_wrapper' style='background-color:white;'><div id='msChart'></div></div>",
+  ].join('');
+</script>
+</form>
+<form id="HistoryChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script>
+HistoryChart.innerHTML=[  NSB.HeaderBar_jqm("historyTitle", "History Chart", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
+  "<div id='historyChart1_wrapper' style='background-color:white;'><div id='historyChart1'></div></div>",
+  ].join('');
+</script>
+</form>
+<form id="IEChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script>
+IEChart.innerHTML=[  NSB.HeaderBar_jqm("ieTitle", "Income vs Expenses", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
+  "<div id='ieChart1_wrapper' style='background-color:white;'><div id='ieChart1'></div></div>",
+  ].join('');
+</script>
+</form>
 </div>
 <script>
 (function(){var all=document.getElementsByTagName('*');for(var i=0;i<all.length;i++)if(typeof all[i].id!='undefined'&&typeof window[all[i].id]=='undefined')window[all[i].id]=all[i];})()
@@ -412,7 +431,7 @@ if (navigator.userAgent.indexOf('iPad') !== -1) {
 
 window.addEventListener('load', function() {
   WhatToDo.style.display = 'block';
-  NSB.List_jqm_init('lstWhatToDo','My Categories,My Institutions,My Accounts,My Payments,My Reports,Read Me First',true,'100%',false);
+  NSB.List_jqm_init('lstWhatToDo','My Categories,My Institutions,My Accounts,My Payments,My Reports,Demo Mode,Read Me First',true,'100%',false);
   lstWhatToDo_ref = new iScroll('lstWhatToDo_scroller',{ bounce:true, zoom:false });
   lstWhatToDo.refresh=function(){if (typeof lstWhatToDo_ref!='undefined') setTimeout(NSB.refresh,100,lstWhatToDo_ref)};
   NSB.addProperties(lstWhatToDo, lstWhatToDo_scroller);
@@ -446,12 +465,141 @@ lstWhatToDo.onclick = function(i) { savethefunction_rvar="";
     ChangeForm(MyReports);
 	break;
   case ((strItem) == "Read Me First"):
+	break;
+  case ((strItem) == "Demo Mode"):
+ // clears data and use demo data
+    NSB.MsgBox(SetDemo,"This will clear all the data in database and build demo data, are you sure?" , 4+32, "Confirm Demo");
   }
 return savethefunction_rvar; }
 
 WhatToDo.onshow = function() { savethefunction_rvar="";
   lstWhatToDo.Top = hBar.Height;
   lstWhatToDo.Height = WhatToDo.Height - hBar.Height;
+return savethefunction_rvar; }
+
+function SetDemo(result) { savethefunction_rvar="";
+  if(result != 6 )  { return savethefunction_rvar; }
+  document.body.style.cursor = 'wait';
+  NSB.ShowProgress("Demo mode...");
+  DeleteTable("Accounts");
+  DeleteTable("Accounts_Movement");
+  DeleteTable("Categories");
+  DeleteTable("Category_Movement");
+  DeleteTable("Cost_Measurements");
+  DeleteTable("Institutions");
+  DeleteTable("Payments");
+  Accounts_CreateTable();
+  AccountsMovement_CreateTable();
+  Categories_CreateTable();
+  CategoryMovement_CreateTable();
+  CostMeasurements_CreateTable();
+  Institutions_CreateTable();
+  Payments_CreateTable();
+ // add new categories
+  AddCategories("Bank Accounts,Income,Household,Transport,Investments,Loans/Credit,Education,Entertainment,Donations,Support,Communication,Animals/Pets");
+ // add accounts, incomes
+  AddAccount("0" ,"Salary" ,"Income" ,"" ,"0" ,"No" ,"Incomes" ,"0" ,"0");
+  AddAccount("0" ,"Income 2" ,"Income" ,"" ,"0" ,"No" ,"Incomes" ,"0" ,"0");
+  AddAccount("0" ,"Income 3" ,"Income" ,"" ,"0" ,"No" ,"Incomes" ,"0" ,"0");
+  AddAccount("0" ,"Bonus" ,"Income" ,"" ,"0" ,"No" ,"Incomes" ,"0" ,"0");
+ // household
+  AddAccount("House 1" ,"H1 - Bond/Rent" ,"Household" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("House 1" ,"H1 - Levies" ,"Household" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("House 1" ,"H1 - Water" ,"Household" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("House 1" ,"H1 - Electricity" ,"Household" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("House 1" ,"H1 - Gas" ,"Household" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("House 1" ,"H1 - Garden Maintenance" ,"Household" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("House 1" ,"H1 - Domestic Worker" ,"Household" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("House 1" ,"H1 - Groceries" ,"Household" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("House 1" ,"H1 - Laundry/Dry Clean" ,"Household" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("House 1" ,"H1 - House Maintenance" ,"Household" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("House 1" ,"H1 - Pool Maintenance" ,"Household" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("House 1" ,"H1 - Security" ,"Household" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("House 1" ,"H1 - Insurance" ,"Household" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("House 1" ,"H1 - Medication" ,"Household" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+ // transport
+  AddAccount("Car 1" ,"C1 - Installment" ,"Transport" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("Car 1" ,"C1 - Insurance" ,"Transport" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("Car 1" ,"C1 - Maintenance/Service" ,"Transport" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("Car 1" ,"C1 - Fuel" ,"Transport" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("Car 1" ,"C1 - Traffic Fines" ,"Transport" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("Car 1" ,"C1 - Public Transport" ,"Transport" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("Car 1" ,"C1 - Lift Club" ,"Transport" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("Car 1" ,"C1 - Car Hire" ,"Transport" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("Car 1" ,"C1 - Car Wash" ,"Transport" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+ // investment
+  AddAccount("0" ,"Savings" ,"Investments" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Investment 2" ,"Investments" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Investment 3" ,"Investments" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Investment 4" ,"Investments" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Unit Trusts" ,"Investments" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Shares" ,"Investments" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Bank Account 1" ,"Bank Accounts" ,"" ,"0" ,"Yes" ,"Assets" ,"0" ,"0");
+  AddAccount("0" ,"Bank Account 2" ,"Bank Accounts" ,"" ,"0" ,"No" ,"Liabilities" ,"0" ,"0");
+  AddAccount("0" ,"House 1" ,"Investments" ,"" ,"0" ,"No" ,"Assets" ,"0" ,"0");
+  AddAccount("0" ,"House 2" ,"Investments" ,"" ,"0" ,"No" ,"Liabilities" ,"0" ,"0");
+  AddAccount("0" ,"Car 1" ,"Investments" ,"" ,"0" ,"No" ,"Assets" ,"0" ,"0");
+  AddAccount("0" ,"Car 2" ,"Investments" ,"" ,"0" ,"No" ,"Liabilities" ,"0" ,"0");
+ // loans/credit
+  AddAccount("0" ,"Credit Card" ,"Loans/Credit" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Loan 2" ,"Loans/Credit" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Loan 3" ,"Loans/Credit" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Loan 4" ,"Loans/Credit" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Loan 5" ,"Loans/Credit" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+ // education
+  AddAccount("0" ,"Kid 1" ,"Education" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Kid 2" ,"Education" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Kid 3" ,"Education" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Kid 4" ,"Education" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Kid 5" ,"Education" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Self" ,"Education" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+ //Entertainment
+  AddAccount("0" ,"Restuarant" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Pocket Money" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Clothes" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Clubbing" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Sport" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Gymn" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Vacation" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Dstv/Cable" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Television" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Movies/Theatre" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Magazines" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Newspapers" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Books" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Drugs" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Alcohol" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Adultainment" ,"Entertainment" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+ // donations
+  AddAccount("0" ,"Donation 1" ,"Donations" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Donation 2" ,"Donations" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Gifts" ,"Donations" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+ // add support
+  AddAccount("0" ,"Support 1" ,"Support" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Support 2" ,"Support" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Parents" ,"Support" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+ // communication
+  AddAccount("0" ,"Cellphone 1" ,"Communication" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Cellphone 2" ,"Communication" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Internet" ,"Communication" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Fax 1" ,"Communication" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Fax 2" ,"Communication" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Landline 1" ,"Communication" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Landline 2" ,"Communication" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Paper" ,"Communication" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Ink" ,"Communication" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Fax Machine" ,"Communication" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Printer" ,"Communication" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Computer" ,"Communication" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Laptop" ,"Communication" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Tablet" ,"Communication" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+ // animals & pets
+  AddAccount("0" ,"Food" ,"Animals/Pets" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Vet" ,"Animals/Pets" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  AddAccount("0" ,"Pet 1" ,"Animals/Pets" ,"" ,"0" ,"No" ,"Expenses" ,"0" ,"0");
+  DemoPayments();
+  NSB.ShowProgress(False);
+  document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
 window.addEventListener('load', function() {
@@ -602,7 +750,8 @@ mypaymentsList.onclick = function(i) { savethefunction_rvar="";
   case ((strItem) == "Make Multiple Payments"):
 	break;
   case ((strItem) == "Payments Per Year"):
-    ChangeForm(PaymentsYearsSelector);
+    catFrom = "payperyear";
+    ChangeForm(PaymentsSelector);
 	break;
   case ((strItem) == "Payments Per Month"):
     catFrom = "paypermonth";
@@ -660,6 +809,7 @@ return savethefunction_rvar; }
 
 function NextPaymentError(transaction, results) { savethefunction_rvar="";
   recid = -1;
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
 return savethefunction_rvar; }
 
 
@@ -681,7 +831,7 @@ return savethefunction_rvar; }
 
 window.addEventListener('load', function() {
   MyReports.style.display = 'block';
-  NSB.List_jqm_init('myreportsList','Cost Measurements,My Financial Position,Assets vs Liabilities,Incomes vs Expenses,My Financial Report',false,'100%',false);
+  NSB.List_jqm_init('myreportsList','Monthly Summary,Monthly Summary Charts,Monthly Income vs Expenses,History Chart,My Financial Position,Assets vs Liabilities,Incomes vs Expenses,My Financial Report',false,'100%',false);
 
   myreportsList.refresh=function(){if (typeof myreportsList_ref!='undefined') setTimeout(NSB.refresh,100,myreportsList_ref)};
 
@@ -707,8 +857,20 @@ myreportsList.onclick = function(i) { savethefunction_rvar="";
  var  strItem;
   strItem = myreportsList.getItem(i);
   switch (True) {
-    case ((strItem) == "Cost Measurements"):
+    case ((strItem) == "Monthly Income vs Expenses"):
+      catFrom = "monthlyincomeexpenses";
+      ChangeForm(PaymentsSelector);
+	break;
+    case ((strItem) == "History Chart"):
+      catFrom = "historychart";
+      ChangeForm(PaymentsSelector);
+	break;
+    case ((strItem) == "Monthly Summary"):
       catFrom = "costmeasurements";
+      ChangeForm(PaymentsSelector);
+	break;
+    case ((strItem) == "Monthly Summary Charts"):
+      catFrom = "monthlysummarychart";
       ChangeForm(PaymentsSelector);
 	break;
     case ((strItem) == "My Financial Position"):
@@ -752,7 +914,6 @@ function LoadInstitutions() { savethefunction_rvar="";
   myinstitutionsList.Top = myinstitutionsTitle.Height;
   myinstitutionsList.Height = MyInstitutions.Height - myinstitutionsTitle.Height;
   NSB.ShowProgress("Loading...");
-  myinstitutionsList.Visible = False;
   myinstitutionsList.deleteItem("all");
   sqlList = [];
   sqlList[0] = ["SELECT [Name] FROM Institutions ORDER BY [Name];" , insHandler, insError];
@@ -763,7 +924,6 @@ function insHandler(transaction, results) { savethefunction_rvar="";
   for   (i = 0; i  <= results.rows.length - 1; i ++) {
     myinstitutionsList.addItem(results.rows.item(i)["Name"]);
   }
-  myinstitutionsList.Visible = True;
   myinstitutionsList.refresh();
   NSB.ShowProgress(False);
   document.body.style.cursor = 'default';
@@ -771,7 +931,7 @@ return savethefunction_rvar; }
 
 function insError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -923,7 +1083,6 @@ NSB.addProperties(CategoriesList);
 function LoadCategories() {
   document.body.style.cursor = 'wait';
   NSB.ShowProgress("Loading...");
-  categoriesListList.Visible = False;
   categoriesListList.deleteItem("all");
   sqlList = [];
   sqlList[0] = ["SELECT CategoryName FROM Categories ORDER BY CategoryName;" , catHandler, catError];
@@ -935,14 +1094,12 @@ function catHandler(transaction, results) { savethefunction_rvar="";
     categoriesListList.addItem(results.rows.item(i)["CategoryName"]);
   }
   NSB.ShowProgress(False);
-  categoriesListList.Visible = True;
-  categoriesListList.refresh();
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
 function catError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -983,6 +1140,7 @@ return savethefunction_rvar; }
  // generate next institution id error
 function NextCategoryError(transaction, results) { savethefunction_rvar="";
   recid = -1;
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
 return savethefunction_rvar; }
 
 
@@ -1012,19 +1170,73 @@ var  dbObj;
 var  cmData;
 var  cmSource,cmDataAdapter,catKey;
 var  catFrom,catYear,catName, acctFrom;
-var  sqlList,rCnt,payYear,Query;
+var  sqlList,rCnt,payYear,query;
 var  payMonth,payBy,VM,chartPer, payAccount;
 var  dailyPayments, recid, isnew;
 var  DB_REAL, DB_INTEGER, DB_BLOB, DB_TEXT;
 var  DB_FLOAT, DB_NUMERIC;
-DB_REAL = "REAL";
-DB_INTEGER = "INTEGER";
-DB_BLOB = "BLOB";
-DB_TEXT = "TEXT";
-DB_FLOAT = "FLOAT";
-DB_NUMERIC = "NUMERIC";
 var  InsertCommands;
 var  UpdateCommands;
+var  monthlysummaryB;
+var  monthlysummaryC;
+
+function MvSearch(searchvalues,strsearch,delim) { savethefunction_rvar="";
+    if(Len(searchvalues)==0 ) { return -1; }
+   var  spvalues, i, itot, ivalue;
+    spvalues = Split(searchvalues,delim);
+    itot = spvalues.length - 1;
+    for   (i = 0; i  <= itot; i ++) {
+      ivalue = spvalues[i];
+      if(ivalue == strsearch ) { return i; }
+    }
+    return -1;
+return savethefunction_rvar; }
+
+function MvField(svalue,iposition,delimiter) { savethefunction_rvar="";
+ var  mvalues,tvalues,xvalue;
+  mvalues = Split(svalue, delimiter);
+  tvalues = mvalues.length - 1;
+  iposition = iposition - 1;
+  if(iposition <= -1) {
+    xvalue = mvalues[tvalues];
+    return xvalue;
+  }
+  if(iposition > tvalues) {
+     return "";
+  }
+  xvalue = mvalues[iposition];
+  return xvalue;
+return savethefunction_rvar; }
+
+function MvRest(svalue,iposition,delimiter) { savethefunction_rvar="";
+ var  mvalues,tvalues,xvalue, x, y, resultx;
+ var  lendelim;
+  lendelim = Len(delimiter);
+  mvalues = Split(svalue, delimiter);
+  tvalues = mvalues.length - 1;
+  iposition = iposition - 1;
+  if(iposition <= -1) {
+    xvalue = mvalues[tvalues];
+    return xvalue;
+  }
+  if(iposition > tvalues) {
+     return "";
+  }
+  resultx = "";
+  x = iposition + 1;
+  for   (y = x; y  <= tvalues; y ++) {
+    xvalue = mvalues[y];
+    resultx = resultx  +  xvalue  +  delimiter;
+  }
+  resultx = Left(resultx, Len(resultx) - lendelim);
+  return resultx;
+return savethefunction_rvar; }
+
+function MakeMoney(svalue) { savethefunction_rvar="";
+    svalue = ProperAmount(svalue);
+    svalue = FormatNumber(svalue);
+    return svalue;
+return savethefunction_rvar; }
 
 function ProperAmount(svalue) { savethefunction_rvar="";
     svalue = Replace(svalue,"," ,"");
@@ -1122,22 +1334,20 @@ return savethefunction_rvar; }
  // mapobj is defined as new object
  // mapkey is the key for each item
  // mapitem is what to sum
-function MapSum(mapobj,mapkey,mapitem) {
- var  xfound;
- xfound = False;
- var  xsum;
- xsum = 0;
-  for (item in mapobj) {
-    NSB.Print((item+ " " +mapkey+ " " +mapobj[item]+ " " +mapitem) + "<br>");
-    if(item == mapkey) {
-      xfound = True;
-      xsum = mapobj[item] + mapitem;
-      mapobj.delete(item);
-      mapobj[key]=xsum;
-    }
-  }
-  if(xfound == False ) { mapobj[mapkey]= mapitem; }
-}
+ //Sub MapSum(mapobj,mapkey,mapitem)
+ //  Dim xfound: xfound = False
+ //  Dim xsum: xsum = 0
+ //  For Each key, item in mapobj
+ //    Print key,mapkey,item,mapitem
+ //    If key = mapkey Then
+ //      xfound = True
+ //      xsum = item + mapitem
+ //      mapobj.delete(key)
+ //      mapobj.add(key,xsum)
+ //    End If
+ //  Next
+ //  If xfound = False Then mapobj.add(mapkey, mapitem)
+ //End Sub
 
  //Sub MapUpdate(mapobj,mapkey,mapitem)
  //  Dim xfound: xfound = False
@@ -1164,6 +1374,12 @@ function MapSum(mapobj,mapkey,mapitem) {
  //End Function
 
 function Main() {
+  DB_REAL = "REAL";
+  DB_INTEGER = "INTEGER";
+  DB_BLOB = "BLOB";
+  DB_TEXT = "TEXT";
+  DB_FLOAT = "FLOAT";
+  DB_NUMERIC = "NUMERIC";
   localStorage.clear();
   dbName = "mymoneyshow.db";
   NSB.MsgBoxStyle="";
@@ -1171,6 +1387,15 @@ function Main() {
   if(dbObj == 0) {
     NSB.MsgBox("Error opening db");
   }
+ // ensure the tables exist
+  Accounts_CreateTable();
+  AccountsMovement_CreateTable();
+  Categories_CreateTable();
+  CategoryMovement_CreateTable();
+  CostMeasurements_CreateTable();
+  Institutions_CreateTable();
+  Payments_CreateTable();
+  Trial_CreateTable();
   sqlList = [];
   VM = Chr(253);
 }
@@ -1255,7 +1480,7 @@ function InsertRecord(tblName,tblRecord) { savethefunction_rvar="";
   }
   flds = Left(flds, Len(flds) - 1);
   vals = Left(vals, Len(vals) - 1);
-  sqlInst[0] = "INSERT INTO ["  +  tblName  +  "] ("  +  flds  +  ") VALUES ("  +  vals  +  ");";
+  sqlInst[0] = "INSERT OR REPLACE INTO ["  +  tblName  +  "] ("  +  flds  +  ") VALUES ("  +  vals  +  ");";
   Sql(dbObj, sqlInst);
 return savethefunction_rvar; }
 
@@ -1272,6 +1497,44 @@ function InsertRecord1(tblName,tblRecord,position) { savethefunction_rvar="";
   vals = Left(vals, Len(vals) - 1);
   InsertCommands[position] = "INSERT INTO ["  +  tblName  +  "] ("  +  flds  +  ") VALUES ("  +  vals  +  ");";
 return savethefunction_rvar; }
+
+function CreateTable(TableName, FieldsAndTypes, PrimaryKey, AutoIncrement) { savethefunction_rvar="";
+ var  sb, fdef, sqlCreate;
+  sb = "(";
+  for (item in FieldsAndTypes) {
+    fdef = "["  +  item  +  "] "  +  UCase(FieldsAndTypes[item]);
+    sb = sb  +  fdef;
+    if(item == PrimaryKey ) { sb = sb  +  " NOT NULL PRIMARY KEY"; }
+    if(item == AutoIncrement ) { sb = sb  +  " AUTOINCREMENT"; }
+    sb = sb  +  ", ";
+  }
+  sb = Left(sb, Len(sb) - 2);
+  sb = sb  +  ")";
+  sb = "CREATE TABLE IF NOT EXISTS ["  +  TableName  +  "] "  +  sb  +  ";";
+  console.log(sb);
+  sqlCreate = [];
+  sqlCreate[0] = sb;
+  Sql(dbObj, sqlCreate);
+}
+
+function CreateTableIndexes(TableName, Indexes) { savethefunction_rvar="";
+ var  sb, idef, sqlCreateIdx;
+ var  spidx, idxtot, idxcnt, idx;
+  spidx = Split(Indexes,",");
+  idxtot = spidx.length - 1;
+  sqlCreateIdx = [];
+  for   (idxcnt = 0; idxcnt  <= idxtot; idxcnt ++) {
+    idx = spidx[idxcnt];
+    idef = "CREATE INDEX IF NOT EXISTS ["  +  idx  +  "] ON ["  +  TableName  +  "] (["  +  idx  +  "]);";
+    console.log(idef);
+    sqlCreateIdx[idxcnt] = idef;
+  }
+  Sql(dbObj, sqlCreateIdx);
+}
+
+function ResetInsertCommands() { savethefunction_rvar="";
+    InsertCommands = [];
+}
 
 function ExecuteInsertCommands() { savethefunction_rvar="";
   Sql(dbObj, InsertCommands);
@@ -1294,6 +1557,14 @@ function MvSum(strvalues,delim) { savethefunction_rvar="";
   dtot = Round(dtot,2);
   return dtot;
 return savethefunction_rvar; }
+
+function DeleteTable(tblName) { savethefunction_rvar="";
+ var  sqlD;
+  sqlD = [];
+  sqlD[0]=["DROP TABLE IF EXISTS ["  +  tblName  +  "];"];
+  Sql(dbObj, sqlD);
+return savethefunction_rvar; }
+
 
  // used to update an object() record to the database
  // using another object() for the where clause
@@ -1341,6 +1612,13 @@ function DeleteRecord(tblName,tblWhere) { savethefunction_rvar="";
   wvals = Left(wvals, Len(wvals) - 1);
   sqlUpd[0] = "DELETE FROM ["  +  tblName  +  "] WHERE "  +  wvals  +  ";";
   Sql(dbObj, sqlUpd);
+return savethefunction_rvar; }
+
+function DeleteRecords(tblName) { savethefunction_rvar="";
+ var  sqlDel;
+  sqlDel = [];
+  sqlDel[0] = "DELETE FROM ["  +  tblName  +  "];";
+  Sql(dbObj, sqlDel);
 return savethefunction_rvar; }
 
  // used to update an object() record to the database
@@ -1479,7 +1757,7 @@ return savethefunction_rvar; }
 
  // if institution not saved, tell user
 function saveInstError(transaction, results) { savethefunction_rvar="";
-  NSB.MsgBox("Institution could not be saved.");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
 return savethefunction_rvar; }
 
  // generate the next available institution id query
@@ -1498,11 +1776,62 @@ return savethefunction_rvar; }
  // generate next institution id error
 function maxError(transaction, results) { savethefunction_rvar="";
   this.id = -1;
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
 return savethefunction_rvar; }
 
  // prototype definitions
 Institution.prototype.nextid = nextInstId;
 Institution.prototype.save = saveInstitution;
+
+function Institutions_CreateTable() {
+ var  tbls;
+  tbls = new Object();
+  tbls["Id"]= "integer";
+  tbls["Name"]= "text";
+  CreateTable("Institutions" , tbls, "Id" , "Id");
+  CreateTableIndexes("Institutions" , "Name");
+}
+
+function AddCategory(scategory) { savethefunction_rvar="";
+  scategory = InSingleQuote(scategory);
+  dbRecord = new Object();
+  dbRecord["CategoryName"]= scategory;
+  dbRecord["Transactions"]= 0;
+  InsertRecord("Categories" , dbRecord);
+}
+
+function AddCategories(scategory) { savethefunction_rvar="";
+ var  spvalues;
+ spvalues = Split(scategory,",");
+ var  rsTot, rsCnt;
+ rsTot = spvalues.length - 1;
+ var  scat, dbRecord;
+  ResetInsertCommands();
+  for   (rsCnt = 0; rsCnt  <= rsTot; rsCnt ++) {
+    scat = spvalues[rsCnt];
+    scat = InSingleQuote(scat);
+    dbRecord = new Object();
+    dbRecord["CategoryName"]= scat;
+    dbRecord["Transactions"]= 0;
+    InsertRecord1("Categories" , dbRecord, rsCnt);
+  }
+  ExecuteInsertCommands();
+}
+
+ // generate the next available institution id result
+function NewCategoryOk(transaction, results) { savethefunction_rvar="";
+  recid = results.rows.item(0)["MaxValue"];
+  recid = recid + 1;
+ var  dbRecord;
+ dbRecord = new Object();
+ var  ncat;
+ ncat = localStorage.getItem("newcategory");
+  ncat = InSingleQuote(ncat);
+  dbRecord["CategoryId"]= recid;
+  dbRecord["CategoryName"]= ncat;
+  dbRecord["Transactions"]= 0;
+  InsertRecord("Categories" , dbRecord);
+return savethefunction_rvar; }
 
 function Category(id, categoryname, transactions) { savethefunction_rvar="";
   this.id = id;
@@ -1523,10 +1852,59 @@ function saveCatOk(transaction, result) { savethefunction_rvar="";
 return savethefunction_rvar; }
 
 function saveCatError(transaction, result) { savethefunction_rvar="";
-  NSB.MsgBox("Category could not be saved.");
+  NSB.MsgBox("SQL Error: "  +  result.code  +  ": "  +  result.message);
 return savethefunction_rvar; }
 
 Category.prototype.save = saveCategory;
+
+function Categories_CreateTable() {
+ var  tbls;
+  tbls = new Object();
+  tbls["CategoryId"]= "integer";
+  tbls["CategoryName"]= "text";
+  tbls["Transactions"]= "integer";
+  CreateTable("Categories" , tbls, "CategoryId" , "CategoryId");
+  CreateTableIndexes("Categories" ,"CategoryName,Transactions");
+}
+
+function CategoryMovement_CreateTable() {
+ var  tbls;
+  tbls = new Object();
+  tbls["Id"]= "text";
+  tbls["AccountId"]= "integer";
+  tbls["AccountName"]= "text";
+  tbls["YearOn"]= "integer";
+  tbls["TypeOf"]= "text";
+  tbls["BudgetJan"]= "float";
+  tbls["BudgetFeb"]= "float";
+  tbls["BudgetMar"]= "float";
+  tbls["BudgetApr"]= "float";
+  tbls["BudgetMay"]= "float";
+  tbls["BudgetJun"]= "float";
+  tbls["BudgetJul"]= "float";
+  tbls["BudgetAug"]= "float";
+  tbls["BudgetSep"]= "float";
+  tbls["ActualApr"]= "float";
+  tbls["ActualMay"]= "float";
+  tbls["ActualJun"]= "float";
+  tbls["ActualJul"]= "float";
+  tbls["ActualAug"]= "float";
+  tbls["ActualSep"]= "float";
+  tbls["ActualMar"]= "float";
+  tbls["ActualOct"]= "float";
+  tbls["ActualNov"]= "float";
+  tbls["ActualDec"]= "float";
+  tbls["Actual"]= "float";
+  tbls["ActualFeb"]= "float";
+  tbls["BudgetOct"]= "float";
+  tbls["BudgetNov"]= "float";
+  tbls["BudgetDec"]= "float";
+  tbls["Budget"]= "float";
+  tbls["ActualJan"]= "float";
+  CreateTable("Category_Movement" , tbls, "Id" , "");
+  CreateTableIndexes("Category_Movement" ,"AccountId,AccountName,YearOn,TypeOf,Actual,Budget");
+}
+
 window.addEventListener('load', function() {
   CategoryMovements.style.display = 'block';
   NSB.addProperties(categoryMovementTitle);
@@ -1595,7 +1973,7 @@ return savethefunction_rvar; }
 
 function cmError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -1765,7 +2143,7 @@ return savethefunction_rvar; }
 
 function cbError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -1854,7 +2232,7 @@ return savethefunction_rvar; }
 
 function cpError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -1949,7 +2327,7 @@ return savethefunction_rvar; }
 
 function crepError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -2046,7 +2424,7 @@ return savethefunction_rvar; }
 
 function accountsError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -2080,6 +2458,7 @@ return savethefunction_rvar; }
  // generate next institution id error
 function NextAccountError(transaction, results) { savethefunction_rvar="";
   recid = -1;
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
 return savethefunction_rvar; }
 
 AccountsList.onshow = function() { savethefunction_rvar="";
@@ -2123,6 +2502,7 @@ function AccountDelete(result) {
   delRec["Name"]=delname;
   DeleteRecord("Accounts" , delRec);
   ResetAccounts();
+  ResetMonthlySummary();
   LoadAccounts();
 }
 
@@ -2197,7 +2577,7 @@ return savethefunction_rvar; }
 
 function amError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -2391,7 +2771,7 @@ return savethefunction_rvar; }
 
 function abError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -2483,7 +2863,7 @@ return savethefunction_rvar; }
 
 function apError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -2575,7 +2955,7 @@ return savethefunction_rvar; }
 
 function arepError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -2703,6 +3083,7 @@ return savethefunction_rvar; }
 
 function pltError(transaction, results) { savethefunction_rvar="";
   pTotal = 0;
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
 return savethefunction_rvar; }
 
 function plReset(transaction, results) { savethefunction_rvar="";
@@ -2750,7 +3131,7 @@ return savethefunction_rvar; }
 
 function plError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -2813,6 +3194,7 @@ function PaymentDelete(result) {
   delRec["Id"]=delname;
   DeleteRecord("Payments" , delRec);
   ResetAccounts();
+  ResetMonthlySummary();
   LoadPayments();
 }
 
@@ -2850,11 +3232,21 @@ NSB.addProperties(PaymentsSelector);
 function LoadPayPeriods() { savethefunction_rvar="";
   document.body.style.cursor = 'wait';
   NSB.ShowProgress("Loading...");
-  payPeriods.Visible = False;
   payPeriods.deleteItem("all");
-  sqlList = [];
-  sqlList[0] = ["DELETE FROM Payments WHERE Amount = 0;" , ppReset, ppError];
-  sqlList[1] = ["SELECT YearOn,MonthOn FROM Payments GROUP BY YearOn,MonthOn ORDER BY YearOn DESC,MonthOn DESC;" , ppHandler, ppError];
+  payPeriods.Top = payTitle.Height;
+  payPeriods.Height = PaymentsSelector.Height - payTitle.Height;
+  console.log(catFrom);
+  switch (True) {
+  case ((catFrom) == "historychart" ): case ((catFrom) == "payperyear" ): case ((catFrom) == "monthlyincomeexpenses"):
+    sqlList = [];
+    sqlList[0] = ["DELETE FROM Payments WHERE Amount = 0;" , ppReset, ppError];
+    sqlList[1] = ["SELECT DISTINCT YearOn FROM Payments ORDER BY YearOn DESC;" , historychartH, historychartE];
+	break;
+  case ((catFrom) == "costmeasurements" ): case ((catFrom) == "monthlysummarychart" ): case ((catFrom) == "payreport" ): case ((catFrom) == "paypermonth"):
+    sqlList = [];
+    sqlList[0] = ["DELETE FROM Payments WHERE Amount = 0;" , ppReset, ppError];
+    sqlList[1] = ["SELECT YearOn,MonthOn FROM Payments GROUP BY YearOn,MonthOn ORDER BY YearOn DESC,MonthOn DESC;" , ppHandler, ppError];
+  }
   Sql(dbObj, sqlList);
 }
 
@@ -2862,8 +3254,26 @@ function ppReset(transaction, result) { savethefunction_rvar="";
   console.log("Payments deleted");
 return savethefunction_rvar; }
 
+function historychartH(transaction, results) { savethefunction_rvar="";
+ var  row, sYearOn, i;
+  for   (i = 0; i  <= results.rows.length - 1; i ++) {
+    row = results.rows.item(i);
+    sYearOn = row["YearOn"];
+    payPeriods.addItem(sYearOn);
+  }
+  payPeriods.refresh();
+  NSB.ShowProgress(False);
+  document.body.style.cursor = 'default';
+return savethefunction_rvar; }
+
+function historychartE(transaction, results) { savethefunction_rvar="";
+  NSB.ShowProgress(False);
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
+  document.body.style.cursor = 'default';
+return savethefunction_rvar; }
+
 function ppHandler(transaction, results) { savethefunction_rvar="";
- var  row, sYearOn, sMonthOn;
+ var  row, sYearOn, sMonthOn, i;
   for   (i = 0; i  <= results.rows.length - 1; i ++) {
     row = results.rows.item(i);
     sMonthOn = row["MonthOn"];
@@ -2871,7 +3281,6 @@ function ppHandler(transaction, results) { savethefunction_rvar="";
     if(Len(sMonthOn)== 1 ) { sMonthOn = "0"  +  sMonthOn; }
     payPeriods.addItem(sYearOn  +  ":"  +  sMonthOn);
   }
-  payPeriods.Visible = True;
   payPeriods.refresh();
   NSB.ShowProgress(False);
   document.body.style.cursor = 'default';
@@ -2879,7 +3288,7 @@ return savethefunction_rvar; }
 
 function ppError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -2887,21 +3296,43 @@ payPeriods.onclick = function(i) { savethefunction_rvar="";
   if(TypeName(i) == "object" )  { return savethefunction_rvar; }
  var  strItem, strYM;
   strItem = payPeriods.getItem(i);
-  strYM = Split(strItem,":");
-  payYear = Trim(strYM[0] );
-  payMonth = Trim(strYM[1] );
-  localStorage.setItem("payby" , "YearMonth");
-  localStorage.setItem("payYear" , payYear);
-  localStorage.setItem("payMonth" , payMonth);
   switch (True) {
-  case ((catFrom) == "costmeasurements"):
-    ChangeForm(CostMeasurements);
+  case ((catFrom) == "payperyear" ): case ((catFrom) == "historychart" ): case ((catFrom) ==  "monthlyincomeexpenses"):
+    localStorage.setItem("payby" , "Year");
+    localStorage.setItem("payYear" , strItem);
+    switch (True) {
+    case ((catFrom) == "payperyear"):
+      ChangeForm(PaymentsYearsChart);
 	break;
-  case ((catFrom) == "payreport"):
-    ChangeForm(PaymentsReport);
+    case ((catFrom) == "historychart"):
+      ChangeForm(HistoryChart);
 	break;
-  case ((catFrom) == "paypermonth"):
-    ChangeForm(PaymentsYearsChart);
+    case ((catFrom) == "monthlyincomeexpenses"):
+      ChangeForm(IEChart);
+	break;
+    }
+	break;
+  case ((catFrom) == "costmeasurements" ): case ((catFrom) == "monthlysummarychart" ): case ((catFrom) == "payreport" ): case ((catFrom) == "paypermonth"):
+    strYM = Split(strItem,":");
+    payYear = Trim(strYM[0] );
+    payMonth = Trim(strYM[1] );
+    localStorage.setItem("payby" , "YearMonth");
+    localStorage.setItem("payYear" , payYear);
+    localStorage.setItem("payMonth" , payMonth);
+    switch (True) {
+    case ((catFrom) == "monthlysummarychart"):
+      ChangeForm(MonthlySummaryChart);
+	break;
+    case ((catFrom) == "costmeasurements"):
+      ChangeForm(MonthlySummary);
+	break;
+    case ((catFrom) == "payreport"):
+      ChangeForm(PaymentsReport);
+	break;
+    case ((catFrom) == "paypermonth"):
+      ChangeForm(PaymentsYearsChart);
+	break;
+    }
   }
 return savethefunction_rvar; }
 
@@ -2910,7 +3341,7 @@ payTitle.onclick = function(choice) { savethefunction_rvar="";
   switch (True) {
     case ((choice) == "Back"):
       switch (True) {
-      case ((catFrom) == "costmeasurements"):
+      case ((catFrom) == "costmeasurements" ): case ((catFrom) == "monthlysummarychart" ): case ((catFrom) == "historychart" ): case ((catFrom) == "monthlyincomeexpenses"):
         ChangeForm(MyReports);
 	break;
       default:
@@ -2921,8 +3352,6 @@ payTitle.onclick = function(choice) { savethefunction_rvar="";
 return savethefunction_rvar; }
 
 PaymentsSelector.onshow = function() { savethefunction_rvar="";
-  payPeriods.Top = payTitle.Height;
-  payPeriods.Height = PaymentsSelector.Height - payTitle.Height;
   LoadPayPeriods();
 return savethefunction_rvar; }
 
@@ -3082,7 +3511,7 @@ function AddFinReportRow(rowPos,xTypeOf,xName,xAmount) {
 
 function finrepError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -3208,7 +3637,7 @@ return savethefunction_rvar; }
 
 function chartError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -3224,78 +3653,6 @@ Charts.onshow = function() { savethefunction_rvar="";
 
   LoadCharts();
 return savethefunction_rvar; }
-
-window.addEventListener('load', function() {
-  PaymentsYearsSelector.style.display = 'block';
-  NSB.List_jqm_init('payYears','',true,'100%',false);
-  payYears_ref = new iScroll('payYears_scroller',{ bounce:true, zoom:false });
-  payYears.refresh=function(){if (typeof payYears_ref!='undefined') setTimeout(NSB.refresh,100,payYears_ref)};
-  NSB.addProperties(payYears, payYears_scroller);
-
-  NSB.addProperties(payYearsTitle);
-  NSB.addDisableProperty(payYearsTitle);
-  if(typeof(payYearsTitle_left)!='undefined') payYearsTitle_left.onclick=function() {payYearsTitle.onclick(payYearsTitle_left.getAttribute('nsbvalue'))};
-  if(typeof(payYearsTitle_right)!='undefined') payYearsTitle_right.onclick=function() {payYearsTitle.onclick(payYearsTitle_right.getAttribute('nsbvalue'))};
-  PaymentsYearsSelector.style.display = 'none';
-}, false);
-PaymentsYearsSelector.onsubmit=function(event){window.event.cancelBubble=true;window.event.returnValue=false};
-NSB.addProperties(PaymentsYearsSelector);
-function LoadPayYears() { savethefunction_rvar="";
-  document.body.style.cursor = 'wait';
-  NSB.ShowProgress("Loading...");
-  payYears.Visible = False;
-  payYears.deleteItem("all");
-  sqlList = [];
-  sqlList[0] = ["DELETE FROM Payments WHERE Amount = 0;" , pyearReset, pyearError];
-  sqlList[1] = ["SELECT DISTINCT YearOn FROM Payments ORDER BY YearOn DESC;" , pyearHandler, pyearError];
-  Sql(dbObj, sqlList);
-}
-
-function pyearReset(transaction, result) { savethefunction_rvar="";
-  console.log("Payments deleted");
-return savethefunction_rvar; }
-
-function pyearHandler(transaction, results) { savethefunction_rvar="";
- var  row, sYearOn;
-  for   (i = 0; i  <= results.rows.length - 1; i ++) {
-    row = results.rows.item(i);
-    sYearOn = row["YearOn"];
-    payYears.addItem(sYearOn);
-  }
-  payYears.Visible = True;
-  payYears.refresh();
-  NSB.ShowProgress(False);
-  document.body.style.cursor = 'default';
-return savethefunction_rvar; }
-
-function pyearError(transaction, results) { savethefunction_rvar="";
-  NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
-  document.body.style.cursor = 'default';
-return savethefunction_rvar; }
-
-payYears.onclick = function(i) { savethefunction_rvar="";
-  if(TypeName(i) == "object" )  { return savethefunction_rvar; }
-  payYear = payYears.getItem(i);
-  localStorage.setItem("payby" , "Year");
-  localStorage.setItem("payYear" , payYear);
-  ChangeForm(PaymentsYearsChart);
-return savethefunction_rvar; }
-
-payYearsTitle.onclick = function(choice) { savethefunction_rvar="";
-  if(TypeName(choice) == "object" )  { return savethefunction_rvar; }
-  switch (True) {
-    case ((choice) == "Back"):
-      ChangeForm(MyPayments);
-  }
-return savethefunction_rvar; }
-
-PaymentsYearsSelector.onshow = function() { savethefunction_rvar="";
-  payYears.Top = payYearsTitle.Height;
-  payYears.Height = PaymentsYearsSelector.Height - payYearsTitle.Height;
-  LoadPayYears();
-return savethefunction_rvar; }
-
 
 window.addEventListener('load', function() {
   PaymentsYearsChart.style.display = 'block';
@@ -3386,7 +3743,7 @@ return savethefunction_rvar; }
 
 function pyError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -3395,14 +3752,7 @@ payYearChartTitle.onclick = function(choice) { savethefunction_rvar="";
   if(TypeName(choice) == "object" )  { return savethefunction_rvar; }
   switch (True) {
   case ((choice) == "Back"):
-    switch (True) {
-    case ((payBy) == "YearMonth"):
-      ChangeForm(PaymentsSelector);
-	break;
-    case ((payBy) == "Year"):
-      ChangeForm(PaymentsYearsSelector);
-	break;
-    }
+    ChangeForm(PaymentsSelector);
 	break;
   case ((choice) == "Refresh"):
     PlotPaymentsYears();
@@ -3512,7 +3862,7 @@ function LoadFinancialPosition() { savethefunction_rvar="";
   sqlList = [];
   sqlList[0] = ["SELECT [TypeOf],[CurrentBalance] FROM Accounts WHERE CurrentBalance <> 0 ORDER BY TypeOf,[Name];" , finposHandler, finposError];
   Sql(dbObj, sqlList);
-}
+return savethefunction_rvar; }
 
 function finposHandler(transaction, results) { savethefunction_rvar="";
   rCnt = 1;
@@ -3579,7 +3929,7 @@ function AddFinPositionRow(rowPos,xTypeOf,xName,xAmount) {
 
 function finposError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
-  NSB.MsgBox("SQL Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
   document.body.style.cursor = 'default';
 return savethefunction_rvar; }
 
@@ -3596,254 +3946,6 @@ return savethefunction_rvar; }
 
 FinancialPosition.onshow = function() { savethefunction_rvar="";
   LoadFinancialPosition();
-return savethefunction_rvar; }
-
-window.addEventListener('load', function() {
-  CostMeasurements.style.display = 'block';
-  NSB.addProperties(costTitle);
-  NSB.addDisableProperty(costTitle);
-  if(typeof(costTitle_left)!='undefined') costTitle_left.onclick=function() {costTitle.onclick(costTitle_left.getAttribute('nsbvalue'))};
-  if(typeof(costTitle_right)!='undefined') costTitle_right.onclick=function() {costTitle.onclick(costTitle_right.getAttribute('nsbvalue'))};
-  grdCost_ref = new iScroll('grdCost_scroller',{ bounce:true, zoom:false });
-  grdCost.refresh=function(){setTimeout(NSB.refresh,100,grdCost_ref)};
-  grdCost.GridRefreshWidth=function(){setTimeout(NSB.GridRefreshWidth,10,grdCost)};
-  NSB.Grid_init('grdCost');
-  NSB.addProperties(grdCost,grdCost_scroller)
-  CostMeasurements.style.display = 'none';
-}, false);
-CostMeasurements.onsubmit=function(event){window.event.cancelBubble=true;window.event.returnValue=false};
-NSB.addProperties(CostMeasurements);
-
-function LoadCostMeasurements() { savethefunction_rvar="";
-  document.body.style.cursor = 'wait';
-  NSB.ShowProgress("Loading...");
-  grdCost.Left = 0;
-  grdCost.Top = costTitle.Height;
-  grdCost.Height = CostMeasurements.Height - costTitle.Height;
-  grdCost.Width = CostMeasurements.Width;
-  payYear = localStorage.getItem("payYear");
-  payMonth = localStorage.getItem("payMonth");
-  $("#costTitle h1").text("Costs: "  +  payYear  +  payMonth);
-  payMonth = _jsCint(payMonth);
-  rCnt = grdCost.getRowCount();
-  grdCost.deleteRows(rCnt);
-  $("#grdCost td").css("font-family" , "helvetica");
-  sqlList = [];
-  sqlList[0] = ["DELETE FROM Cost_Measurements;" , costHandler, costError];
-  Sql(dbObj, sqlList);
-}
-
-function costHandler(transaction, results) { savethefunction_rvar="";
-  console.log("cost_handler: cost_measurements cleared");
- var  query0;
- query0 = [];
-  query0[0] = ["SELECT [TypeOf],[Name],[CategoryName] FROM Accounts WHERE TypeOf in ('Incomes','Expenses') ORDER BY TypeOf DESC,CategoryName,[Name];" , costHandler1, costError1];
-  Sql(dbObj, query0);
-return savethefunction_rvar; }
-
-function costError(transaction, results) { savethefunction_rvar="";
-  console.log("cost_error");
-  NSB.ShowProgress(False);
-  document.body.style.cursor = 'default';
-return savethefunction_rvar; }
-
-function costHandler5(transaction, results) { savethefunction_rvar="";
-  console.log("costHandler5");
- var  rCnt;
- rCnt = 1;
- var  row, sAccount,sTypeOf,sAmount,sCategory;
- var  sOld, sCostSplit, sCostToIncome;
-  localStorage.setItem("Expenses" ,0);
-  localStorage.setItem("Incomes" ,0);
-  localStorage.setItem("Assets" ,0);
-  localStorage.setItem("Liabilities" ,0);
-  for   (i = 0; i  <= results.rows.length - 1; i ++) {
-    row = results.rows.item(i);
-    sTypeOf = row["TypeOf"];
-    sAmount = row["Amount"];
-    sOld = localStorage.getItem(sTypeOf);
-    sOld = parseFloat(sOld) + parseFloat(sAmount);
-    localStorage.setItem(sTypeOf,sOld);
-  }
-  for   (i = 0; i  <= results.rows.length - 1; i ++) {
-    row = results.rows.item(i);
-    sAccount = row["Account"];
-    sTypeOf = row["TypeOf"];
-    sAmount = row["Amount"];
-    sCategory = row["Category"];
-    sCostSplit = "0";
-    sCostToIncome = "0";
-    switch (True) {
-    case ((sTypeOf) == "Expenses"):
-      sOld = parseFloat(localStorage.getItem("Expenses"));
-      if(sOld != 0) {
-        sCostSplit = sAmount / sOld;
-        sCostSplit = sCostSplit * 100;
-        sCostSplit = FormatNumber(sCostSplit,0);
-      }
- // cost to income
-      sOld = parseFloat(localStorage.getItem("Incomes"));
-      if(sOld != 0) {
-        sCostToIncome = sAmount / sOld;
-        sCostToIncome = sCostToIncome * 100;
-        sCostToIncome = FormatNumber(sCostToIncome,0);
-      }
-    }
-    AddCMRow(rCnt,sTypeOf,sCategory,sAccount,sAmount,sCostSplit  +  "%" , sCostToIncome  +  "%");
-    rCnt = rCnt + 1;
-  }
-  GridSetHeight(grdCost,"32px");
-  GridRightAlign(grdCost,3,5);
-  GridAlternateColor(grdCost);
-  NSB.ShowProgress(False);
-  document.body.style.cursor = 'default';
-return savethefunction_rvar; }
-
-function costHandler2(transaction, results) { savethefunction_rvar="";
-  console.log("cost_handler2: updating the from amount...");
- var  row, sFromAccount, sAmount;
- var  rUpdate, rWhere;
-  UpdateCommands=[];
-  for   (i = 0; i  <= results.rows.length - 1; i ++) {
-    row = results.rows.item(i);
-    sFromAccount = row["FromAccount"];
-    sFromAccount = InSingleQuote(sFromAccount);
-    sAmount = row["Amount"];
-    rUpdate = new Object();
-    rUpdate["FromAmount"]= sAmount;
-    rWhere = new Object();
-    rWhere["Account"]= sFromAccount;
-    UpdateRecord1("Cost_Measurements" , rUpdate, rWhere, i);
-  }
-  ExecuteUpdateCommands();
- var  query2;
- query2 = [];
-  query2[0] = ["SELECT ToAccount,SUM(Amount) AS Amount FROM Payments WHERE YearOn = "  +  payYear  +  " AND MonthOn = "  +  payMonth  +  " GROUP BY ToAccount;" , costHandler3, costError1];
-  Sql(dbObj, query2);
-return savethefunction_rvar; }
-
-function costHandler3(transaction, results) { savethefunction_rvar="";
-  console.log("cost_handler3: updating the to amount...");
- var  row, sToAccount, sAmount;
- var  rUpdate, rWhere;
- var  sqlTo;
- sqlTo = [];
-  UpdateCommands=[];
-  for   (i = 0; i  <= results.rows.length - 1; i ++) {
-    row = results.rows.item(i);
-    sToAccount = row["ToAccount"];
-    sToAccount = InSingleQuote(sToAccount);
-    sAmount = row["Amount"];
-    rUpdate = new Object();
-    rUpdate["ToAmount"]= sAmount;
-    rWhere = new Object();
-    rWhere["Account"]= sToAccount;
-    UpdateRecord1("Cost_Measurements" , rUpdate, rWhere, i);
-  }
-  ExecuteUpdateCommands();
- var  query3;
- query3 = [];
-  query3[0] = ["SELECT Account,TypeOf,Amount,FromAmount,ToAmount,Id FROM Cost_Measurements;" , costHandler4, costError1];
-  Sql(dbObj, query3);
-return savethefunction_rvar; }
-
-function costHandler1(transaction, results) { savethefunction_rvar="";
-  console.log("cost_handler1: setting up costs...");
-  rCnt = 1;
-  InsertCommands = [];
- var  sTypeOf, sName, sCategoryName, row, sKey, dbRecord;
-  for   (i = 0; i  <= results.rows.length - 1; i ++) {
-    row = results.rows.item(i);
-    sTypeOf = row["TypeOf"];
-    sName = row["Name"];
-    sCategoryName = row["CategoryName"];
-    sKey =  payYear  +  "-"  +  payMonth  +  "-"  +  sTypeOf  +  "-"  +  sCategoryName  +  "-"  +  sName;
-    sKey = InSingleQuote(sKey);
-    sTypeOf = InSingleQuote(sTypeOf);
-    sName = InSingleQuote(sName);
-    sCategoryName = InSingleQuote(sCategoryName);
-    dbRecord = new Object();
-    dbRecord["Id"]= sKey;
-    dbRecord["YearOn"]= payYear;
-    dbRecord["MonthOn"]= payMonth;
-    dbRecord["Category"]= sCategoryName;
-    dbRecord["Account"]= sName;
-    dbRecord["TypeOf"]= sTypeOf;
-    dbRecord["Amount"]= 0;
-    dbRecord["FromAmount"]= 0;
-    dbRecord["ToAmount"]= 0;
-    InsertRecord1("Cost_Measurements" , dbRecord, i);
-  }
-  ExecuteInsertCommands();
- var  query1;
- query1 = [];
-  query1[0] = ["SELECT FromAccount,SUM(Amount) AS Amount FROM Payments WHERE YearOn = "  +  payYear  +  " AND MonthOn = "  +  payMonth  +  " GROUP BY FromAccount;" , costHandler2, costError1];
-  Sql(dbObj, query1);
-
-return savethefunction_rvar; }
-
-function costHandler4(transaction, results) { savethefunction_rvar="";
-  console.log("cost_handler4: updating the final amount...");
- var  row, sAccount, sFromAmount;
- var  sToAmount, sAmount, sTypeOf;
- var  rUpdate, rWhere;
-  UpdateCommands=[];
-  for   (i = 0; i  <= results.rows.length - 1; i ++) {
-    row = results.rows.item(i);
-    sAccount = row["Account"];
-    sAccount = InSingleQuote(sAccount);
-    sFromAmount = row["FromAmount"];
-    sToAmount = row["ToAmount"];
-    sTypeOf = row["TypeOf"];
-    switch (True) {
-    case ((sTypeOf) == "Incomes" ): case ((sTypeOf) ==  "Liabilities"):
-      sAmount = parseFloat(sFromAmount) - parseFloat(sToAmount);
-	break;
-    case ((sTypeOf) == "Expenses" ): case ((sTypeOf) ==  "Assets"):
-      sAmount = parseFloat(sToAmount) - parseFloat(sFromAmount);
-    }
-    rUpdate = new Object();
-    rUpdate["Amount"]= sAmount;
-    rWhere = new Object();
-    rWhere["Account"]= sAccount;
-    UpdateRecord1("Cost_Measurements" , rUpdate, rWhere,i);
-  }
-  ExecuteUpdateCommands();
- var  query4;
- query4 = [];
-  query4[0] = ["SELECT Account,TypeOf,Amount,Category FROM Cost_Measurements WHERE Amount <> 0 ORDER BY TypeOf DESC,Category,[Account];" , costHandler5, costError1];
-  Sql(dbObj, query4);
-return savethefunction_rvar; }
-
-function AddCMRow(rowPos,sType,sCategory,sAccount,sAmount,sCostSplit,sCost2Income) {
-  grdCost.addRows(1);
-  grdCost.setValue(rowPos,0,sType);
-  grdCost.setValue(rowPos,1,sCategory);
-  grdCost.setValue(rowPos,2,sAccount);
-  grdCost.setValue(rowPos,3,FormatNumber(sAmount,2));
-  grdCost.setValue(rowPos,4,sCostSplit);
-  grdCost.setValue(rowPos,5,sCost2Income);
-}
-
-function costError1(transaction, results) { savethefunction_rvar="";
-  console.log("costError1");
-  NSB.ShowProgress(False);
-  document.body.style.cursor = 'default';
-return savethefunction_rvar; }
-
-costTitle.onclick = function(choice) { savethefunction_rvar="";
-  if(TypeName(choice) == "object" )  { return savethefunction_rvar; }
-  switch (True) {
-  case ((choice) == "Back"):
-    ChangeForm(PaymentsSelector);
-	break;
-  case ((choice) == "Refresh"):
-    LoadCostMeasurements();
-  }
-return savethefunction_rvar; }
-
-CostMeasurements.onshow = function() { savethefunction_rvar="";
-  LoadCostMeasurements();
 return savethefunction_rvar; }
 
 function ResetAccounts() { savethefunction_rvar="";
@@ -3873,7 +3975,7 @@ function ResetAccounts() { savethefunction_rvar="";
   UpdateRecords("Category_Movement" , dbRecord);
  // process the payments and balances
   sqlList = [];
-  sqlList[0] = ["SELECT Name, CategoryName FROM Accounts;" , resetAHandler0, resetAError];
+  sqlList[0] = ["SELECT Name, CategoryName, TypeOf FROM Accounts;" , resetAHandler0, resetAError];
   sqlList[1] = ["SELECT FromAccount,ToAccount,SUM(Amount) AS Amount FROM Payments GROUP BY FromAccount,ToAccount;" , resetAHandler, resetAError];
   sqlList[2] = ["SELECT Id,Name,OpeningBalance FROM Accounts;" , resetAHandler1, resetAError];
  // process the accounts_movements
@@ -4046,10 +4148,12 @@ function accmoveHandlerF(transaction, results) { savethefunction_rvar="";
 return savethefunction_rvar; }
 
 function accmoveHandler(transaction, results) { savethefunction_rvar="";
- var  row, i, smonthon, syearon, samount;
- var  sfromaccount, stoaccount, sfak, stak;
- var  smonthactual, spvalues, sold, scatf, scatt;
- var  sfakc, stakc;
+ var  row, i, smonthon, syearon, samount, mpos, syearon, saccount;
+ var  sfromaccount, stoaccount, sfak, stak, mlen, spvalues, strvalue, x, y;
+ var  smonthactual, spvalues, sold, scatf, scatt, stypeof;
+ var  sfakc, stakc, dbRecord, acctmovekeys, catmovekeys;
+  acctmovekeys="";
+  catmovekeys="";
  // reset the accounts_movement first
   for   (i = 0; i  <= results.rows.length - 1; i ++) {
     row = results.rows.item(i);
@@ -4060,6 +4164,12 @@ function accmoveHandler(transaction, results) { savethefunction_rvar="";
     stak = syearon  +  "-"  +  stoaccount;
     localStorage.setItem(sfak,"0,0,0,0,0,0,0,0,0,0,0,0,0,0");
     localStorage.setItem(stak,"0,0,0,0,0,0,0,0,0,0,0,0,0,0");
+    if(InStr(1,acctmovekeys,sfak) == 0) {
+      acctmovekeys = acctmovekeys  +  VM  +  sfak;
+    }
+    if(InStr(1,acctmovekeys,stak) == 0) {
+      acctmovekeys = acctmovekeys  +  VM  +  stak;
+    }
  // define for category movement
     scatf = localStorage.getItem("catfor_"  +  sfromaccount);
     scatt = localStorage.getItem("catfor_"  +  stoaccount);
@@ -4067,6 +4177,77 @@ function accmoveHandler(transaction, results) { savethefunction_rvar="";
     stak = syearon  +  "-"  +  scatt;
     sessionStorage.setItem(sfak,"0,0,0,0,0,0,0,0,0,0,0,0,0,0");
     sessionStorage.setItem(stak,"0,0,0,0,0,0,0,0,0,0,0,0,0,0");
+    if(InStr(1,catmovekeys,sfak) == 0) {
+      catmovekeys = catmovekeys  +  VM  +  sfak;
+    }
+    if(InStr(1,catmovekeys,stak) == 0) {
+      catmovekeys = catmovekeys  +  VM  +  stak;
+    }
+  }
+ // create movements
+  spvalues = Split(acctmovekeys,VM);
+  y = spvalues.length - 1;
+  for   (x = 0; x  <= y; x ++) {
+    strvalue = spvalues[x];
+    if(Len(strvalue) > 0) {
+      syearon = MvField(strvalue,1,"-");
+      saccount = MvRest(strvalue,1,"-");
+      stypeof = localStorage.getItem("acctexp_"  +  saccount);
+      strvalue = InSingleQuote(strvalue);
+      saccount = InSingleQuote(saccount);
+      stypeof = InSingleQuote(stypeof);
+      dbRecord = new Object();
+      dbRecord["Id"]=strvalue;
+      dbRecord["YearOn"]= syearon;
+      dbRecord["TypeOf"]= stypeof;
+      dbRecord["AccountName"]= saccount;
+      dbRecord["ActualJan"]=0;
+      dbRecord["ActualFeb"]=0;
+      dbRecord["ActualMar"]=0;
+      dbRecord["ActualApr"]=0;
+      dbRecord["ActualMay"]=0;
+      dbRecord["ActualJun"]=0;
+      dbRecord["ActualJul"]=0;
+      dbRecord["ActualAug"]=0;
+      dbRecord["ActualSep"]=0;
+      dbRecord["ActualOct"]=0;
+      dbRecord["ActualNov"]=0;
+      dbRecord["ActualDec"]=0;
+      dbRecord["Actual"]=0;
+      InsertRecord("Accounts_Movement" , dbRecord);
+    }
+  }
+  spvalues = Split(catmovekeys,VM);
+  y = spvalues.length - 1;
+  for   (x = 0; x  <= y; x ++) {
+    strvalue = spvalues[x];
+    if(Len(strvalue) > 0) {
+      syearon = MvField(strvalue,1,"-");
+      saccount = MvRest(strvalue,1,"-");
+      stypeof = localStorage.getItem("catexp_"  +  saccount);
+      strvalue = InSingleQuote(strvalue);
+      saccount = InSingleQuote(saccount);
+      stypeof = InSingleQuote(stypeof);
+      dbRecord = new Object();
+      dbRecord["Id"]=strvalue;
+      dbRecord["YearOn"]= syearon;
+      dbRecord["TypeOf"]= stypeof;
+      dbRecord["AccountName"]= saccount;
+      dbRecord["ActualJan"]=0;
+      dbRecord["ActualFeb"]=0;
+      dbRecord["ActualMar"]=0;
+      dbRecord["ActualApr"]=0;
+      dbRecord["ActualMay"]=0;
+      dbRecord["ActualJun"]=0;
+      dbRecord["ActualJul"]=0;
+      dbRecord["ActualAug"]=0;
+      dbRecord["ActualSep"]=0;
+      dbRecord["ActualOct"]=0;
+      dbRecord["ActualNov"]=0;
+      dbRecord["ActualDec"]=0;
+      dbRecord["Actual"]=0;
+      InsertRecord("Category_Movement" , dbRecord);
+    }
   }
  // process the amounts next
   for   (i = 0; i  <= results.rows.length - 1; i ++) {
@@ -4124,36 +4305,39 @@ function accmoveHandler(transaction, results) { savethefunction_rvar="";
 return savethefunction_rvar; }
 
 function resetAHandler0(transaction, results) { savethefunction_rvar="";
- var  row, sname, i, scategory;
+ var  row, sName, i, scategory, stypeof;
   for   (i = 0; i  <= results.rows.length - 1; i ++) {
       row = results.rows.item(i);
-      sname = row["Name"];
+      sName = row["Name"];
       scategory = row["CategoryName"];
-      localStorage.setItem("catfor_"  +  sname, scategory);
-      localStorage.setItem("reset_"  +  sname,0);
+      stypeof = row["TypeOf"];
+      localStorage.setItem("catfor_"  +  sName, scategory);
+      localStorage.setItem("catexp_"  +  scategory, stypeof);
+      localStorage.setItem("acctexp_"  +  sName, stypeof);
+      localStorage.setItem("reset_"  +  sName,0);
   }
 return savethefunction_rvar; }
 
 function resetAHandler1(transaction, results) { savethefunction_rvar="";
- var  row, i, sid, sname, sopeningbalance, scurrentbalance;
+ var  row, i, sid, sName, sOpeningBalance, sCurrentBalance;
  var  rkey;
   for   (i = 0; i  <= results.rows.length - 1; i ++) {
       row = results.rows.item(i);
       sid = row["Id"];
-      sname = row["Name"];
-      sopeningbalance = row["OpeningBalance"];
-      scurrentbalance = 0;
-      rkey = "reset_"  +  sname;
-      scurrentbalance = localStorage.getItem(rkey);
-      scurrentbalance = parseFloat(scurrentbalance) + parseFloat(sopeningbalance);
-      scurrentbalance = Round(scurrentbalance,2);
+      sName = row["Name"];
+      sOpeningBalance = row["OpeningBalance"];
+      sCurrentBalance = 0;
+      rkey = "reset_"  +  sName;
+      sCurrentBalance = localStorage.getItem(rkey);
+      sCurrentBalance = parseFloat(sCurrentBalance) + parseFloat(sOpeningBalance);
+      sCurrentBalance = Round(sCurrentBalance,2);
      var  dbRecord;
  dbRecord = new Object();
      var  dbUpdate;
  dbUpdate = new Object();
-      sname = InSingleQuote(sname);
-      dbRecord["CurrentBalance"]= scurrentbalance;
-      dbUpdate["Name"]= sname;
+      sName = InSingleQuote(sName);
+      dbRecord["CurrentBalance"]= sCurrentBalance;
+      dbUpdate["Name"]= sName;
       UpdateRecord("Accounts" , dbRecord, dbUpdate);
   }
   NSB.ShowProgress(False);
@@ -4197,7 +4381,88 @@ function resetAError(transaction, results) { savethefunction_rvar="";
   console.log("Error resetting accounts");
   NSB.ShowProgress(False);
   document.body.style.cursor = 'default';
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
 return savethefunction_rvar; }
+
+function AddAccount(sAccountNo,sName,sCategoryName,sInstitutionName,sOpeningBalance,sPayFrom,stypeof,sInstallment,sCurrentBalance) {
+  sAccountNo = InSingleQuote(sAccountNo);
+  sName = InSingleQuote(sName);
+  sCategoryName= InSingleQuote(sCategoryName);
+  sInstitutionName= InSingleQuote(sInstitutionName);
+  sOpeningBalance= InSingleQuote(sOpeningBalance);
+  sPayFrom = InSingleQuote(UCase(sPayFrom));
+  stypeof = InSingleQuote(stypeof);
+  sInstallment = parseFloat(sInstallment);
+  sCurrentBalance = parseFloat(sCurrentBalance);
+ var  dbRecord;
+  dbRecord = new Object();
+  dbRecord["AccountNo"]= sAccountNo;
+  dbRecord["Name"]= sName;
+  dbRecord["CategoryName"]= sCategoryName;
+  dbRecord["InstitutionName"]= sInstitutionName;
+  dbRecord["OpeningBalance"]= sOpeningBalance;
+  dbRecord["PayFrom"]= sPayFrom;
+  dbRecord["TypeOf"]= stypeof;
+  dbRecord["Installment"]= sInstallment;
+  dbRecord["CurrentBalance"]= sCurrentBalance;
+  InsertRecord("Accounts" , dbRecord);
+}
+
+ // create the accounts table
+function Accounts_CreateTable() {
+ var  tblStructure;
+  tblStructure = new Object();
+  tblStructure["Id"]= "INTEGER";
+  tblStructure["AccountNo"]= "TEXT";
+  tblStructure["Name"]= "TEXT";
+  tblStructure["CategoryName"]= "TEXT";
+  tblStructure["InstitutionName"]= "TEXT";
+  tblStructure["OpeningBalance"]= "TEXT";
+  tblStructure["PayFrom"]= "TEXT";
+  tblStructure["TypeOf"]= "TEXT";
+  tblStructure["Installment"]= "FLOAT";
+  tblStructure["CurrentBalance"]= "FLOAT";
+  CreateTable("Accounts" , tblStructure, "Id" , "Id");
+  CreateTableIndexes("Accounts" ,"AccountNo,Name,CategoryName,InstitutionName,OpeningBalance,PayFrom,TypeOf,Installment,CurrentBalance");
+}
+
+function AccountsMovement_CreateTable() {
+ var  tbls;
+  tbls = new Object();
+  tbls["Id"]= "text";
+  tbls["AccountId"]= "integer";
+  tbls["AccountName"]= "text";
+  tbls["YearOn"]= "integer";
+  tbls["TypeOf"]= "text";
+  tbls["BudgetJan"]= "float";
+  tbls["BudgetFeb"]= "float";
+  tbls["BudgetMar"]= "float";
+  tbls["BudgetApr"]= "float";
+  tbls["BudgetMay"]= "float";
+  tbls["BudgetJun"]= "float";
+  tbls["BudgetJul"]= "float";
+  tbls["BudgetAug"]= "float";
+  tbls["BudgetSep"]= "float";
+  tbls["ActualApr"]= "float";
+  tbls["ActualMay"]= "float";
+  tbls["ActualJun"]= "float";
+  tbls["ActualJul"]= "float";
+  tbls["ActualAug"]= "float";
+  tbls["ActualSep"]= "float";
+  tbls["ActualMar"]= "float";
+  tbls["ActualOct"]= "float";
+  tbls["ActualNov"]= "float";
+  tbls["ActualDec"]= "float";
+  tbls["Actual"]= "float";
+  tbls["ActualFeb"]= "float";
+  tbls["BudgetOct"]= "float";
+  tbls["BudgetNov"]= "float";
+  tbls["BudgetDec"]= "float";
+  tbls["Budget"]= "float";
+  tbls["ActualJan"]= "float";
+  CreateTable("Accounts_Movement" , tbls, "Id" , "");
+  CreateTableIndexes("Accounts_Movement" ,"AccountId,AccountName,YearOn,TypeOf,Actual,Budget");
+}
 
 
 window.addEventListener('load', function() {
@@ -4276,6 +4541,7 @@ function LoadPaymentLists() {
 function paysError(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
   document.body.style.cursor = 'default';
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
 return savethefunction_rvar; }
 
 function paysHandler(transaction, results) { savethefunction_rvar="";
@@ -4346,6 +4612,7 @@ return savethefunction_rvar; }
 
 function ReadPaymentError(transaction, results) { savethefunction_rvar="";
   console.log("Record Payment Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
 return savethefunction_rvar; }
 
 function ReadPayment(transaction, results) { savethefunction_rvar="";
@@ -4409,7 +4676,7 @@ function PSSave() {
   if(Len(syearon)==0 ) { iSave = iSave + 1; }
   sdescription = InSingleQuote(psDescription.value);
   if(Len(sdescription) ==0 ) { iSave = iSave + 1; }
-  samount = parseFloat(psAmount.value);
+  samount = parseFloat(ProperAmount(psAmount.value));
   if(samount == 0 ) { iSave = iSave + 1; }
   sfromaccount = InSingleQuote(psFromAccount.selectedItem());
   if(Len(sfromaccount)==0 ) { iSave = iSave + 1; }
@@ -4444,6 +4711,7 @@ function PSSave() {
     UpdateRecord("Payments" , dbRecord, dbUpdate);
   }
   ResetAccounts();
+  ResetMonthlySummary();
 }
 window.addEventListener('load', function() {
   Account.style.display = 'block';
@@ -4519,6 +4787,7 @@ function LoadAccountLists() {
 function lst1Error(transaction, results) { savethefunction_rvar="";
   NSB.ShowProgress(False);
   document.body.style.cursor = 'default';
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
 return savethefunction_rvar; }
 
 function lst1Handler(transaction, results) { savethefunction_rvar="";
@@ -4598,13 +4867,13 @@ function AccountSave() {
   sCategoryName = InSingleQuote(sCategoryName);
   sInstitutionName = cboAccountInstitution.selectedItem();
   sInstitutionName = InSingleQuote(sInstitutionName);
-  sOpeningBalance = parseFloat(txtAccountOpenBal.value);
+  sOpeningBalance = parseFloat(ProperAmount(txtAccountOpenBal.value));
   sOpeningBalance = InSingleQuote(sOpeningBalance);
   sPayFrom = UCase(Left(chkAccountPayFrom.value,1));
   sPayFrom = InSingleQuote(sPayFrom);
   sTypeOf = InSingleQuote(cboAccountType.selectedItem());
-  sInstallment = parseFloat(txtAccountInstallment.value);
-  sCurrentBalance = parseFloat(txtAccountCurrBal.value);
+  sInstallment = parseFloat(ProperAmount(txtAccountInstallment.value));
+  sCurrentBalance = parseFloat(ProperAmount(txtAccountCurrBal.value));
  // check if details complete
   if(Len(txtAccountName.value)==0 ) { isave = isave + 1; }
   if(Len(cboAccountCategory.selectedItem()) == 0 ) { isave = isave + 1; }
@@ -4634,6 +4903,7 @@ function AccountSave() {
     UpdateRecord("Accounts" , dbRecord, dbUpdate);
   }
   ResetAccounts();
+  ResetMonthlySummary();
 }
 
  // used to read a record from the database
@@ -4675,7 +4945,809 @@ return savethefunction_rvar; }
 
 function ReadAccountError(transaction, results) { savethefunction_rvar="";
   console.log("Record Account Error");
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
 return savethefunction_rvar; }
+function CostMeasurements_CreateTable() {
+ var  tbls;
+  tbls = new Object();
+  tbls["Id"]= "text";
+  tbls["YearOn"]= "integer";
+  tbls["MonthOn"]= "integer";
+  tbls["Category"]= "text";
+  tbls["TypeOf"]= "text";
+  tbls["Amount"]= "float";
+  tbls["Budget"]= "float";
+  tbls["CostSplit"]= "float";
+  tbls["Cost2Income"]= "float";
+  CreateTable("Cost_Measurements" , tbls, "Id" , "");
+  CreateTableIndexes("Cost_Measurements" , "TypeOf,Category,MonthOn,YearOn");
+}
+
+function ResetMonthlySummary() { savethefunction_rvar="";
+  payYear = localStorage.getItem("payYear");
+  payMonth = localStorage.getItem("payMonth");
+  payMonth = _jsCint(payMonth);
+  sqlList = [];
+  sqlList[0] = ["DELETE FROM Cost_Measurements WHERE YearOn = "  +  payYear  +  ";" , msHandler, msError];
+  Sql(dbObj, sqlList);
+return savethefunction_rvar; }
+
+function msHandler(transaction, results) { savethefunction_rvar="";
+  console.log("ms_handler: cost_measurements cleared");
+ var  query0;
+ query0 = [];
+  query0[0] = ["SELECT * FROM [Category_Movement] WHERE YearOn = "  +  payYear  +  " AND [TypeOf] in ('Incomes','Expenses') ORDER BY TypeOf DESC,AccountName;" , msHandler1, msError1];
+  Sql(dbObj, query0);
+return savethefunction_rvar; }
+
+function msHandler1(transaction, results) { savethefunction_rvar="";
+  console.log("ms_handler1: processing summaries");
+ var  row, i, sAccountName, sYearOn, stypeof, x, samount;
+ var  sAccountName1, sTypeOf1, sold, soldc2i;
+ var  smonth;
+ smonth = Split("0,0,0,0,0,0,0,0,0,0,0,0,0" , ",");
+ var  sid, dbRecord;
+ // save temp values
+  localStorage.setItem("Incomes" ,0);
+  localStorage.setItem("Expenses" ,0);
+  localStorage.setItem("Assets" ,0);
+  localStorage.setItem("Liabilities" ,0);
+  localStorage.setItem("Cost2Income" ,0);
+  for   (i = 0; i  <= results.rows.length - 1; i ++) {
+    row = results.rows.item(i);
+    sAccountName = row["AccountName"];
+    sYearOn = row["YearOn"];
+    stypeof = row["TypeOf"];
+    smonth[1] = row["ActualJan"];
+    smonth[2] = row["ActualFeb"];
+    smonth[3] = row["ActualMar"];
+    smonth[4] = row["ActualApr"];
+    smonth[5] = row["ActualMay"];
+    smonth[6] = row["ActualJun"];
+    smonth[7] = row["ActualJul"];
+    smonth[8] = row["ActualAug"];
+    smonth[9] = row["ActualSep"];
+    smonth[10] = row["ActualOct"];
+    smonth[11] = row["ActualNov"];
+    smonth[12] = row["ActualDec"];
+
+ // update cost measurements
+    for   (x = 1; x  <= 12; x ++) {
+      dbRecord = new Object();
+      sTypeOf1 = stypeof;
+      sAccountName1 = sAccountName;
+      sid = sYearOn  +  "-"  +  CStr(x)  +  "-"  +  sTypeOf1  +  "-"  +  sAccountName1;
+      samount = Round(smonth[x] ,2);
+      if(parseFloat(samount) < 0 ) { samount = samount * (0-1); }
+      if(x == payMonth) {
+ // update amounts
+        sold = localStorage.getItem(stypeof);
+        sold = parseFloat(sold) + parseFloat(samount);
+        localStorage.setItem(stypeof,sold);
+ // update database  
+        sid = InSingleQuote(sid);
+        sAccountName1 = InSingleQuote(sAccountName1);
+        sTypeOf1 = InSingleQuote(sTypeOf1);
+        dbRecord["Id"]= sid;
+        dbRecord["YearOn"]= sYearOn;
+        dbRecord["MonthOn"]= x;
+        dbRecord["Category"]= sAccountName1;
+        dbRecord["TypeOf"]= sTypeOf1;
+        dbRecord["Amount"]= samount;
+        InsertRecord("Cost_Measurements" , dbRecord);
+      }
+    }
+  }
+
+ var  query1;
+ query1 = [];
+  query1[0] = ["SELECT * FROM [Cost_Measurements] WHERE YearOn = "  +  payYear  +  " AND MonthOn = "  +  payMonth  +  " ORDER BY TypeOf DESC,Category;" , msHandler2, msError2];
+  Sql(dbObj, query1);
+return savethefunction_rvar; }
+
+function msHandler2(transaction, results) { savethefunction_rvar="";
+ var  row, i, sid, stypeof, samount, dbWhere;
+ var  scostsplit, scost2income, dbRecord;
+  for   (i = 0; i  <= results.rows.length - 1; i ++) {
+    row = results.rows.item(i);
+    sid = row["Id"];
+    stypeof = row["TypeOf"];
+    samount = row["Amount"];
+    scostsplit = 0;
+    scost2income = 0;
+    switch (True) {
+    case ((stypeof) == "Expenses"):
+      sold = parseFloat(localStorage.getItem("Expenses"));
+      if(sold != 0) {
+        scostsplit = samount / sold;
+        scostsplit = scostsplit * 100;
+        scostsplit = Round(scostsplit,0);
+      }
+ // cost to income
+      sold = parseFloat(localStorage.getItem("Incomes"));
+      if(sold != 0) {
+        scost2income = samount / sold;
+        scost2income = scost2income * 100;
+        scost2income = Round(scost2income,0);
+ // update cost2income
+        soldc2i = localStorage.getItem("Cost2Income");
+        soldc2i = parseFloat(soldc2i) + parseFloat(scost2income);
+        soldc2i = Round(soldc2i,0);
+        localStorage.setItem("Cost2Income" , soldc2i);
+      }
+    }
+    dbRecord = new Object();
+    dbWhere = new Object;
+    sid = InSingleQuote(sid);
+    dbWhere["Id"]= sid;
+    dbRecord["CostSplit"]= scostsplit;
+    dbRecord["Cost2Income"]= scost2income;
+    UpdateRecord("Cost_Measurements" , dbRecord, dbWhere);
+  }
+  if(monthlysummaryB == True) {
+   var  query2;
+ query2 = [];
+    query2[0] = ["SELECT * FROM [Cost_Measurements] WHERE YearOn = "  +  payYear  +  " AND MonthOn = "  +  payMonth  +  " ORDER BY TypeOf DESC,Category;" , msHandler3, msError3];
+    Sql(dbObj, query2);
+  }
+  if(monthlysummaryC == True) {
+   var  query2;
+ query2 = [];
+    query2[0] = ["SELECT * FROM [Cost_Measurements] WHERE YearOn = "  +  payYear  +  " AND MonthOn = "  +  payMonth  +  " ORDER BY TypeOf DESC,Category;" , mscHandler4, mscError4];
+    Sql(dbObj, query2);
+  }
+return savethefunction_rvar; }
+
+function msError(transaction, results) { savethefunction_rvar="";
+  NSB.ShowProgress(False);
+  document.body.style.cursor = 'default';
+  console.log("cost_error:"  +  results.message);
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
+return savethefunction_rvar; }
+
+function msError1(transaction, results) { savethefunction_rvar="";
+  NSB.ShowProgress(False);
+  document.body.style.cursor = 'default';
+  console.log("ms_error1:"  +  results.message);
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
+return savethefunction_rvar; }
+
+function msError2(transaction, results) { savethefunction_rvar="";
+  NSB.ShowProgress(False);
+  document.body.style.cursor = 'default';
+  console.log("ms_error2:"  +  results.message);
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
+return savethefunction_rvar; }
+function Payments_CreateTable() {
+ var  tbls;
+  tbls = new Object();
+  tbls["Id"]= "integer";
+  tbls["DayOn"]= "integer";
+  tbls["MonthOn"]= "integer";
+  tbls["YearOn"]= "integer";
+  tbls["Description"]= "text";
+  tbls["Amount"]= "float";
+  tbls["FromAccount"]= "text";
+  tbls["ToAccount"]= "text";
+  CreateTable("Payments" , tbls, "Id" , "Id");
+  CreateTableIndexes("Payments" , "DayOn,MonthOn,YearOn,Amount,FromAccount,ToAccount");
+}
+
+function AddPayment(sDayOn,sMonthOn,sYearOn,sDescription,sAmount,sFromAccount,sToAccount) {
+  sDayOn = _jsCint(sDayOn);
+  sMonthOn = _jsCint(sMonthOn);
+  sYearOn = _jsCint(sYearOn);
+  sAmount = parseFloat(sAmount);
+  sAmount = Round(sAmount,2);
+  sDescription = InSingleQuote(sDescription);
+  sFromAccount = InSingleQuote(sFromAccount);
+  sToAccount= InSingleQuote(sToAccount);
+ var  dbRecord;
+  dbRecord = new Object();
+  dbRecord["DayOn"]= sDayOn;
+  dbRecord["MonthOn"]= sMonthOn;
+  dbRecord["YearOn"]= sYearOn;
+  dbRecord["Description"]= sDescription;
+  dbRecord["Amount"]= sAmount;
+  dbRecord["FromAccount"]= sFromAccount;
+  dbRecord["ToAccount"]= sToAccount;
+  InsertRecord("Payments" , dbRecord);
+}
+
+function DemoPayments() {
+ // january payments
+  AddPayment(1,1,2013,"Salary Payment" ,8000, "Salary" , "Bank Account 1");
+  AddPayment(2,1,2013,"Income" ,900,"Income 2" , "Bank Account 1");
+  AddPayment(3,1,2013,"Salary Payment" ,800,"Income 3" , "Bank Account 1");
+ // household payments
+  AddPayment(4,1,2013,"bond" ,1400,"Bank Account 1" ,"H1 - Bond/Rent");
+  AddPayment(5,1,2013,"electricity" ,150,"Bank Account 1" , "H1 - Electricity");
+  AddPayment(6,1,2013,"garden" ,200, "Bank Account 1" , "H1 - Garden Maintenance");
+  AddPayment(7,1,2013,"groceries" ,600, "Bank Account 1" , "H1 - Groceries");
+ // transport payments
+  AddPayment(8,1,2013,"car" ,2800, "Bank Account 1" , "C1 - Installment");
+  AddPayment(9,1,2013,"car insurance" ,850, "Bank Account 1" , "C1 - Insurance");
+  AddPayment(10,1,2013,"car" ,1200, "Bank Account 1" , "C1 - Fuel");
+ // add investment
+  AddPayment(11,1,2013,"investment" ,800, "Bank Account 1" , "Savings");
+ // add credit card
+  AddPayment(12,1,2013,"credit" ,450, "Bank Account 1" , "Credit Card");
+ // comunication
+  AddPayment(13,1,2013,"cellphone" ,500, "Bank Account 1" , "Cellphone 1");
+ // pets
+  AddPayment(14,1,2013,"pets" ,50, "Bank Account 1" , "Food");
+ // february payments
+  AddPayment(1,2,2013,"Salary Payment" ,7000, "Salary" , "Bank Account 1");
+  AddPayment(2,2,2013,"Income" ,800,"Income 2" , "Bank Account 1");
+  AddPayment(4,2,2013,"bond" ,1400,"Bank Account 1" ,"H1 - Bond/Rent");
+  AddPayment(5,2,2013,"electricity" ,150,"Bank Account 1" , "H1 - Electricity");
+  AddPayment(7,2,2013,"groceries" ,1000, "Bank Account 1" , "H1 - Groceries");
+  AddPayment(5,2,2013,"water" ,50,"Bank Account 1" , "H1 - Water");
+  AddPayment(8,2,2013,"car" ,2800, "Bank Account 1" , "C1 - Installment");
+  AddPayment(9,2,2013,"car insurance" ,850, "Bank Account 1" , "C1 - Insurance");
+  AddPayment(10,2,2013,"car" ,720, "Bank Account 1" , "C1 - Fuel");
+  AddPayment(12,2,2013,"credit" ,450, "Bank Account 1" , "Credit Card");
+  AddPayment(12,2,2013,"education" ,500, "Bank Account 1" , "Kid 1");
+  AddPayment(13,2,2013,"eat out" ,300, "Bank Account 1" , "Restuarant");
+  AddPayment(13,2,2013,"cellphone" ,500, "Bank Account 1" , "Cellphone 1");
+  AddPayment(14,2,2013,"pets" ,50, "Bank Account 1" , "Food");
+ // march payments
+  AddPayment(1,3,2013,"Salary Payment" ,7000, "Salary" , "Bank Account 1");
+  AddPayment(2,3,2013,"Income" ,800,"Income 2" , "Bank Account 1");
+  AddPayment(4,3,2013,"bond" ,1400,"Bank Account 1" ,"H1 - Bond/Rent");
+  AddPayment(5,3,2013,"electricity" ,150,"Bank Account 1" , "H1 - Electricity");
+  AddPayment(7,3,2013,"groceries" ,500, "Bank Account 1" , "H1 - Groceries");
+  AddPayment(5,3,2013,"water" ,50,"Bank Account 1" , "H1 - Water");
+  AddPayment(8,3,2013,"car" ,2800, "Bank Account 1" , "C1 - Installment");
+  AddPayment(9,3,2013,"car insurance" ,850, "Bank Account 1" , "C1 - Insurance");
+  AddPayment(10,3,2013,"car" ,1200, "Bank Account 1" , "C1 - Fuel");
+  AddPayment(12,3,2013,"credit" ,450, "Bank Account 1" , "Credit Card");
+  AddPayment(12,3,2013,"education" ,1000, "Bank Account 1" , "Kid 1");
+  AddPayment(13,3,2013,"cellphone" ,500, "Bank Account 1" , "Cellphone 1");
+  AddPayment(14,3,2013,"pets" ,50, "Bank Account 1" , "Food");
+ // april payments
+  AddPayment(1,4,2013,"Salary Payment" ,7000, "Salary" , "Bank Account 1");
+  AddPayment(2,4,2013,"Income" ,800,"Income 2" , "Bank Account 1");
+  AddPayment(4,4,2013,"bond" ,1400,"Bank Account 1" ,"H1 - Bond/Rent");
+  AddPayment(5,4,2013,"water" ,50,"Bank Account 1" , "H1 - Water");
+  AddPayment(5,4,2013,"electricity" ,100,"Bank Account 1" , "H1 - Electricity");
+  AddPayment(7,4,2013,"groceries" ,700, "Bank Account 1" , "H1 - Groceries");
+  AddPayment(8,4,2013,"car" ,2800, "Bank Account 1" , "C1 - Installment");
+  AddPayment(9,4,2013,"car insurance" ,850, "Bank Account 1" , "C1 - Insurance");
+  AddPayment(10,4,2013,"car" ,800, "Bank Account 1" , "C1 - Fuel");
+  AddPayment(12,4,2013,"credit" ,450, "Bank Account 1" , "Credit Card");
+  AddPayment(12,4,2013,"education" ,500, "Bank Account 1" , "Kid 1");
+  AddPayment(13,4,2013,"cellphone" ,500, "Bank Account 1" , "Cellphone 1");
+  AddPayment(14,4,2013,"pets" ,0, "Bank Account 1" , "Food");
+ // may payments
+  AddPayment(1,5,2013,"Salary Payment" ,7000, "Salary" , "Bank Account 1");
+  AddPayment(2,5,2013,"Income" ,800,"Income 2" , "Bank Account 1");
+  AddPayment(4,5,2013,"bond" ,1400,"Bank Account 1" ,"H1 - Bond/Rent");
+  AddPayment(5,5,2013,"water" ,0,"Bank Account 1" , "H1 - Water");
+  AddPayment(5,5,2013,"electricity" ,150,"Bank Account 1" , "H1 - Electricity");
+  AddPayment(7,5,2013,"groceries" ,600, "Bank Account 1" , "H1 - Groceries");
+  AddPayment(8,5,2013,"car" ,2800, "Bank Account 1" , "C1 - Installment");
+  AddPayment(9,5,2013,"car insurance" ,850, "Bank Account 1" , "C1 - Insurance");
+  AddPayment(10,5,2013,"car" ,0, "Bank Account 1" , "C1 - Fuel");
+  AddPayment(10,5,2013,"public transport" ,500, "Bank Account 1" , "C1 - Public Transport");
+  AddPayment(12,5,2013,"credit" ,1200, "Bank Account 1" , "Credit Card");
+  AddPayment(12,5,2013,"education" ,500, "Bank Account 1" , "Kid 1");
+  AddPayment(13,5,2013,"cellphone" ,500, "Bank Account 1" , "Cellphone 1");
+  AddPayment(14,5,2013,"pets" ,0, "Bank Account 1" , "Food");
+ // june payments
+  AddPayment(1,6,2013,"Salary Payment" ,7000, "Salary" , "Bank Account 1");
+  AddPayment(2,6,2013,"Income" ,800,"Income 2" , "Bank Account 1");
+  AddPayment(4,6,2013,"bond" ,1400,"Bank Account 1" ,"H1 - Bond/Rent");
+  AddPayment(5,6,2013,"water" ,0,"Bank Account 1" , "H1 - Water");
+  AddPayment(5,6,2013,"electricity" ,150,"Bank Account 1" , "H1 - Electricity");
+  AddPayment(7,6,2013,"groceries" ,600, "Bank Account 1" , "H1 - Groceries");
+  AddPayment(8,6,2013,"car" ,2800, "Bank Account 1" , "C1 - Installment");
+  AddPayment(9,6,2013,"car insurance" ,850, "Bank Account 1" , "C1 - Insurance");
+  AddPayment(10,6,2013,"car" ,0, "Bank Account 1" , "C1 - Fuel");
+  AddPayment(10,6,2013,"public transport" ,500, "Bank Account 1" , "C1 - Public Transport");
+  AddPayment(12,6,2013,"credit" ,0, "Bank Account 1" , "Credit Card");
+  AddPayment(12,6,2013,"education" ,500, "Bank Account 1" , "Kid 1");
+  AddPayment(13,6,2013,"cellphone" ,500, "Bank Account 1" , "Cellphone 1");
+  AddPayment(14,6,2013,"pets" ,50, "Bank Account 1" , "Food");
+ // july payments
+  AddPayment(1,7,2013,"Salary Payment" ,7000, "Salary" , "Bank Account 1");
+  AddPayment(2,7,2013,"Income" ,800,"Income 2" , "Bank Account 1");
+  AddPayment(4,7,2013,"bond" ,1400,"Bank Account 1" ,"H1 - Bond/Rent");
+  AddPayment(5,7,2013,"water" ,0,"Bank Account 1" , "H1 - Water");
+  AddPayment(5,7,2013,"electricity" ,150,"Bank Account 1" , "H1 - Electricity");
+  AddPayment(7,7,2013,"groceries" ,600, "Bank Account 1" , "H1 - Groceries");
+  AddPayment(8,7,2013,"car" ,2800, "Bank Account 1" , "C1 - Installment");
+  AddPayment(9,7,2013,"car insurance" ,850, "Bank Account 1" , "C1 - Insurance");
+  AddPayment(10,7,2013,"car" ,0, "Bank Account 1" , "C1 - Fuel");
+  AddPayment(10,7,2013,"public transport" ,500, "Bank Account 1" , "C1 - Public Transport");
+  AddPayment(12,7,2013,"credit" ,0, "Bank Account 1" , "Credit Card");
+  AddPayment(12,7,2013,"education" ,500, "Bank Account 1" , "Kid 1");
+  AddPayment(13,7,2013,"cellphone" ,500, "Bank Account 1" , "Cellphone 1");
+  AddPayment(14,7,2013,"pets" ,0, "Bank Account 1" , "Food");
+ // august payments
+  AddPayment(1,8,2013,"Salary Payment" ,7000, "Salary" , "Bank Account 1");
+  AddPayment(2,8,2013,"Income" ,800,"Income 2" , "Bank Account 1");
+  AddPayment(4,8,2013,"bond" ,1400,"Bank Account 1" ,"H1 - Bond/Rent");
+  AddPayment(5,8,2013,"water" ,0,"Bank Account 1" , "H1 - Water");
+  AddPayment(5,8,2013,"electricity" ,150,"Bank Account 1" , "H1 - Electricity");
+  AddPayment(7,8,2013,"groceries" ,600, "Bank Account 1" , "H1 - Groceries");
+  AddPayment(8,8,2013,"car" ,2800, "Bank Account 1" , "C1 - Installment");
+  AddPayment(9,8,2013,"car insurance" ,850, "Bank Account 1" , "C1 - Insurance");
+  AddPayment(10,8,2013,"car" ,0, "Bank Account 1" , "C1 - Fuel");
+  AddPayment(10,8,2013,"public transport" ,500, "Bank Account 1" , "C1 - Public Transport");
+  AddPayment(12,8,2013,"credit" ,0, "Bank Account 1" , "Credit Card");
+  AddPayment(12,8,2013,"education" ,500, "Bank Account 1" , "Kid 1");
+  AddPayment(13,8,2013,"cellphone" ,800, "Bank Account 1" , "Cellphone 1");
+  AddPayment(14,8,2013,"pets" ,0, "Bank Account 1" , "Food");
+ // september payments
+  AddPayment(1,9,2013,"Salary Payment" ,7800, "Salary" , "Bank Account 1");
+  AddPayment(2,9,2013,"Income" ,800,"Income 2" , "Bank Account 1");
+  AddPayment(4,9,2013,"bond" ,1400,"Bank Account 1" ,"H1 - Bond/Rent");
+  AddPayment(5,9,2013,"water" ,0,"Bank Account 1" , "H1 - Water");
+  AddPayment(5,9,2013,"electricity" ,150,"Bank Account 1" , "H1 - Electricity");
+  AddPayment(7,9,2013,"groceries" ,600, "Bank Account 1" , "H1 - Groceries");
+  AddPayment(8,9,2013,"car" ,2800, "Bank Account 1" , "C1 - Installment");
+  AddPayment(9,9,2013,"car insurance" ,850, "Bank Account 1" , "C1 - Insurance");
+  AddPayment(10,9,2013,"car" ,0, "Bank Account 1" , "C1 - Fuel");
+  AddPayment(10,9,2013,"public transport" ,500, "Bank Account 1" , "C1 - Public Transport");
+  AddPayment(12,9,2013,"credit" ,0, "Bank Account 1" , "Credit Card");
+  AddPayment(12,9,2013,"education" ,500, "Bank Account 1" , "Kid 1");
+  AddPayment(13,9,2013,"cellphone" ,355, "Bank Account 1" , "Cellphone 1");
+  AddPayment(14,9,2013,"pets" ,0, "Bank Account 1" , "Food");
+ // october payments
+  AddPayment(1,10,2013,"Salary Payment" ,7800, "Salary" , "Bank Account 1");
+  AddPayment(2,10,2013,"Income" ,800,"Income 2" , "Bank Account 1");
+  AddPayment(4,10,2013,"bond" ,1400,"Bank Account 1" ,"H1 - Bond/Rent");
+  AddPayment(5,10,2013,"water" ,0,"Bank Account 1" , "H1 - Water");
+  AddPayment(5,10,2013,"electricity" ,150,"Bank Account 1" , "H1 - Electricity");
+  AddPayment(7,10,2013,"groceries" ,0, "Bank Account 1" , "H1 - Groceries");
+  AddPayment(8,10,2013,"car" ,2800, "Bank Account 1" , "C1 - Installment");
+  AddPayment(9,10,2013,"car insurance" ,400, "Bank Account 1" , "C1 - Insurance");
+  AddPayment(10,10,2013,"car" ,0, "Bank Account 1" , "C1 - Fuel");
+  AddPayment(10,10,2013,"public transport" ,500, "Bank Account 1" , "C1 - Public Transport");
+  AddPayment(12,10,2013,"credit" ,0, "Bank Account 1" , "Credit Card");
+  AddPayment(12,10,2013,"education" ,500, "Bank Account 1" , "Kid 1");
+  AddPayment(13,10,2013,"cellphone" ,409, "Bank Account 1" , "Cellphone 1");
+  AddPayment(14,10,2013,"pets" ,0, "Bank Account 1" , "Food");
+ // november payments
+  AddPayment(1,11,2013,"Salary Payment" ,7800, "Salary" , "Bank Account 1");
+  AddPayment(2,11,2013,"Income" ,800,"Income 2" , "Bank Account 1");
+  AddPayment(4,11,2013,"bond" ,1400,"Bank Account 1" ,"H1 - Bond/Rent");
+  AddPayment(5,11,2013,"water" ,0,"Bank Account 1" , "H1 - Water");
+  AddPayment(5,11,2013,"electricity" ,150,"Bank Account 1" , "H1 - Electricity");
+  AddPayment(7,11,2013,"groceries" ,600, "Bank Account 1" , "H1 - Groceries");
+  AddPayment(8,11,2013,"car" ,2800, "Bank Account 1" , "C1 - Installment");
+  AddPayment(9,11,2013,"car insurance" ,850, "Bank Account 1" , "C1 - Insurance");
+  AddPayment(10,11,2013,"car" ,0, "Bank Account 1" , "C1 - Fuel");
+  AddPayment(10,11,2013,"public transport" ,500, "Bank Account 1" , "C1 - Public Transport");
+  AddPayment(12,11,2013,"credit" ,0, "Bank Account 1" , "Credit Card");
+  AddPayment(12,11,2013,"education" ,0, "Bank Account 1" , "Kid 1");
+  AddPayment(13,11,2013,"cellphone" ,500, "Bank Account 1" , "Cellphone 1");
+  AddPayment(14,11,2013,"pets" ,0, "Bank Account 1" , "Food");
+ // december payments
+  AddPayment(1,12,2013,"Salary Payment" ,7800, "Salary" , "Bank Account 1");
+  AddPayment(2,12,2013,"Income" ,800,"Income 2" , "Bank Account 1");
+  AddPayment(2,12,2013,"Income" ,3500,"Bonus" , "Bank Account 1");
+  AddPayment(4,12,2013,"bond" ,1400,"Bank Account 1" ,"H1 - Bond/Rent");
+  AddPayment(5,12,2013,"water" ,0,"Bank Account 1" , "H1 - Water");
+  AddPayment(5,12,2013,"electricity" ,170,"Bank Account 1" , "H1 - Electricity");
+  AddPayment(7,12,2013,"groceries" ,2000, "Bank Account 1" , "H1 - Groceries");
+  AddPayment(8,12,2013,"car" ,2800, "Bank Account 1" , "C1 - Installment");
+  AddPayment(9,12,2013,"car insurance" ,850, "Bank Account 1" , "C1 - Insurance");
+  AddPayment(10,12,2013,"car" ,0, "Bank Account 1" , "C1 - Fuel");
+  AddPayment(10,12,2013,"car hire" ,1800, "Bank Account 1" , "C1 - Car Hire");
+  AddPayment(10,12,2013,"public transport" ,0, "Bank Account 1" , "C1 - Public Transport");
+  AddPayment(10,12,2013,"restuarant" ,800, "Bank Account 1" , "Restuarant");
+  AddPayment(12,12,2013,"credit" ,0, "Bank Account 1" , "Credit Card");
+  AddPayment(12,12,2013,"education" ,0, "Bank Account 1" , "Kid 1");
+  AddPayment(13,12,2013,"cellphone" ,1350, "Bank Account 1" , "Cellphone 1");
+  AddPayment(14,12,2013,"pets" ,0, "Bank Account 1" , "Food");
+  ResetAccounts();
+  ResetMonthlySummary();
+}
+function Trial_CreateTable() {
+ var  tbls;
+  tbls = new Object();
+  tbls["IMEI"]= "text";
+  tbls["Runs"]= "integer";
+  CreateTable("Trial" , tbls, "IMEI" , "");
+  CreateTableIndexes("Trial" , "Runs");
+}
+window.addEventListener('load', function() {
+  MonthlySummary.style.display = 'block';
+  NSB.addProperties(msTitle);
+  NSB.addDisableProperty(msTitle);
+  if(typeof(msTitle_left)!='undefined') msTitle_left.onclick=function() {msTitle.onclick(msTitle_left.getAttribute('nsbvalue'))};
+  if(typeof(msTitle_right)!='undefined') msTitle_right.onclick=function() {msTitle.onclick(msTitle_right.getAttribute('nsbvalue'))};
+  grdMS_ref = new iScroll('grdMS_scroller',{ bounce:true, zoom:false });
+  grdMS.refresh=function(){setTimeout(NSB.refresh,100,grdMS_ref)};
+  grdMS.GridRefreshWidth=function(){setTimeout(NSB.GridRefreshWidth,10,grdMS)};
+  NSB.Grid_init('grdMS');
+  NSB.addProperties(grdMS,grdMS_scroller)
+  MonthlySummary.style.display = 'none';
+}, false);
+MonthlySummary.onsubmit=function(event){window.event.cancelBubble=true;window.event.returnValue=false};
+NSB.addProperties(MonthlySummary);
+
+function LoadMonthlySummary() { savethefunction_rvar="";
+  document.body.style.cursor = 'wait';
+  NSB.ShowProgress("Loading...");
+  grdMS.Left = 0;
+  grdMS.Top = msTitle.Height;
+  grdMS.Height = MonthlySummary.Height - msTitle.Height;
+  grdMS.Width = MonthlySummary.Width;
+  payYear = localStorage.getItem("payYear");
+  payMonth = localStorage.getItem("payMonth");
+  $("#msTitle h1").text("Monthly Summary: "  +  payYear  +  " "  +  MonthName(_jsCint(payMonth)));
+  payMonth = _jsCint(payMonth);
+  rCnt = grdMS.getRowCount();
+  grdMS.deleteRows(rCnt);
+  $("#grdMS td").css("font-family" , "helvetica");
+  monthlysummaryB = True;
+  monthlysummaryC = False;
+  ResetMonthlySummary();
+return savethefunction_rvar; }
+
+
+function msHandler3(transaction, results) { savethefunction_rvar="";
+ var  row, i, rCnt;
+ var  scostsplit, scost2income, scost2incomeM;
+ var  scategory, samount, scostsplit, sbudget;
+  rCnt = 1;
+  scost2incomeM = localStorage.getItem("Cost2Income");
+  AddMSRow(rCnt,payYear  +  " "  +  MonthName(payMonth),"0" ,"0" ,"100%" , scost2incomeM  +  "%");
+  for   (i = 0; i  <= results.rows.length - 1; i ++) {
+    row = results.rows.item(i);
+    scategory = row["Category"];
+    samount = row["Amount"];
+    sbudget = row["Budget"];
+    scostsplit = row["CostSplit"];
+    scost2income = row["Cost2Income"];
+    rCnt = rCnt + 1;
+    AddMSRow(rCnt,scategory,sbudget,samount,scostsplit  +  "%" , scost2income  +  "%");
+  }
+ // add total costs
+  rCnt = rCnt + 1;
+  samount = parseFloat(localStorage.getItem("Expenses"));
+  AddMSRow(rCnt,"Total Costs" ,"0.00" ,samount,"" ,"");
+  GridBoldRow(grdMS,1);
+  GridBoldRow(grdMS,2);
+  GridBoldRow(grdMS,rCnt);
+ // add available funds
+  rCnt = rCnt + 1;
+  sdiff = parseFloat(localStorage.getItem("Incomes"));
+  sdiff = sdiff - parseFloat(samount);
+  AddMSRow(rCnt,"Available Funds" ,"0.00" ,sdiff,"" ,"");
+  GridBoldRow(grdMS,rCnt);
+  GridSetHeight(grdMS,"32px");
+  GridRightAlign(grdMS,1,4);
+  GridAlternateColor(grdMS);
+  NSB.ShowProgress(False);
+  document.body.style.cursor = 'default';
+return savethefunction_rvar; }
+
+function AddMSRow(rowPos,scategory,sbudget,samount,scostsplit,scost2income) { savethefunction_rvar="";
+  grdMS.addRows(1);
+  grdMS.setValue(rowPos,0,scategory);
+  grdMS.setValue(rowPos,1,FormatNumber(sbudget,2));
+  grdMS.setValue(rowPos,2,FormatNumber(samount,2));
+  grdMS.setValue(rowPos,3,scostsplit);
+  grdMS.setValue(rowPos,4,scost2income);
+return savethefunction_rvar; }
+
+
+
+function msError3(transaction, results) { savethefunction_rvar="";
+  NSB.ShowProgress(False);
+  document.body.style.cursor = 'default';
+  console.log("ms_error3:"  +  results.message);
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
+return savethefunction_rvar; }
+
+msTitle.onclick = function(choice) { savethefunction_rvar="";
+  if(TypeName(choice) == "object" )  { return savethefunction_rvar; }
+  switch (True) {
+  case ((choice) == "Back"):
+    ChangeForm(PaymentsSelector);
+	break;
+  case ((choice) == "Refresh"):
+    LoadMonthlySummary();
+  }
+return savethefunction_rvar; }
+
+MonthlySummary.onshow = function() { savethefunction_rvar="";
+  LoadMonthlySummary();
+return savethefunction_rvar; }
+
+window.addEventListener('load', function() {
+  MonthlySummaryChart.style.display = 'block';
+  NSB.addProperties(mscTitle);
+  NSB.addDisableProperty(mscTitle);
+  if(typeof(mscTitle_left)!='undefined') mscTitle_left.onclick=function() {mscTitle.onclick(mscTitle_left.getAttribute('nsbvalue'))};
+  if(typeof(mscTitle_right)!='undefined') mscTitle_right.onclick=function() {mscTitle.onclick(mscTitle_right.getAttribute('nsbvalue'))};
+msChart_settings={'title':'', 'background':'white',
+'description':'', 'padding':{ left: 10, top: 10, right: 10, bottom: 10 }, 'titlePadding':{ left: 2, top: 2, right: 2, bottom: 2 },
+'colorScheme':'scheme01', 'showLegend':'true', 'enabled':'true',
+'showToolTips':'true', 'toolTipDelay':'500' }
+msChart.style.position='relative';
+NSB.addProperties(msChart,msChart_wrapper);
+  MonthlySummaryChart.style.display = 'none';
+}, false);
+MonthlySummaryChart.onsubmit=function(event){window.event.cancelBubble=true;window.event.returnValue=false};
+NSB.addProperties(MonthlySummaryChart);
+function LoadMSChart() { savethefunction_rvar="";
+  document.body.style.cursor = 'wait';
+  NSB.ShowProgress("Loading...");
+  msChart.Left = 0;
+  msChart.Top = mscTitle.Height;
+  msChart.Height = MonthlySummaryChart.Height - mscTitle.Height;
+  msChart.Width = MonthlySummaryChart.Width;
+  payYear = localStorage.getItem("payYear");
+  payMonth = localStorage.getItem("payMonth");
+  $("#mscTitle h1").text("Monthly Summary: "  +  payYear  +  " "  +  MonthName(_jsCint(payMonth)));
+  payMonth = _jsCint(payMonth);
+  monthlysummaryB = False;
+  monthlysummaryC = True;
+  ResetMonthlySummary();
+return savethefunction_rvar; }
+
+function mscHandler4(transaction, results) { savethefunction_rvar="";
+ var  row, i, rCnt, scategory, samount, scostsplit, scost2income, crow;
+ var  crows;
+  crows = [];
+  for   (i = 0; i  <= results.rows.length - 1; i ++) {
+    row = results.rows.item(i);
+    scategory = row["Category"];
+    samount = row["Amount"];
+    scostsplit = row["CostSplit"];
+    scost2income = row["Cost2Income"];
+    crow = {}
+    crow["category"] = scategory;
+    crow["CostSplit"] = scostsplit;
+    crow["Cost2Income"] = scost2income;
+    crows[i] = crow;
+  }
+
+ // define the chart
+  msChart_settings.showBorderLine = False;
+  msChart_settings.source = crows;
+  msChart_settings.categoryAxis={dataField:"category" , showGridLines:True,textRotationAngle:-90}
+  msChart_settings.seriesGroups = [  {  type: "column" ,  valueAxis:  {description: "Percentage" , formatSettings: {prefix: "" , thousandsSeparator: ","}},  series:[  { dataField: "CostSplit" , displayText: "Cost Split"},  { dataField: "Cost2Income" , displayText: "Cost to Income"},  ]  }  ];
+ //Render the chart.  
+      $("#msChart").jqxChart(msChart_settings);
+  NSB.ShowProgress(False);
+  document.body.style.cursor = 'default';
+return savethefunction_rvar; }
+
+function mscError4(transaction, results) { savethefunction_rvar="";
+  NSB.ShowProgress(False);
+  document.body.style.cursor = 'default';
+  console.log("msc_error4:"  +  results.message);
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
+return savethefunction_rvar; }
+
+
+
+
+mscTitle.onclick = function(choice) { savethefunction_rvar="";
+  if(TypeName(choice) == "object" )  { return savethefunction_rvar; }
+  switch (True) {
+  case ((choice) == "Back"):
+    ChangeForm(PaymentsSelector);
+  }
+return savethefunction_rvar; }
+
+MonthlySummaryChart.onshow = function() { savethefunction_rvar="";
+  LoadMSChart();
+return savethefunction_rvar; }
+
+window.addEventListener('load', function() {
+  HistoryChart.style.display = 'block';
+  NSB.addProperties(historyTitle);
+  NSB.addDisableProperty(historyTitle);
+  if(typeof(historyTitle_left)!='undefined') historyTitle_left.onclick=function() {historyTitle.onclick(historyTitle_left.getAttribute('nsbvalue'))};
+  if(typeof(historyTitle_right)!='undefined') historyTitle_right.onclick=function() {historyTitle.onclick(historyTitle_right.getAttribute('nsbvalue'))};
+historyChart1_settings={'title':'', 'background':'white',
+'description':'', 'padding':{ left: 10, top: 10, right: 10, bottom: 10 }, 'titlePadding':{ left: 2, top: 2, right: 2, bottom: 2 },
+'colorScheme':'scheme01', 'showLegend':'true', 'enabled':'true',
+'showToolTips':'true', 'toolTipDelay':'500' }
+historyChart1.style.position='relative';
+NSB.addProperties(historyChart1,historyChart1_wrapper);
+  HistoryChart.style.display = 'none';
+}, false);
+HistoryChart.onsubmit=function(event){window.event.cancelBubble=true;window.event.returnValue=false};
+NSB.addProperties(HistoryChart);
+function LoadHistoryChart() { savethefunction_rvar="";
+  document.body.style.cursor = 'wait';
+  NSB.ShowProgress("Loading...");
+  historyChart1.Left = 0;
+  historyChart1.Top = historyTitle.Height;
+  historyChart1.Height = HistoryChart.Height - historyTitle.Height;
+  historyChart1.Width = HistoryChart.Width;
+  payYear = localStorage.getItem("payYear");
+  $("#historyTitle h1").text("History Chart: "  +  payYear);
+  sqlList = [];
+  sqlList[0] = ["SELECT * from Category_Movement Where YearOn = "  +  payYear  +  " AND TypeOf in ('Incomes','Expenses') ORDER BY TypeOf DESC;" , historyHandler, historyHandlerE];
+  Sql(dbObj, sqlList);
+return savethefunction_rvar; }
+
+function historyHandler(transaction, results) { savethefunction_rvar="";
+ var  row, i, crow, crows;
+  crows = [];
+  for   (i = 0; i  <= results.rows.length - 1; i ++) {
+    row = results.rows.item(i);
+    crow = {}
+    crow["category"] = row["AccountName"];
+    crow["Jan"] = row["ActualJan"];
+    crow["Feb"] = row["ActualFeb"];
+    crow["Mar"] = row["ActualMar"];
+    crow["Apr"] = row["ActualApr"];
+    crow["May"] = row["ActualMay"];
+    crow["Jun"] = row["ActualJun"];
+    crow["Jul"] = row["ActualJul"];
+    crow["Aug"] = row["ActualAug"];
+    crow["Sep"] = row["ActualSep"];
+    crow["Oct"] = row["ActualOct"];
+    crow["Nov"] = row["ActualNov"];
+    crow["Dec"] = row["ActualDec"];
+ // positive amounts
+    if(parseFloat(crow["Jan"]) < 0 ) { crow["Jan"] = parseFloat(crow["Jan"]) * (0-1); }
+    if(parseFloat(crow["Feb"]) < 0 ) { crow["Feb"] = parseFloat(crow["Feb"]) * (0-1); }
+    if(parseFloat(crow["Mar"]) < 0 ) { crow["Mar"] = parseFloat(crow["Mar"]) * (0-1); }
+    if(parseFloat(crow["Apr"]) < 0 ) { crow["Apr"] = parseFloat(crow["Apr"]) * (0-1); }
+    if(parseFloat(crow["May"]) < 0 ) { crow["May"] = parseFloat(crow["May"]) * (0-1); }
+    if(parseFloat(crow["Jun"]) < 0 ) { crow["Jun"] = parseFloat(crow["Jun"]) * (0-1); }
+    if(parseFloat(crow["Jul"]) < 0 ) { crow["Jul"] = parseFloat(crow["Jul"]) * (0-1); }
+    if(parseFloat(crow["Aug"]) < 0 ) { crow["Aug"] = parseFloat(crow["Aug"]) * (0-1); }
+    if(parseFloat(crow["Sep"]) < 0 ) { crow["Sep"] = parseFloat(crow["Sep"]) * (0-1); }
+    if(parseFloat(crow["Oct"]) < 0 ) { crow["Oct"] = parseFloat(crow["Oct"]) * (0-1); }
+    if(parseFloat(crow["Nov"]) < 0 ) { crow["Nov"] = parseFloat(crow["Nov"]) * (0-1); }
+    if(parseFloat(crow["Dec"]) < 0 ) { crow["Dec"] = parseFloat(crow["Dec"]) * (0-1); }
+    crows[i] = crow;
+  }
+
+ // define the chart
+  historyChart1_settings.showBorderLine = False;
+  historyChart1_settings.source = crows;
+  historyChart1_settings.categoryAxis={dataField:"category" , showGridLines:True,textRotationAngle:-90}
+  historyChart1_settings.seriesGroups = [  {  type: "column" ,  valueAxis:  {description: "Amount" , formatSettings: {prefix: "" , thousandsSeparator: ","}},  series:[  { dataField: "Jan" , displayText: "Jan"},  { dataField: "Feb" , displayText: "Feb"},  { dataField: "Mar" , displayText: "Mar"},  { dataField: "Apr" , displayText: "Apr"},  { dataField: "May" , displayText: "May"},  { dataField: "Jun" , displayText: "Jun"},  { dataField: "Jul" , displayText: "Jul"},  { dataField: "Aug" , displayText: "Aug"},  { dataField: "Sep" , displayText: "Sep"},  { dataField: "Oct" , displayText: "Oct"},  { dataField: "Nov" , displayText: "Nov"},  { dataField: "Dec" , displayText: "Dec"},  ]  }  ];
+ //Render the chart.  
+      $("#historyChart1").jqxChart(historyChart1_settings);
+  NSB.ShowProgress(False);
+  document.body.style.cursor = 'default';
+return savethefunction_rvar; }
+
+function historyHandlerE(transaction, results) { savethefunction_rvar="";
+  NSB.ShowProgress(False);
+  document.body.style.cursor = 'default';
+  console.log("msc_error4:"  +  results.message);
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
+return savethefunction_rvar; }
+
+
+historyTitle.onclick = function(choice) { savethefunction_rvar="";
+  if(TypeName(choice) == "object" )  { return savethefunction_rvar; }
+  switch (True) {
+  case ((choice) == "Back"):
+    ChangeForm(PaymentsSelector);
+  }
+return savethefunction_rvar; }
+
+HistoryChart.onshow = function() { savethefunction_rvar="";
+  LoadHistoryChart();
+return savethefunction_rvar; }
+
+window.addEventListener('load', function() {
+  IEChart.style.display = 'block';
+  NSB.addProperties(ieTitle);
+  NSB.addDisableProperty(ieTitle);
+  if(typeof(ieTitle_left)!='undefined') ieTitle_left.onclick=function() {ieTitle.onclick(ieTitle_left.getAttribute('nsbvalue'))};
+  if(typeof(ieTitle_right)!='undefined') ieTitle_right.onclick=function() {ieTitle.onclick(ieTitle_right.getAttribute('nsbvalue'))};
+ieChart1_settings={'title':'', 'background':'white',
+'description':'', 'padding':{ left: 10, top: 10, right: 10, bottom: 10 }, 'titlePadding':{ left: 2, top: 2, right: 2, bottom: 2 },
+'colorScheme':'scheme01', 'showLegend':'true', 'enabled':'true',
+'showToolTips':'true', 'toolTipDelay':'500' }
+ieChart1.style.position='relative';
+NSB.addProperties(ieChart1,ieChart1_wrapper);
+  IEChart.style.display = 'none';
+}, false);
+IEChart.onsubmit=function(event){window.event.cancelBubble=true;window.event.returnValue=false};
+NSB.addProperties(IEChart);
+function LoadIEChart() { savethefunction_rvar="";
+  document.body.style.cursor = 'wait';
+  NSB.ShowProgress("Loading...");
+  ieChart1.Left = 0;
+  ieChart1.Top = ieTitle.Height;
+  ieChart1.Height = IEChart.Height - ieTitle.Height;
+  ieChart1.Width = IEChart.Width;
+  payYear = localStorage.getItem("payYear");
+  $("#ieTitle h1").text("Income vs Expenses Chart: "  +  payYear);
+  sqlList = [];
+  sqlList[0] = ["SELECT * from Category_Movement Where YearOn = "  +  payYear  +  " AND TypeOf in ('Incomes','Expenses') ORDER BY TypeOf DESC;" , ieHandler, ieHandlerE];
+  Sql(dbObj, sqlList);
+return savethefunction_rvar; }
+
+function ieHandler(transaction, results) { savethefunction_rvar="";
+ var  row, i, x, aold, samount, stypeof;
+ var  siname, sename, mactual;
+ var  crow, crows;
+ var  iamount, eamount, mname;
+  for   (x = 1; x  <= 12; x ++) {
+    siname = MonthNames(x)  +  "_Incomes";
+    sename = MonthNames(x)  +  "_Expenses";
+    localStorage.setItem(siname,0);
+    localStorage.setItem(sename,0);
+  }
+  for   (i = 0; i  <= results.rows.length - 1; i ++) {
+    row = results.rows.item(i);
+    stypeof = row["TypeOf"];
+    for   (x = 1; x  <= 12; x ++) {
+      mactual = "Actual"  +  MonthNames(x);
+      samount = row[mactual];
+      switch (True) {
+      case ((stypeof) == "Incomes"):
+        siname = MonthNames(x)  +  "_Incomes";
+        aold = localStorage.getItem(siname);
+        aold = parseFloat(aold) + parseFloat(samount);
+        localStorage.setItem(siname,aold);
+	break;
+      case ((stypeof) == "Expenses"):
+        sename = MonthNames(x)  +  "_Expenses";
+        aold = localStorage.getItem(sename);
+        aold = parseFloat(aold) + parseFloat(samount);
+        localStorage.setItem(sename,aold);
+      }
+    }
+  }
+
+  crows = [];
+  for   (i = 1; i  <= 12; i ++) {
+    siname = MonthNames(i)  +  "_Incomes";
+    sename = MonthNames(i)  +  "_Expenses";
+    iamount = localStorage.getItem(siname);
+    eamount = localStorage.getItem(sename);
+    mname = MonthNames(i);
+    if(parseFloat(iamount) < 0 ) { iamount = parseFloat(iamount) * (0-1); }
+    if(parseFloat(eamount) < 0 ) { eamount = parseFloat(eamount) * (0-1); }
+    crow = {}
+    crow["period"] = mname;
+    crow["income"] = iamount;
+    crow["expenses"] = eamount;
+    crows[i-1] = crow;
+  }
+  DoEvents();
+
+ // define the chart
+  ieChart1_settings.showBorderLine = False;
+  ieChart1_settings.source = crows;
+  ieChart1_settings.categoryAxis={dataField:"period" , showGridLines:True,textRotationAngle:-90}
+  ieChart1_settings.seriesGroups = [  {  type: "spline" ,  valueAxis:  {description: "Amount" , formatSettings: {prefix: "" , thousandsSeparator: ","}},  series:[  { dataField: "income" , displayText: "Income"},  { dataField: "expenses" , displayText: "Expenses"},  ]  }  ];
+ //Render the chart.  
+      $("#ieChart1").jqxChart(ieChart1_settings);
+  NSB.ShowProgress(False);
+  document.body.style.cursor = 'default';
+return savethefunction_rvar; }
+
+function ieHandlerE(transaction, results) { savethefunction_rvar="";
+  NSB.ShowProgress(False);
+  document.body.style.cursor = 'default';
+  console.log("ieHandler:"  +  results.message);
+  NSB.MsgBox("SQL Error: "  +  results.code  +  ": "  +  results.message);
+return savethefunction_rvar; }
+
+
+ieTitle.onclick = function(choice) { savethefunction_rvar="";
+  if(TypeName(choice) == "object" )  { return savethefunction_rvar; }
+  switch (True) {
+  case ((choice) == "Back"):
+    ChangeForm(PaymentsSelector);
+  }
+return savethefunction_rvar; }
+
+IEChart.onshow = function() { savethefunction_rvar="";
+  LoadIEChart();
+return savethefunction_rvar; }
+
 
 window.addEventListener('load', function() {
   Splash.style.display = 'block';
