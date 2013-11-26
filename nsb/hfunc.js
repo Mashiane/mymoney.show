@@ -2117,6 +2117,7 @@ NSB.Print=function(s){
      if(!s) return;
      if(NSB_text.innerHTML.slice(-4)!="<br>") s="<br>" + s;
      NSB_text.innerHTML=NSB_text.innerHTML + s;
+     NSB.Printobj.style.display="block";
      if(typeof(iScroll)!="undefined") {setTimeout(function(){NSB.Printref.refresh()}, 100)}
   }
   else {
