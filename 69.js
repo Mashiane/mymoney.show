@@ -1,4 +1,4 @@
 
-FinancialPosition.innerHTML=[  NSB.HeaderBar_jqm("finposTitle", "Financial Position", "Back", "arrow-l", "Refresh", "refresh", " data-theme=b style='' class=' ' "),
-  NSB.Grid("grdFinPosition", "1", "3", "", "", "Title,Description,Amount", "left,left,right", "style=", ""),
+PaymentsYearsChart.innerHTML=[  NSB.HeaderBar_jqm("payYearChartTitle", "Top 10 Categories", "Back", "arrow-l", "Refresh", "refresh", " data-theme=b style='' class=' ' "),
+  "<div id='payYearChart_wrapper' style='background-color:white;'><div id='payYearChart'></div></div>",
   ].join('');

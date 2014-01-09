@@ -1,4 +1,4 @@
 
-frmSettings.innerHTML=[  NSB.List_jqm("lstWhatToDo1", "ul", "none", "b", "b", 'Categories,Institutions,Accounts', "", "N,N,N", "style=", 'class=" "', "100%", true, false, false, "arrow-r"),
-  NSB.HeaderBar_jqm("hBar1", "Settings", "Home", "home", "", "false", " data-theme=b style='' class=' ' "),
+frmSignIn.innerHTML=[  NSB.HeaderBar_jqm("signInT", "MyMoney.Show > Sign In", "", "false", "Sign In", "check", " data-theme=b style='' class=' ' "),
+  NSB.MultiInput("mSignIn", 2, "smallfield", "Enter username,Enter password", "Username :,Password :", "text,password", "", " style=  ", false),
   ].join('');

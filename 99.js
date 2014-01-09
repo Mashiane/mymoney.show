@@ -1,4 +1,9 @@
 
-frmRestore.innerHTML=[  NSB.HeaderBar_jqm("restoreT", "MyMoney.Show > Restore", "Home", "home", "Restore", "check", " data-theme=b style='' class=' ' "),
-  "<textarea id='txtRestore' class=' ' name='' data-theme=c style='display:block; text-align:left; font-size:14px; font-family:helvetica; font-style:normal; font-weight:normal; color:black; background-color:white;-webkit-overflow-scrolling:touch; max-height:185px; '  autocorrect='off'  autocomplete='off'  autocapitalize='off'  placeholder='Replace this text with the copied text from the &apos;Backup&apos; E-Mail.&quot;'></textarea>",
+Budgets.innerHTML=[  NSB.HeaderBar_jqm("budgetsTitle", "Account Budgets", "Back", "arrow-l", "Next", "arrow-r", " data-theme=b style='' class=' ' "),
+  NSB.MultiInput("miBudgets1", 6, "bigfield", "Jan,Mar,Jun,Aug,Oct,Dec", "", "number,number,number,number,number,number", "", " style=  ", false),
+  NSB.MultiInput("miBudgets2", 6, "bigfield", "Feb,Apr,Jul,Sep,Nov", "", "number,number,number,number,number,number", "", " style=  ", false),
+  NSB.MultiInput("budgetsInput", 6, "bigfield", "", "", "text,text,text,text,text,text", "Jan/Feb,Mar/Apr,Jun/Jul,Aug/Sep,Oct/Nov,Dec", " style= disabled='disabled' ", false),
+  NSB.MultiInput("MultiInput3", 2, "bigfield", "One,Two", "", "text,text", "Year,Account", " style= disabled='disabled' ", false),
+  "<div id='txtBudgetYear_wrapper'><input id='txtBudgetYear' type='text' data-theme='c' name='' autocorrect='on' autocomplete='on' autocapitalize='on' maxlength='32' value='' placeholder='Budget Year' data-mini='true' data-nsb-type='TextBox_jqm' class=' ' /></div>",
+  NSB.ComboBox("cboBudgetAccount", "One,Two", "1,2", "", ""),
   ].join('');

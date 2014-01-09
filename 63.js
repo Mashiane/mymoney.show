@@ -1,4 +1,4 @@
 
-Charts.innerHTML=[  NSB.HeaderBar_jqm("chartsTitle", "Charts", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
-  "<div id='chartObj_wrapper' style='background-color:white;'><div id='chartObj'></div></div>",
+PaymentsSelector.innerHTML=[  NSB.List_jqm("payPeriods", "ul", "none", "b", "b", '', "", "N,N,N", "style=", 'class=" "', "100%", true, false, false, "false"),
+  NSB.HeaderBar_jqm("payTitle", "Payment Months", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
   ].join('');

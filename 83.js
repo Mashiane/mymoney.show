@@ -1,4 +1,4 @@
 
-Cost2Income.innerHTML=[  NSB.HeaderBar_jqm("cost2incomeTitle", "Cost to Income", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
-  "<div id='cost2incomeChart_wrapper' style='background-color:white;'><div id='cost2incomeChart'></div></div>",
+HistoryChart.innerHTML=[  NSB.HeaderBar_jqm("historyTitle", "History Chart", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
+  "<div id='historyChart1_wrapper' style='background-color:white;'><div id='historyChart1'></div></div>",
   ].join('');

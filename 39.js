@@ -1,4 +1,4 @@
 
-CategoryMovements.innerHTML=[  NSB.HeaderBar_jqm("categoryMovementTitle", "Category Movements", "Back", "arrow-l", "Refresh", "refresh", " data-theme=b style='' class=' ' "),
-  NSB.Grid("grdCategoryMovements", "1", "5", "", "", "Year,Category,Total,,", "left,left,right,center,center", "style=", ""),
+MaintainCategories.innerHTML=[  NSB.HeaderBar_jqm("categoryEditorT", "Categories", "Back", "arrow-l", "Save", "check", " data-theme=b style='' class=' ' "),
+  NSB.MultiInput("categoryEditorI", 1, "smallfield", "Category Name", "Category Name :", "text", "", " style=  ", false),
   ].join('');

@@ -1,4 +1,4 @@
 
-HistoryChart.innerHTML=[  NSB.HeaderBar_jqm("historyTitle", "History Chart", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
-  "<div id='historyChart1_wrapper' style='background-color:white;'><div id='historyChart1'></div></div>",
+MonthlySummary.innerHTML=[  NSB.HeaderBar_jqm("msTitle", "Monthly Summary", "Back", "arrow-l", "Refresh", "refresh", " data-theme=b style='' class=' ' "),
+  NSB.Grid("grdMS", "1", "5", "", "", "Category,Budget,Amount,Cost Split,Cost 2 Income", "left,left,right,right,right", "style=", ""),
   ].join('');
