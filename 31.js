@@ -1,6 +1,4 @@
 
-MaintainCategories.innerHTML=[  NSB.FooterBar_jqm('maintainCategoriesMenu', 'Add,Save,Delete', '12', 'helvetica', 'normal', 'normal', 'b', 'plus,check,minus', 'left', '0', ' '),
-  NSB.HeaderBar_jqm("maintainCategoriesTitle", "Category", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
-  "<label id='Label1' class='graytitle' style='text-align:left;  font-size:16px; font-family:helvetica; font-style:normal; font-weight:bold; color:black; background-color:transparent; border-style:;border-color:transparent;border-width:1px; ' >Name</label>",
-  "<div id='txtAddCategoryName_wrapper'><input id='txtAddCategoryName' type='text' data-theme='b' name='' autocorrect='on' autocomplete='on' autocapitalize='on' maxlength='32' value='' placeholder='Category Name' data-mini='true' data-nsb-type='TextBox_jqm' class=' ' /></div>",
+MyReports.innerHTML=[  NSB.List_jqm("myreportsList", "ul", "none", "b", "b", 'Payments > Report,Payments > Per Year,Payments > Per Month,Accounts > Movements,Accounts > Top 10,Accounts > Report,Categories > Movements,Categories > Top 10,Categories > Report,Monthly Summary,Monthly Summary Charts,Monthly Income vs Expenses,Monthly Cost to Income,History Chart,Financial Position,Assets vs Liabilities,Incomes vs Expenses,Financial Report', "", "N,N,N", "style=", 'class=" "', "100%", false, false, false, "arrow-r"),
+  NSB.HeaderBar_jqm("myreportTitle", "Reports", "Home", "home", "", "false", " data-theme=b style='' class=' ' "),
   ].join('');

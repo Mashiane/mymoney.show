@@ -1,6 +1,6 @@
 { "manifest_version": 2,
   "name": "MyMoney.Show",
-  "version": "1.0.65",
+  "version": "1.0.73",
   "offline_enabled": true,
   "description": "Personal Finance Management",
   "icons": { "16": "nsb/images/16.png",

@@ -1,4 +1,4 @@
 
-PaymentsSelector.innerHTML=[  NSB.List_jqm("payPeriods", "ul", "none", "b", "b", '', "", "N,N,N", "style=", 'class=" "', "100%", true, false, false, "false"),
-  NSB.HeaderBar_jqm("payTitle", "Payment Months", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
+PaymentsReport.innerHTML=[  NSB.HeaderBar_jqm("paymentsTitle", "Payments Report", "Back", "arrow-l", "Refresh", "refresh", " data-theme=b style='' class=' ' "),
+  NSB.Grid("grdPayments", "1", "9", "", "", "Date,From Account,To Account,Description,Amount,,,,", "left,left,left,left,right,center,center,center,center", "style=", ""),
   ].join('');

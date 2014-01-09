@@ -1,4 +1,4 @@
 
-FinancialReport.innerHTML=[  NSB.HeaderBar_jqm("finReportTitle", "Financial Report", "Back", "arrow-l", "Refresh", "refresh", " data-theme=b style='' class=' ' "),
-  NSB.Grid("grdFinReport", "1", "3", "", "", "Title,Description,Amount", "left,left,right", "style=", ""),
+PaymentsSelector.innerHTML=[  NSB.List_jqm("payPeriods", "ul", "none", "b", "b", '', "", "N,N,N", "style=", 'class=" "', "100%", true, false, false, "false"),
+  NSB.HeaderBar_jqm("payTitle", "Payment Months", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
   ].join('');

@@ -1,5 +1,4 @@
 CACHE MANIFEST
-mymoneyshow.js
 chart.png
 view.png
 payto.png
@@ -21,6 +20,8 @@ nsb/images/icons-36-black.png
 nsb/images/arrow.png
 nsb/images/ajax-loader.gif
 nsb/css/style.css
+nsb/library/add2home.css
+nsb/library/add2home.js
 nsb/hfunc.js
 jqwidgets/styles/jqx.base.css
 nsb/images/backgroundStripes.png
@@ -37,13 +38,11 @@ nsb/jquery.js
 nsb/complexfunctions.js
 114.png
 nsb/iscroll.js
-icon.png
 nsb/images/icons-18-black.png
-nsb/images/ajax-loader.png
 
 NETWORK:
 *
 
-# buildtime: 1383822657.69
+# buildtime: 1389308959.38
 
 select.css
