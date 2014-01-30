@@ -9,5 +9,4 @@ PaymentsSingle.innerHTML=[  NSB.MultiInput("MultiInput1", 6, "bigfield", "From A
   "<div id='psYear_wrapper'><input id='psYear' type='text' data-theme='b' name='' autocorrect='on' autocomplete='on' autocapitalize='on' maxlength='32' value='2013' placeholder='Year' data-mini='true' data-nsb-type='TextBox_jqm' class=' ' /></div>",
   "<div id='psDescription_wrapper'><input id='psDescription' type='text' data-theme='b' name='' autocorrect='on' autocomplete='on' autocapitalize='on' maxlength='32' value='' placeholder='Description' data-mini='true' data-nsb-type='TextBox_jqm' class=' ' /></div>",
   "<div id='psAmount_wrapper'><input id='psAmount' type='text' data-theme='b' name='' autocorrect='on' autocomplete='on' autocapitalize='on' maxlength='32' value='' placeholder='Amount' data-mini='true' data-nsb-type='TextBox_jqm' class=' ' /></div>",
-  NSB.FooterBar_jqm('psBottom', 'Duplicate,Reverse,Delete', '12', 'helvetica', 'normal', 'bold', 'b', '', 'none', '0', ' '),
   ].join('');

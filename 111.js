@@ -206,9 +206,10 @@ delete cboBudgetAccount.childNodes[0];NSB.ComboBox_init('cboBudgetAccount');NSB.
 switch(True){case((choice)=="Back"):ChangeForm(MyAccounts);break;case((choice)=="Next"):}
 return savethefunction_rvar;}
 Budgets.onshow=function(){savethefunction_rvar="";return savethefunction_rvar;}
-var cmSource,cmDataAdapter,catKey;var catYear,catName,acctFrom;var payYear,isDemo;var payMonth,payBy,chartPer,payAccount;var dailyPayments,dbExport,dbJSON,dbImport;function Main(){NSB.MsgBoxStyle="";sqlList=[];}
+var cmSource,cmDataAdapter,catKey;var catYear,catName,acctFrom;var payYear,isDemo;var payMonth,payBy,chartPer,payAccount;var dailyPayments,dbExport,dbJSON,dbImport;function Main(){NSB.MsgBoxStyle="";sqlList=[];isDemo=False;dbName="mymoneyshow.db";dbObj=SqlOpenDatabase(dbName);if(dbObj==0){NSB.MsgBox("Error opening "+susername+" database!");}
+NSB.ShowProgress("Working on it...");CreateTables();NSB.ShowProgress(False);}
 function ResetData(result){savethefunction_rvar="";if(result!=6){return savethefunction_rvar;}
-document.body.style.cursor='wait';isDemo=False;DeleteRecords("Payments");ResetAccounts();ResetMonthlySummary();NSB.ShowProgress(False);document.body.style.cursor='default';return savethefunction_rvar;}
+document.body.style.cursor='wait';DeleteRecords("Payments");ResetAccounts();ResetMonthlySummary();NSB.ShowProgress(False);document.body.style.cursor='default';return savethefunction_rvar;}
 function CreateTables(){savethefunction_rvar="";Accounts_CreateTable();AccountsMovement_CreateTable();Categories_CreateTable();CategoryMovement_CreateTable();CostMeasurements_CreateTable();Institutions_CreateTable();Payments_CreateTable();Trial_CreateTable();Users_CreateTable();return savethefunction_rvar;}
 function demoComplete(){savethefunction_rvar="";NSB.ShowProgress(False);WaitCursor(False);ChangeForm(WhatToDo);return savethefunction_rvar;}
 function SetDemo(result){savethefunction_rvar="";if(result!=6){return savethefunction_rvar;}
@@ -384,4 +385,4 @@ var delRec;delRec=new Object();NSB.ShowProgress("Working on it...");dbExport=SQL
 function backupComplete(){savethefunction_rvar="";var sEmailAddress;sEmailAddress=localStorage.getItem("email");if(sEmailAddress==null){sEmailAddress="";}
 sEmailAddress=Replace(sEmailAddress,'\n',"");sEmailAddress=Replace(sEmailAddress,'\r',"");sEmailAddress=Replace(sEmailAddress,'\n',"");if(Len(sEmailAddress)==0){NSB.ShowProgress(False);NSB.MsgBox("Your email address has not been configured, please register your as a user first!");return;}
 dbJSON=JSON.stringify(dbExport);NSB.ShowProgress(False);localStorage.setItem("backup",dbJSON);email(sEmailAddress,"MyMoney.Show "+dbName+" BackUp "+dateadd("s",0,new Date()),dbJSON);return savethefunction_rvar;}
-window.addEventListener('load',function(){frmSignIn.style.display='block';Main();if(typeof(frmSignIn.onshow)=='function')frmSignIn.onshow();},false);var NSBCurrentForm=frmSignIn;
+window.addEventListener('load',function(){WhatToDo.style.display='block';Main();if(typeof(WhatToDo.onshow)=='function')WhatToDo.onshow();},false);var NSBCurrentForm=WhatToDo;
