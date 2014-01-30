@@ -3,10 +3,10 @@
 xmlns = "http://www.w3.org/ns/widgets"
 xmlns:gap = "http://phonegap.com/ns/1.0"
 id = "com.nsbasic.MyMoneyShow"
-version = "1.0.84">
+version = "1.0.91">
 
 <name>MyMoney.Show</name>
-<description>Personal Finance Management</description>
+<description>MyMoney.Show, a Personal Finance Management Application</description>
 
 <!-- Icons: Expand this section with sizes required for platforms you are targeting.-->
 <icon src='57.png' width='57' height='57' />
