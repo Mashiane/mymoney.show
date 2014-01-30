@@ -208,7 +208,7 @@ return savethefunction_rvar;}
 Budgets.onshow=function(){savethefunction_rvar="";return savethefunction_rvar;}
 var cmSource,cmDataAdapter,catKey;var catYear,catName,acctFrom;var payYear,isDemo;var payMonth,payBy,chartPer,payAccount;var dailyPayments,dbExport,dbJSON,dbImport;function Main(){NSB.MsgBoxStyle="";sqlList=[];}
 function ResetData(result){savethefunction_rvar="";if(result!=6){return savethefunction_rvar;}
-document.body.style.cursor='wait';isDemo=False;Main();DeleteRecords("Payments");ResetAccounts();ResetMonthlySummary();NSB.ShowProgress(False);document.body.style.cursor='default';return savethefunction_rvar;}
+document.body.style.cursor='wait';isDemo=False;DeleteRecords("Payments");ResetAccounts();ResetMonthlySummary();NSB.ShowProgress(False);document.body.style.cursor='default';return savethefunction_rvar;}
 function CreateTables(){savethefunction_rvar="";Accounts_CreateTable();AccountsMovement_CreateTable();Categories_CreateTable();CategoryMovement_CreateTable();CostMeasurements_CreateTable();Institutions_CreateTable();Payments_CreateTable();Trial_CreateTable();Users_CreateTable();return savethefunction_rvar;}
 function demoComplete(){savethefunction_rvar="";NSB.ShowProgress(False);WaitCursor(False);ChangeForm(WhatToDo);return savethefunction_rvar;}
 function SetDemo(result){savethefunction_rvar="";if(result!=6){return savethefunction_rvar;}
