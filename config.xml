@@ -3,7 +3,7 @@
 xmlns = "http://www.w3.org/ns/widgets"
 xmlns:gap = "http://phonegap.com/ns/1.0"
 id = "com.nsbasic.MyMoneyShow"
-version = "1.0.96">
+version = "1.0.98">
 
 <name>MyMoney.Show</name>
 <description>MyMoney.Show, a Personal Finance Management Application</description>
