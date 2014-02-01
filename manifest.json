@@ -1,6 +1,6 @@
 { "manifest_version": 2,
   "name": "MyMoney.Show",
-  "version": "1.0.102",
+  "version": "1.0.103",
   "display_in_launcher": true,
   "display_in_new_tab_page": true,
   "short_name": "MyMoney.Show",
