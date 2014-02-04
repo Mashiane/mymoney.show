@@ -3,13 +3,11 @@
 xmlns = "http://www.w3.org/ns/widgets"
 xmlns:gap = "http://phonegap.com/ns/1.0"
 id = "com.nsbasic.MyMoneyShow"
-version = "1.0.108">
+version = "1.0.109">
 
-<author email="anele@mbangas.com" href="http://mbangas.com/taxinavigator">
-            Anele Mbanga
-        </author>
 <name>MyMoney.Show</name>
 <description>MyMoney.Show, a Personal Finance Management Application</description>
+<author email="anele@mbangas.com" href="http://mbangas.com/mymoneyshow">Anele Mbanga</author>
 
 <!-- Icons: Expand this section with sizes required for platforms you are targeting.-->
 <icon src='57.png' width='57' height='57' />
