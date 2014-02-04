@@ -271,8 +271,8 @@ function GridAlternateColor(grdName){var grdRows,grdCols,i;grdRows=grdName.getRo
 grdName.refresh();}
 function InsertRecord(tblName,tblRecord){savethefunction_rvar="";var sqlInst;sqlInst=[];var flds,vals;flds="";vals="";for(item in tblRecord){flds=flds+"["+item+"],";vals=vals+tblRecord[item]+",";}
 flds=Left(flds,Len(flds)-1);vals=Left(vals,Len(vals)-1);sqlInst[0]="INSERT OR REPLACE INTO ["+tblName+"] ("+flds+") VALUES ("+vals+");";Sql(dbObj,sqlInst);return savethefunction_rvar;}
-function InsertRecord1(tblName,tblRecord,position){savethefunction_rvar="";var flds,vals;flds="";vals="";for(item in tblRecord){flds=flds+"["+item+"],";vals=vals+tblRecord[item]+",";}
-flds=Left(flds,Len(flds)-1);vals=Left(vals,Len(vals)-1);InsertCommands[position]="INSERT OR REPLACE INTO ["+tblName+"] ("+flds+") VALUES ("+vals+");";return savethefunction_rvar;}
+function InsertRecord1(tblName,tblRecord,Position){savethefunction_rvar="";var flds,vals;flds="";vals="";for(item in tblRecord){flds=flds+"["+item+"],";vals=vals+tblRecord[item]+",";}
+flds=Left(flds,Len(flds)-1);vals=Left(vals,Len(vals)-1);InsertCommands[Position]="INSERT OR REPLACE INTO ["+tblName+"] ("+flds+") VALUES ("+vals+");";return savethefunction_rvar;}
 function CreateTable(TableName,FieldsAndTypes,PrimaryKey,AutoIncrement){savethefunction_rvar="";var sb,fdef,sqlCreate;sb="(";for(item in FieldsAndTypes){fdef="["+item+"] "+UCase(FieldsAndTypes[item]);sb=sb+fdef;if(item==PrimaryKey){sb=sb+" NOT NULL PRIMARY KEY";}
 if(item==AutoIncrement){sb=sb+" AUTOINCREMENT";}
 sb=sb+", ";}
@@ -294,9 +294,9 @@ vals=Left(vals,Len(vals)-1);sqlUpd[0]="UPDATE ["+tblName+"] SET "+vals+";";Sql(d
 function DeleteRecord(tblName,tblWhere){savethefunction_rvar="";var sqlUpd;sqlUpd=[];var wvals;wvals="";for(item in tblWhere){wvals=wvals+"["+item+"] = "+tblWhere[item]+",";}
 wvals=Left(wvals,Len(wvals)-1);sqlUpd[0]="DELETE FROM ["+tblName+"] WHERE "+wvals+";";Sql(dbObj,sqlUpd);return savethefunction_rvar;}
 function DeleteRecords(tblName){savethefunction_rvar="";var sqlDel;sqlDel=[];sqlDel[0]="DELETE FROM ["+tblName+"];";Sql(dbObj,sqlDel);return savethefunction_rvar;}
-function UpdateRecord1(tblName,tblRecord,tblWhere,position){savethefunction_rvar="";var vals,wvals;vals="";wvals="";for(item in tblRecord){vals=vals+"["+item+"] = "+tblRecord[item]+",";}
+function UpdateRecord1(tblName,tblRecord,tblWhere,Position){savethefunction_rvar="";var vals,wvals;vals="";wvals="";for(item in tblRecord){vals=vals+"["+item+"] = "+tblRecord[item]+",";}
 vals=Left(vals,Len(vals)-1);for(item in tblWhere){wvals=wvals+"["+item+"] = "+tblWhere[item]+",";}
-wvals=Left(wvals,Len(wvals)-1);UpdateCommands[position]="UPDATE ["+tblName+"] SET "+vals+" WHERE "+wvals+";";return savethefunction_rvar;}
+wvals=Left(wvals,Len(wvals)-1);UpdateCommands[Position]="UPDATE ["+tblName+"] SET "+vals+" WHERE "+wvals+";";return savethefunction_rvar;}
 function ComboIndexOf(cboBox,cboSearch){savethefunction_rvar="";var cboOut;cboOut=-1;var cboTot;cboTot=cboBox.getItemCount();var xitem,i;for(i=0;i<=cboTot-1;i++){xitem=cboBox.List(i);if(xitem==cboSearch){return i;}}
 return cboOut;return savethefunction_rvar;}
 function GridDefault(grdName){savethefunction_rvar="";GridSetHeight(grdName,"32px");GridAlternateColor(grdName);return savethefunction_rvar;}
@@ -339,12 +339,20 @@ function MapUpdate(mapobj,mapkey,mapitem){var xitem;xitem=mapobj[mapkey];if(IsNu
 function MapSearch(mapobj,keySearch){savethefunction_rvar="";var xitem;xitem=mapobj[keySearch];if(IsNull(xitem)==True){return True;}else{return False;}
 return savethefunction_rvar;}
 function ListViewAddTitleDescription(lstView,Title,Description){savethefunction_rvar="";var stext;stext="<h2>"+Title+"</h2><p>"+Description+"</p>";lstView.addItem(stext);return savethefunction_rvar;}
+function ListViewAddTitleDescriptionSideContent(lstView,Title,Description,Counted,Content){savethefunction_rvar="";var stext;stext="<h2>"+Title+"</h2><p>"+Description+"</p>";if(Len(Content)>0){stext=stext+"<span class='ui-li-aside'><p>"+Content+"</p></span>";}
+if(Len(Counted)>0){stext=stext+"<span class='ui-li-count'>"+Counted+"</span>";}
+lstView.addItem(stext);return savethefunction_rvar;}
 function ListViewClear(lstView){savethefunction_rvar="";lstView.deleteItem("all");return savethefunction_rvar;}
 function ListViewRefresh(lstView){savethefunction_rvar="";lstView.refresh();return savethefunction_rvar;}
 function ListViewAddTitleCount(lstView,Title,Counted){savethefunction_rvar="";var stext;stext=Title+"<span class='ui-li-count'>"+Counted+"</span>";lstView.addItem(stext);return savethefunction_rvar;}
+function Alphabets(svalue){savethefunction_rvar="";var sout,slen,i,schar;sout="";slen=Len(svalue);for(i=1;i<=slen;i++){schar=Mid(svalue,i,1);switch(True){case((schar)==0):break;case((schar)==1):break;case((schar)==2):break;case((schar)==3):break;case((schar)==4):break;case((schar)==5):break;case((schar)==6):break;case((schar)==7):break;case((schar)==8):break;case((schar)==9):break;default:sout=sout+schar;}}
+return sout;return savethefunction_rvar;}
 function ListViewAddTitleAsideContent(lstView,Title,Content){savethefunction_rvar="";var stext;stext=Title+"<span class='ui-li-aside'><p>"+Content+"</p></span>";lstView.addItem(stext);return savethefunction_rvar;}
 function ListViewAddTextBoxWithLabel(lstView,id,caption){savethefunction_rvar="";var slabel;slabel="<label for='"+id+"'>"+caption+"</label>";var stext;stext="<input type='text' name='"+id+"' id='"+id+"' value=''/>";lstView.addItem(slabel+stext);return savethefunction_rvar;}
 function ListViewAddTextBox(lstView,id,caption){savethefunction_rvar="";var stext;stext="<input type='text' name='"+id+"' id='"+id+"' value=''/>";lstView.addItem(stext);return savethefunction_rvar;}
+function SaveSetting(key,value){savethefunction_rvar="";localStorage.setItem(key,value);return savethefunction_rvar;}
+function GetSetting(key){savethefunction_rvar="";var svalue;svalue=localStorage.getItem(key);if(IsNull(svalue)==True){svalue="";}
+return svalue;return savethefunction_rvar;}
 window.addEventListener('load',function(){frmSignIn.style.display='block';NSB.addProperties(signInT);NSB.addDisableProperty(signInT);if(typeof(signInT.onclick)=='function'){if(typeof(signInT_left)!='undefined')signInT_left.onclick=function(){signInT.onclick(signInT_left.getAttribute('nsbvalue'))};if(typeof(signInT_right)!='undefined')signInT_right.onclick=function(){signInT.onclick(signInT_right.getAttribute('nsbvalue'))}};NSB.MultiInput_init('mSignIn');NSB.addProperties(mSignIn);frmSignIn.style.display='none';},false);frmSignIn.onsubmit=function(event){window.event.stopPropagation();window.event.preventDefault()};NSB.addProperties(frmSignIn);var susername,spassword;signInT.onclick=function(choice){savethefunction_rvar="";if(TypeName(choice)=="object"){return savethefunction_rvar;}
 switch(True){case((choice)=="Sign In"):susername=mSignIn.getValue(1);susername=LCase(Trim(susername));if(Len(susername)==0){NSB.MsgBox("Please specify a user name!");return;}
 spassword=mSignIn.getValue(2);spassword=LCase(Trim(spassword));if(Len(susername)==0){NSB.MsgBox("Please specify a password!");return;}
