@@ -1,6 +1,6 @@
 { "manifest_version": 2,
   "name": "MyMoney.Show",
-  "version": "1.0.115",
+  "version": "1.0.118",
   "display_in_launcher": true,
   "display_in_new_tab_page": true,
   "short_name": "MyMoney.Show",
@@ -8,5 +8,5 @@
   "description": "MyMoney.Show, a Personal Finance Management Application",
   "icons": { "16": "/16.png",
             "128": "/128.png" },
-  "author": "Copyright NdimkaMbulelo (Pty) Ltd",
+  "author": "Copyright Anele Mbanga",
   "app": {"background": {"scripts": ["background.js"]}}}
