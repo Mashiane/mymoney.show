@@ -1,4 +1,4 @@
 
-PaymentsYearsChart.innerHTML=[  NSB.HeaderBar_jqm("payYearChartTitle", "Top 10 Categories", "Back", "arrow-l", "Refresh", "refresh", " data-theme=b style='' class=' ' "),
-  "<div id='payYearChart_wrapper' style='background-color:white;'><div id='payYearChart'></div></div>",
+MaintainInstitutions.innerHTML=[  NSB.MultiInput("institutionEditorI", 1, "smallfield", "Institution", "Institution : ", "text", "", " style=  ", false),
+  NSB.HeaderBar_jqm14('institutionEditorT', 'Institutions', 'Back', 'arrow-l', 'left', 'Save', 'check', 'right', ' style="" class=" "'),
   ].join('');

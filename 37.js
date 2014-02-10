@@ -1,4 +1,4 @@
 
-MyInstitutions.innerHTML=[  NSB.HeaderBar_jqm("institutionsTitle", "Institutions", "Back", "arrow-l", "Add", "plus", " data-theme=b style='' class=' ' "),
-  NSB.Grid("institutionsList", "1", "3", "", "", "Institution,Edit,Delete", "left,center,center", "style=", ""),
+MaintainCategories.innerHTML=[  NSB.MultiInput("categoryEditorI", 1, "smallfield", "Category Name", "Category :", "text", "", " style=  ", false),
+  NSB.HeaderBar_jqm14('categoryEditorT', 'Categories', 'Back', 'arrow-l', 'left', 'Save', 'check', 'right', ' style="" class=" "'),
   ].join('');

@@ -1,4 +1,4 @@
 
-MaintainInstitutions.innerHTML=[  NSB.HeaderBar_jqm("institutionEditorT", "Institutions", "Back", "arrow-l", "Save", "check", " data-theme=b style='' class=' ' "),
-  NSB.MultiInput("institutionEditorI", 1, "smallfield", "Institution", "Institution : ", "text", "", " style=  ", false),
+FinancialPosition.innerHTML=[  NSB.Grid("grdFinPosition", "1", "3", "", "", "Title,Description,Amount", "left,left,right", "style=", ""),
+  NSB.HeaderBar_jqm14('finposTitle', 'Financial Position', 'Back', 'arrow-l', 'left', 'Refresh', 'refresh', 'right', ' style="" class=" "'),
   ].join('');

@@ -3,25 +3,24 @@
 <head>
 <meta charset="utf-8">
 <title>MyMoney.Show</title>
-<meta name="generator" content="NSB/AppStudio 3.3.0.0$bhnw" />
-<meta name="date" content="2014-02-04 17:32:04.654000" />
-<meta name="version" content="1.0.110" />
-<meta name="viewport" content="width=device-width minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no" />
-<meta name="apple-mobile-web-app-capable" content="YES" />
-<meta name="mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="default" />
-<meta name="apple-mobile-web-app-title" content="MyMoney.Show">
-<meta name="copyright" content="Copyright NdimkaMbulelo (Pty) Ltd" />
-<link rel="apple-touch-icon" href="114.png" />
-<link rel="apple-touch-startup-image" href="196.png" />
-<link rel="shortcut icon" sizes="196x196" href="196.png"/>
+<meta name="generator" content="NSB/AppStudio 4.0.0.0b4$bhnw" />
+<meta name='date' content='2014-02-10 14:03:46.609000' />
+<meta name='version' content='1.0.113' />
+<meta name='viewport' content='width=device-width minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no, minimal-ui' />
+<meta name='apple-mobile-web-app-capable' content='YES' />
+<meta name='mobile-web-app-capable' content='yes' />
+<meta name='apple-mobile-web-app-status-bar-style' content='default' />
+<meta name='apple-mobile-web-app-title' content='MyMoney.Show'>
+<meta name='copyright' content='Copyright NdimkaMbulelo (Pty) Ltd' />
+<link rel='apple-touch-icon' href='114.png' />
+<link rel='apple-touch-startup-image' href='196.png' />
+<link rel='shortcut icon' sizes='196x196' href='196.png'/>
+<script src="nsb/jquery.js"></script>
 <script src="nsb/hfunc.js"></script>
-<script src="nsb/messages.js"></script>
 <link href="nsb/nsbstyle.css" rel="stylesheet">
 <script src="nsb/fastclick.js"></script>
 <script src="nsb/complexfunctions.js"></script>
 <script src="nsb/iscroll.js"></script>
-<script src="nsb/jquery.js"></script>
 <script src="nsb/jquery.mobile.js"></script>
 <link href="nsb/jquery.mobile.css" rel="stylesheet">
 <link href="nsb/css/style.css" rel="stylesheet">
@@ -31,414 +30,421 @@
 <script src="jqwidgets/jqxchart.js"></script>
 <script src="jqwidgets/jqxdata.js"></script>
 
-<script src="21.js"></script>
+<script src="19.js"></script>
 <link href='nsb/library/add2home.css' rel='stylesheet'>
 <script src='nsb/library/add2home.js'></script>
-<script src="25.js"></script>
+<script src="23.js"></script>
 <link href='nsb/library/add2home.css' rel='stylesheet'>
 <script src='nsb/library/add2home.js'></script>
 
 <style type="text/css">
-#lstWhatToDo_scroller {position: absolute; width:100%; height:420px; left:0px; top:42px;}
+#lstWhatToDo_scroller {position: absolute; overflow:hidden; width:100%; height:420px; left:0px; top:42px;}
 #lstWhatToDo {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #hBar {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#myaccountsList_scroller {position: absolute; width:100%; height:32px; left:0px; top:42px;}
+#myaccountsList_scroller {position: absolute; overflow:hidden; width:100%; height:32px; left:0px; top:42px;}
 #myaccountsList {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #myaccountTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#myreportsList_scroller {position: absolute; width:100%; height:32px; left:0px; top:42px;}
+#myreportsList_scroller {position: absolute; overflow:hidden; width:100%; height:32px; left:0px; top:42px;}
 #myreportsList {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #myreportTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#institutionsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#institutionsList_scroller {position: absolute; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
+#institutionsList_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
 #institutionsList {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#categoryEditorT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#categoryEditorI_scroller {position: absolute; width:95%; height:10px; left:0px; top:42px}
+#institutionsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#categoryEditorI_scroller {position: absolute; overflow:hidden; width:95%; height:10px; left:0px; top:42px}
 #categoryEditorI {position:absolute; left:0px; top:0px; width:95%; height:auto;}
 #categoryEditorI {left:0px; top:42px;}
-#categorieslistTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#categoriesListList_scroller {position: absolute; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
+#categoryEditorT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#categoriesListList_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
 #categoriesListList {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#categoryMovementTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdCategoryMovements_scroller {position: absolute; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
+#categorieslistTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdCategoryMovements_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
 #grdCategoryMovements {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#categoryBudgetsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#categoryMovementTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #lblCatName {position:absolute; left:1px; right:auto; top:49px; bottom:auto; height:20px; width:304px}
 #categoryYearlyChart_wrapper {position:absolute; left:0px; top:75px; height:30px; width:320px}
 #categoryYearlyChart {position:relative; left:0px; top:0px; height:100%; width:100%}
-#grdCategoryBudgets_scroller {position: absolute; width:70px; height:32px; left:0px; top:75px; right:auto; bottom:auto;}
+#grdCategoryBudgets_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:75px; right:auto; bottom:auto;}
 #grdCategoryBudgets {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#catPerformanceTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#categoryBudgetsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #catPerformanceChart_wrapper {position:absolute; left:0px; top:42px; height:30px; width:320px}
 #catPerformanceChart {position:relative; left:0px; top:0px; height:100%; width:100%}
-#catReportTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdCatReport_scroller {position: absolute; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
+#catPerformanceTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdCatReport_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
 #grdCatReport {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#accListTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#lstAccounts_scroller {position: absolute; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
+#catReportTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#lstAccounts_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
 #lstAccounts {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#accMovementTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdAccountMovements_scroller {position: absolute; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
+#accListTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdAccountMovements_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
 #grdAccountMovements {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#accountBudgetsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#accMovementTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #lblAccName {position:absolute; left:1px; right:auto; top:43px; bottom:auto; height:20px; width:304px}
 #accountYearlyChart_wrapper {position:absolute; left:0px; top:75px; height:30px; width:320px}
 #accountYearlyChart {position:relative; left:0px; top:0px; height:100%; width:100%}
-#grdAccountBudgets_scroller {position: absolute; width:70px; height:32px; left:0px; top:75px; right:auto; bottom:auto;}
+#grdAccountBudgets_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:75px; right:auto; bottom:auto;}
 #grdAccountBudgets {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#accPerformanceTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#accountBudgetsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #accPerformanceChart_wrapper {position:absolute; left:0px; top:42px; height:30px; width:320px}
 #accPerformanceChart {position:relative; left:0px; top:0px; height:100%; width:100%}
-#accReportTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdAccReport_scroller {position: absolute; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
+#accPerformanceTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdAccReport_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
 #grdAccReport {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#paymentsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdPayments_scroller {position: absolute; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
+#accReportTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdPayments_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
 #grdPayments {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#payPeriods_scroller {position: absolute; width:100%; height:300px; left:0px; top:42px;}
+#paymentsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#payPeriods_scroller {position: absolute; overflow:hidden; width:100%; height:300px; left:0px; top:42px;}
 #payPeriods {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #payTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#finReportTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdFinReport_scroller {position: absolute; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
+#grdFinReport_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
 #grdFinReport {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#chartsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#finReportTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #chartObj_wrapper {position:absolute; left:0px; top:42px; height:32px; width:320px}
 #chartObj {position:relative; left:0px; top:0px; height:100%; width:100%}
-#payYearChartTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#chartsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #payYearChart_wrapper {position:absolute; left:0px; top:42px; height:30px; width:320px}
 #payYearChart {position:relative; left:0px; top:0px; height:100%; width:100%}
-#institutionEditorT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#institutionEditorI_scroller {position: absolute; width:95%; height:10px; left:0px; top:42px}
+#payYearChartTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#institutionEditorI_scroller {position: absolute; overflow:hidden; width:95%; height:10px; left:0px; top:42px}
 #institutionEditorI {position:absolute; left:0px; top:0px; width:95%; height:auto;}
 #institutionEditorI {left:0px; top:42px;}
-#finposTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdFinPosition_scroller {position: absolute; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
+#institutionEditorT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#grdFinPosition_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
 #grdFinPosition {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#MultiInput1_scroller {position: absolute; width:300px; height:168px; left:0px; top:45px}
+#finposTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#MultiInput1_scroller {position: absolute; overflow:hidden; width:300px; height:168px; left:0px; top:45px}
 #MultiInput1 {position:absolute; left:0px; top:0px; width:300px; height:auto;}
 #MultiInput1 {left:0px; top:45px;}
+#psFromAccount {position:absolute; left:118px; right:auto; top:50px; bottom:auto; height:40px; width:183px}
+#psToAccount {position:absolute; left:118px; right:auto; top:138px; bottom:auto; height:40px; width:183px}
+#psDayOn {position:absolute; left:118px; right:auto; top:182px; bottom:auto; height:40px; width:54px}
+#psMonthOn {position:absolute; left:175px; right:auto; top:182px; bottom:auto; height:40px; width:71px}
 #psTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#psFromAccount {position:absolute; left:112px; right:auto; top:50px; bottom:auto; height:40px; width:196px}
-#psCurrBal { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 42px;   }
-#psCurrBal_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 94px; margin: 0 -0.4em;   }
-#psToAccount {position:absolute; left:112px; right:auto; top:138px; bottom:auto; height:40px; width:196px}
-#psDayOn {position:absolute; left:112px; right:auto; top:182px; bottom:auto; height:40px; width:54px}
-#psMonthOn {position:absolute; left:170px; right:auto; top:182px; bottom:auto; height:40px; width:71px}
-#psYear { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 42px;   }
-#psYear_wrapper > div { position: absolute; width: 51px; left: 250px; right:auto; top: 182px; margin: 0 -0.4em;   }
-#psDescription { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 42px;   }
-#psDescription_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 226px; margin: 0 -0.4em;   }
-#psAmount { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 42px;   }
-#psAmount_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 270px; margin: 0 -0.4em;   }
-#MultiInput2_scroller {position: absolute; width:300px; height:10px; left:0px; top:48px}
+#psCurrBal { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#psCurrBal_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 94px;  margin:0px;  }
+#psYear { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#psYear_wrapper > div { position: absolute; width: 51px; left: 250px; right:auto; top: 182px;  margin:0px;  }
+#psDescription { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#psDescription_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 226px;  margin:0px;  }
+#psAmount { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#psAmount_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 270px;  margin:0px;  }
+#MultiInput2_scroller {position: absolute; overflow:hidden; width:300px; height:10px; left:0px; top:48px}
 #MultiInput2 {position:absolute; left:0px; top:0px; width:300px; height:auto;}
 #MultiInput2 {left:0px; top:48px;}
+#cboAccountCategory {position:absolute; left:118px; right:auto; top:141px; bottom:auto; height:40px; width:183px}
+#cboAccountInstitution {position:absolute; left:118px; right:auto; top:185px; bottom:auto; height:40px; width:183px}
+#cboAccountType {position:absolute; left:118px; right:auto; top:361px; bottom:auto; height:40px; width:183px}
 #accTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#txtAccountNo { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 42px;   }
-#txtAccountNo_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 53px; margin: 0 -0.4em;   }
-#txtAccountName { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 42px;   }
-#txtAccountName_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 97px; margin: 0 -0.4em;   }
-#cboAccountCategory {position:absolute; left:112px; right:auto; top:141px; bottom:auto; height:40px; width:196px}
-#cboAccountInstitution {position:absolute; left:112px; right:auto; top:185px; bottom:auto; height:40px; width:196px}
-#txtAccountOpenBal { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 42px;   }
-#txtAccountOpenBal_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 229px; margin: 0 -0.4em;   }
-#txtAccountCurrBal { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 42px;   }
-#txtAccountCurrBal_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 273px; margin: 0 -0.4em;   }
-#txtAccountInstallment { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 42px;   }
-#txtAccountInstallment_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 317px; margin: 0 -0.4em;   }
-#cboAccountType {position:absolute; left:112px; right:auto; top:361px; bottom:auto; height:40px; width:196px}
-#chkAccountPayFrom {position:absolute; left:113px; right:auto; top:400px; bottom:auto; height:32px; width:95px}
-#msTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#grdMS_scroller {position: absolute; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
+#txtAccountNo { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#txtAccountNo_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 53px;  margin:0px;  }
+#txtAccountName { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#txtAccountName_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 97px;  margin:0px;  }
+#txtAccountOpenBal { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#txtAccountOpenBal_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 229px;  margin:0px;  }
+#txtAccountCurrBal { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#txtAccountCurrBal_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 273px;  margin:0px;  }
+#txtAccountInstallment { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#txtAccountInstallment_wrapper > div { position: absolute; width: 183px; left: 118px; right:auto; top: 317px;  margin:0px;  }
+#chkAccountPayFrom {position:absolute; left:118px; right:auto; top:400px; bottom:auto; height:auto; width:auto}
+#grdMS_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:42px; right:auto; bottom:auto;}
 #grdMS {position:absolute; left:0px; top:0px; width:100%; height:auto }
-#mscTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#msTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #msChart_wrapper {position:absolute; left:0px; top:42px; height:30px; width:320px}
 #msChart {position:relative; left:0px; top:0px; height:100%; width:100%}
-#historyTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#mscTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #historyChart1_wrapper {position:absolute; left:0px; top:42px; height:30px; width:320px}
 #historyChart1 {position:relative; left:0px; top:0px; height:100%; width:100%}
-#ieTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#historyTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #ieChart1_wrapper {position:absolute; left:0px; top:42px; height:30px; width:320px}
 #ieChart1 {position:relative; left:0px; top:0px; height:100%; width:100%}
-#cost2incomeTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#ieTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #cost2incomeChart_wrapper {position:absolute; left:0px; top:42px; height:30px; width:320px}
 #cost2incomeChart {position:relative; left:0px; top:0px; height:100%; width:100%}
-#hAbout {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#cost2incomeTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #Label12 {position:absolute; left:0px; right:auto; top:48px; bottom:auto; height:20px; width:95%}
 #Label13 {position:absolute; left:0px; right:auto; top:400px; bottom:auto; height:20px; width:95%}
 #Line1 {position:absolute; left:0px; right:10px; top:378px; bottom:auto; height:5px; width:100%}
-#miFinancialNeeds_scroller {position: absolute; width:300px; height:8px; left:0px; top:42px}
+#hAbout {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#miFinancialNeeds_scroller {position: absolute; overflow:hidden; width:300px; height:8px; left:0px; top:42px}
 #miFinancialNeeds {position:absolute; left:0px; top:0px; width:300px; height:auto;}
 #miFinancialNeeds {left:0px; top:42px;}
 #finneedsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#fnIncome { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnIncome_wrapper > div { position: absolute; width: 157px; left: 144px; right:auto; top: 47px; margin: 0 -0.4em;   }
-#fnHousehold { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnHousehold_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 92px; margin: 0 -0.4em;   }
-#fnHouseHoldA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnHouseHoldA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 91px; margin: 0 -0.4em;   }
-#fnTransport { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnTransport_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 135px; margin: 0 -0.4em;   }
-#fnTransportA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnTransportA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 135px; margin: 0 -0.4em;   }
-#fnInvestments { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnInvestments_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 179px; margin: 0 -0.4em;   }
-#fnInvestmentsA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnInvestmentsA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 179px; margin: 0 -0.4em;   }
-#fnLoans { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnLoans_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 223px; margin: 0 -0.4em;   }
-#fnLoansA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnLoansA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 223px; margin: 0 -0.4em;   }
-#fnEducation { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnEducation_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 267px; margin: 0 -0.4em;   }
-#fnEducationA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnEducationA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 267px; margin: 0 -0.4em;   }
-#fnEntertainment { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnEntertainment_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 311px; margin: 0 -0.4em;   }
-#fnEntertainmentA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnEntertainmentA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 311px; margin: 0 -0.4em;   }
-#fnDonation { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnDonation_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 355px; margin: 0 -0.4em;   }
-#fnDonationA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnDonationA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 355px; margin: 0 -0.4em;   }
-#fnSupport { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnSupport_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 399px; margin: 0 -0.4em;   }
-#fnSupportA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnSupportA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 399px; margin: 0 -0.4em;   }
-#fnCommunication { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnCommunication_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 443px; margin: 0 -0.4em;   }
-#fnCommunicationA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnCommunicationA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 443px; margin: 0 -0.4em;   }
-#fnAnimals { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnAnimals_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 487px; margin: 0 -0.4em;   }
-#fnAnimalsA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnAnimalsA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 487px; margin: 0 -0.4em;   }
-#fnAvailableFunds { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnAvailableFunds_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 531px; margin: 0 -0.4em;   }
-#fnAvailableFundsA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnAvailableFundsA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 531px; margin: 0 -0.4em;   }
-#lstFinancialNeeds_scroller {position: absolute; width:100%; height:168px; left:0px; top:42px;}
+#fnIncome { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnIncome_wrapper > div { position: absolute; width: 157px; left: 144px; right:auto; top: 47px;  margin:0px;  }
+#fnHousehold { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnHousehold_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 91px;  margin:0px;  }
+#fnHouseHoldA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnHouseHoldA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 91px;  margin:0px;  }
+#fnTransport { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnTransport_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 135px;  margin:0px;  }
+#fnTransportA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnTransportA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 135px;  margin:0px;  }
+#fnInvestments { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnInvestments_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 179px;  margin:0px;  }
+#fnInvestmentsA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnInvestmentsA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 179px;  margin:0px;  }
+#fnLoans { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnLoans_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 223px;  margin:0px;  }
+#fnLoansA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnLoansA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 223px;  margin:0px;  }
+#fnEducation { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnEducation_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 267px;  margin:0px;  }
+#fnEducationA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnEducationA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 267px;  margin:0px;  }
+#fnEntertainment { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnEntertainment_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 311px;  margin:0px;  }
+#fnEntertainmentA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnEntertainmentA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 311px;  margin:0px;  }
+#fnDonation { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnDonation_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 355px;  margin:0px;  }
+#fnDonationA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnDonationA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 355px;  margin:0px;  }
+#fnSupport { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnSupport_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 399px;  margin:0px;  }
+#fnSupportA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnSupportA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 399px;  margin:0px;  }
+#fnCommunication { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnCommunication_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 443px;  margin:0px;  }
+#fnCommunicationA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnCommunicationA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 443px;  margin:0px;  }
+#fnAnimals { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnAnimals_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 487px;  margin:0px;  }
+#fnAnimalsA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnAnimalsA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 487px;  margin:0px;  }
+#fnAvailableFunds { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnAvailableFunds_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 531px;  margin:0px;  }
+#fnAvailableFundsA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnAvailableFundsA_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 531px;  margin:0px;  }
+#lstFinancialNeeds_scroller {position: absolute; overflow:hidden; width:100%; height:168px; left:0px; top:42px;}
 #lstFinancialNeeds {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #finNeedsSelectorT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#miFinancialNeedsA_scroller {position: absolute; width:300px; height:8px; left:0px; top:42px}
+#miFinancialNeedsA_scroller {position: absolute; overflow:hidden; width:300px; height:8px; left:0px; top:42px}
 #miFinancialNeedsA {position:absolute; left:0px; top:0px; width:300px; height:auto;}
 #miFinancialNeedsA {left:0px; top:42px;}
 #finneedsTitleA {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#fnIncomeA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnIncomeA_wrapper > div { position: absolute; width: 157px; left: 144px; right:auto; top: 47px; margin: 0 -0.4em;   }
-#fnHouseholdAA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnHouseholdAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 92px; margin: 0 -0.4em;   }
-#fnHouseHoldP { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnHouseHoldP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 91px; margin: 0 -0.4em;   }
-#fnTransportAA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnTransportAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 135px; margin: 0 -0.4em;   }
-#fnTransportP { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnTransportP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 135px; margin: 0 -0.4em;   }
-#fnInvestmentsAA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnInvestmentsAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 179px; margin: 0 -0.4em;   }
-#fnInvestmentsP { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnInvestmentsP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 179px; margin: 0 -0.4em;   }
-#fnLoansAA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnLoansAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 223px; margin: 0 -0.4em;   }
-#fnLoansP { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnLoansP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 223px; margin: 0 -0.4em;   }
-#fnEducationAA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnEducationAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 267px; margin: 0 -0.4em;   }
-#fnEducationP { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnEducationP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 267px; margin: 0 -0.4em;   }
-#fnEntertainmentAA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnEntertainmentAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 311px; margin: 0 -0.4em;   }
-#fnEntertainmentP { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnEntertainmentP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 311px; margin: 0 -0.4em;   }
-#fnDonationAA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnDonationAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 355px; margin: 0 -0.4em;   }
-#fnDonationP { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnDonationP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 355px; margin: 0 -0.4em;   }
-#fnSupportAA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnSupportAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 399px; margin: 0 -0.4em;   }
-#fnSupportP { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnSupportP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 399px; margin: 0 -0.4em;   }
-#fnCommunicationAA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnCommunicationAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 443px; margin: 0 -0.4em;   }
-#fnCommunicationP { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnCommunicationP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 443px; margin: 0 -0.4em;   }
-#fnAnimalsAA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnAnimalsAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 487px; margin: 0 -0.4em;   }
-#fnAnimalsP { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnAnimalsP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 487px; margin: 0 -0.4em;   }
-#fnAvailableFundsAA { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnAvailableFundsAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 531px; margin: 0 -0.4em;   }
-#fnAvailableFundsP { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#fnAvailableFundsP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 531px; margin: 0 -0.4em;   }
-#miInvestPay_scroller {position: absolute; width:300px; height:8px; left:0px; top:42px}
+#fnIncomeA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnIncomeA_wrapper > div { position: absolute; width: 157px; left: 144px; right:auto; top: 47px;  margin:0px;  }
+#fnHouseholdAA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnHouseholdAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 91px;  margin:0px;  }
+#fnHouseHoldP { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnHouseHoldP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 91px;  margin:0px;  }
+#fnTransportAA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnTransportAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 135px;  margin:0px;  }
+#fnTransportP { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnTransportP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 135px;  margin:0px;  }
+#fnInvestmentsAA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnInvestmentsAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 179px;  margin:0px;  }
+#fnInvestmentsP { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnInvestmentsP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 179px;  margin:0px;  }
+#fnLoansAA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnLoansAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 223px;  margin:0px;  }
+#fnLoansP { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnLoansP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 223px;  margin:0px;  }
+#fnEducationAA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnEducationAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 267px;  margin:0px;  }
+#fnEducationP { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnEducationP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 267px;  margin:0px;  }
+#fnEntertainmentAA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnEntertainmentAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 311px;  margin:0px;  }
+#fnEntertainmentP { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnEntertainmentP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 311px;  margin:0px;  }
+#fnDonationAA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnDonationAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 355px;  margin:0px;  }
+#fnDonationP { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnDonationP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 355px;  margin:0px;  }
+#fnSupportAA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnSupportAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 399px;  margin:0px;  }
+#fnSupportP { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnSupportP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 399px;  margin:0px;  }
+#fnCommunicationAA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnCommunicationAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 443px;  margin:0px;  }
+#fnCommunicationP { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnCommunicationP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 443px;  margin:0px;  }
+#fnAnimalsAA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnAnimalsAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 487px;  margin:0px;  }
+#fnAnimalsP { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnAnimalsP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 487px;  margin:0px;  }
+#fnAvailableFundsAA { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnAvailableFundsAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 531px;  margin:0px;  }
+#fnAvailableFundsP { text-align: left;  font-family: ; font-style: ; font-weight: ;   height: 40px;   }
+#fnAvailableFundsP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 531px;  margin:0px;  }
+#miInvestPay_scroller {position: absolute; overflow:hidden; width:300px; height:8px; left:0px; top:42px}
 #miInvestPay {position:absolute; left:0px; top:0px; width:300px; height:auto;}
 #miInvestPay {left:0px; top:42px;}
-#invpayTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#invpayOutput_scroller {position: absolute; width:300px; height:8px; left:0px; top:368px}
+#invpayOutput_scroller {position: absolute; overflow:hidden; width:300px; height:8px; left:0px; top:368px}
 #invpayOutput {position:absolute; left:0px; top:0px; width:300px; height:auto;}
 #invpayOutput {left:0px; top:368px;}
-#budgetsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#miBudgets1_scroller {position: absolute; width:100px; height:8px; left:96px; top:136px}
+#invpayTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#miBudgets1_scroller {position: absolute; overflow:hidden; width:100px; height:8px; left:96px; top:136px}
 #miBudgets1 {position:absolute; left:0px; top:0px; width:100px; height:auto;}
 #miBudgets1 {left:96px; top:136px;}
-#miBudgets2_scroller {position: absolute; width:100px; height:8px; left:200px; top:136px}
+#miBudgets2_scroller {position: absolute; overflow:hidden; width:100px; height:8px; left:200px; top:136px}
 #miBudgets2 {position:absolute; left:0px; top:0px; width:100px; height:auto;}
 #miBudgets2 {left:200px; top:136px;}
-#budgetsInput_scroller {position: absolute; width:92px; height:8px; left:0px; top:136px}
+#budgetsInput_scroller {position: absolute; overflow:hidden; width:92px; height:8px; left:0px; top:136px}
 #budgetsInput {position:absolute; left:0px; top:0px; width:92px; height:auto;}
 #budgetsInput {left:0px; top:136px;}
-#MultiInput3_scroller {position: absolute; width:300px; height:10px; left:0px; top:42px}
+#MultiInput3_scroller {position: absolute; overflow:hidden; width:300px; height:10px; left:0px; top:42px}
 #MultiInput3 {position:absolute; left:0px; top:0px; width:300px; height:auto;}
 #MultiInput3 {left:0px; top:42px;}
-#txtBudgetYear { text-align: left; font-size: 14px; font-family: helvetica; font-style: normal; font-weight: normal; color: black;  padding: 0px; margin: -1px; height: 40px;   }
-#txtBudgetYear_wrapper > div { position: absolute; width: 196px; left: 104px; right:auto; top: 48px; margin: 0 -0.4em;   }
 #cboBudgetAccount {position:absolute; left:101px; right:auto; top:91px; bottom:auto; height:38px; width:205px}
-#signInT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#mSignIn_scroller {position: absolute; width:303px; height:10px; left:1px; top:46px}
+#budgetsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#txtBudgetYear { text-align: left;  font-family: ; font-style: ; font-weight: ;    height: 100%;  }
+#txtBudgetYear_wrapper > div { position: absolute; width: 196px; left: 104px; right:auto; top: 48px; height: auto; margin:0px;  }
+#mSignIn_scroller {position: absolute; overflow:hidden; width:303px; height:10px; left:1px; top:46px}
 #mSignIn {position:absolute; left:0px; top:0px; width:303px; height:auto;}
 #mSignIn {left:1px; top:46px;}
+#signInT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #restoreT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #txtRestore {position:absolute; left:5px; right:auto; top:44px; bottom:auto; height:185px; width:95%}
-#lstWhatToDo1_scroller {position: absolute; width:100%; height:420px; left:0px; top:42px;}
+#lstWhatToDo1_scroller {position: absolute; overflow:hidden; width:100%; height:420px; left:0px; top:42px;}
 #lstWhatToDo1 {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #hBar1 {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#lstWhatToDo2_scroller {position: absolute; width:100%; height:420px; left:0px; top:42px;}
+#lstWhatToDo2_scroller {position: absolute; overflow:hidden; width:100%; height:420px; left:0px; top:42px;}
 #lstWhatToDo2 {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #hBar2 {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#myreportsList1_scroller {position: absolute; width:100%; height:32px; left:0px; top:42px;}
+#myreportsList1_scroller {position: absolute; overflow:hidden; width:100%; height:32px; left:0px; top:42px;}
 #myreportsList1 {position:absolute; left:0px; top:0px; width:100%; height:auto }
 
 #myreportTitle1 {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#profileM_scroller {position: absolute; overflow:hidden; width:303px; height:10px; left:1px; top:46px}
+#profileM {position:absolute; left:0px; top:0px; width:303px; height:auto;}
+#profileM {left:1px; top:46px;}
+#profileT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 body * {font-family:helvetica}
 </style>
 </head>
-<body style="margin:0px;background-image:url('nsb/images/backgroundStripes.png');">
-<script src="29.js"></script>
-<div data-role="page" id="Page_MyMoneyShow" data-theme="b" style="background-image:url('nsb/images/backgroundStripes.png');">
+<body style="margin:0px;">
+<script src="27.js"></script>
+<div data-role="page" id="Page_MyMoneyShow" data-theme="a" style="">
 <form id="WhatToDo" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="31.js"></script>
+<script src="29.js"></script>
 </form>
 <form id="MyAccounts" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="33.js"></script>
+<script src="31.js"></script>
 </form>
 <form id="MyReports" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="35.js"></script>
+<script src="33.js"></script>
 </form>
 <form id="MyInstitutions" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="37.js"></script>
+<script src="35.js"></script>
 </form>
 <form id="MaintainCategories" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="39.js"></script>
+<script src="37.js"></script>
 </form>
 <form id="CategoryList" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="41.js"></script>
+<script src="39.js"></script>
 </form>
 <form id="CategoryMovements" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="43.js"></script>
+<script src="41.js"></script>
 </form>
 <form id="CategoryBudgets" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="45.js"></script>
+<script src="43.js"></script>
 </form>
 <form id="CategoryPerformance" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="47.js"></script>
+<script src="45.js"></script>
 </form>
 <form id="CategoryReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="49.js"></script>
+<script src="47.js"></script>
 </form>
 <form id="AccountsList" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="51.js"></script>
+<script src="49.js"></script>
 </form>
 <form id="AccountMovements" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="53.js"></script>
+<script src="51.js"></script>
 </form>
 <form id="AccountBudgets" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="55.js"></script>
+<script src="53.js"></script>
 </form>
 <form id="AccountPerformance" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="57.js"></script>
+<script src="55.js"></script>
 </form>
 <form id="AccountReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="59.js"></script>
+<script src="57.js"></script>
 </form>
 <form id="PaymentsReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="61.js"></script>
+<script src="59.js"></script>
 </form>
 <form id="PaymentsSelector" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="63.js"></script>
+<script src="61.js"></script>
 </form>
 <form id="FinancialReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="65.js"></script>
+<script src="63.js"></script>
 </form>
 <form id="Charts" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="67.js"></script>
+<script src="65.js"></script>
 </form>
 <form id="PaymentsYearsChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="69.js"></script>
+<script src="67.js"></script>
 </form>
 <form id="MaintainInstitutions" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="71.js"></script>
+<script src="69.js"></script>
 </form>
 <form id="FinancialPosition" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="73.js"></script>
+<script src="71.js"></script>
 </form>
 <form id="PaymentsSingle" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="75.js"></script>
+<script src="73.js"></script>
 </form>
 <form id="Account" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="77.js"></script>
+<script src="75.js"></script>
 </form>
 <form id="MonthlySummary" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="79.js"></script>
+<script src="77.js"></script>
 </form>
 <form id="MonthlySummaryChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="81.js"></script>
+<script src="79.js"></script>
 </form>
 <form id="HistoryChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="83.js"></script>
+<script src="81.js"></script>
 </form>
 <form id="IEChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="85.js"></script>
+<script src="83.js"></script>
 </form>
 <form id="Cost2Income" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="87.js"></script>
+<script src="85.js"></script>
 </form>
 <form id="frmAbout" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="89.js"></script>
+<script src="87.js"></script>
 </form>
 <form id="frmFinancialNeeds" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="91.js"></script>
+<script src="89.js"></script>
 </form>
 <form id="FinancialNeedsSelector" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="93.js"></script>
+<script src="91.js"></script>
 </form>
 <form id="frmFinancialNeedsA" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="95.js"></script>
+<script src="93.js"></script>
 </form>
 <form id="InvestPayOff" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="97.js"></script>
+<script src="95.js"></script>
 </form>
 <form id="Budgets" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="99.js"></script>
+<script src="97.js"></script>
 </form>
 <form id="frmSignIn" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="101.js"></script>
+<script src="99.js"></script>
 </form>
 <form id="frmRestore" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="103.js"></script>
+<script src="101.js"></script>
 </form>
 <form id="frmSettings" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="105.js"></script>
+<script src="103.js"></script>
 </form>
 <form id="frmDatabase" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="107.js"></script>
+<script src="105.js"></script>
 </form>
 <form id="MyReports1" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<script src="107.js"></script>
+</form>
+<form id="frmProfile" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="109.js"></script>
 </form>
 </div>

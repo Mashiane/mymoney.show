@@ -1,4 +1,4 @@
 
-Charts.innerHTML=[  NSB.HeaderBar_jqm("chartsTitle", "Charts", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
-  "<div id='chartObj_wrapper' style='background-color:white;'><div id='chartObj'></div></div>",
+PaymentsYearsChart.innerHTML=[  "<div id='payYearChart_wrapper' style='background-color:white;'><div id='payYearChart'></div></div>",
+  NSB.HeaderBar_jqm14('payYearChartTitle', 'Top 10 Categories', 'Back', 'arrow-l', 'left', 'Refresh', 'refresh', 'right', ' style="" class=" "'),
   ].join('');

@@ -1,4 +1,4 @@
 
-MonthlySummaryChart.innerHTML=[  NSB.HeaderBar_jqm("mscTitle", "Monthly Summary", "Back", "arrow-l", "", "false", " data-theme=b style='' class=' ' "),
-  "<div id='msChart_wrapper' style='background-color:white;'><div id='msChart'></div></div>",
+HistoryChart.innerHTML=[  "<div id='historyChart1_wrapper' style='background-color:white;'><div id='historyChart1'></div></div>",
+  NSB.HeaderBar_jqm14('historyTitle', 'History Chart', 'Back', 'arrow-l', 'left', '', 'false', 'right', ' style="" class=" "'),
   ].join('');

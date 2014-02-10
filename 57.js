@@ -1,4 +1,4 @@
 
-AccountPerformance.innerHTML=[  NSB.HeaderBar_jqm("accPerformanceTitle", "Top 10 Accounts", "Back", "arrow-l", "Refresh", "refresh", " data-theme=b style='' class=' ' "),
-  "<div id='accPerformanceChart_wrapper' style='background-color:white;'><div id='accPerformanceChart'></div></div>",
+AccountReport.innerHTML=[  NSB.Grid("grdAccReport", "1", "5", "", "", "Account,Amount,Percentage,,", "left,right,right,center,center", "style=", ""),
+  NSB.HeaderBar_jqm14('accReportTitle', 'Account Report', 'Back', 'arrow-l', 'left', 'Refresh', 'refresh', 'right', ' style="" class=" "'),
   ].join('');

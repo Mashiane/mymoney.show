@@ -1,4 +1,4 @@
-//Copyright (c) 2013 NS BASIC Corporation. All rights reserved.
+//Copyright (c) 2014 NS BASIC Corporation. All rights reserved.
 //Helper functions
 var True=true; TRUE=true;
 var False=false; FALSE=false;
@@ -67,6 +67,36 @@ function Mid(strMid, intBeg, intEnd) {
         return strMid.substr(intBeg,intEnd);
     }
 } var mid=Mid; var MID=Mid; var midb=Mid; var MidB=mid; var Midb=Mid; var MIDB=Mid; var midB=Mid;
+
+//Splice function: Splice(array, index, howmany [,item])
+function Splice(arr, i, c, el) {
+  if (el==undefined) 
+    return arr.splice(i, c)
+  else
+    return arr.splice(i, c, el)
+} 
+
+//indexOf function: indexOf(var,item[,fromIndex])
+function IndexOf(a, el, fromIndex) {
+  return a.indexOf(el, fromIndex)
+}
+
+//Push function: Push(array,item)
+function Push(arr, el) {
+  return arr.push(el)
+}
+
+String.prototype.format = function () {
+  var args = arguments;
+  return this.replace(/\{(\d+)\}/g, function(m, n){return args[n]})
+}
+
+//Format("The month is {0}", "January")
+function Format() {
+  var shift=[].shift;
+  var str=shift.apply(arguments);
+  return str.format.apply(str, arguments);
+} 
 
 //vbScript Right function: Right(str,len)
 function Right(str, n) {
@@ -1324,8 +1354,9 @@ function VARTYPE(arg,txt) {
     */
     if (!txt || txt==null) { txt=0; } //vartype() vs. typename(); txt==0 if vartype
     var res=-1;
-    if (!arg && arg != null) {
+    if (!arg && arg != null && arg != 0) {
         res=0;
+        if (txt==1 && isNaN(parseInt(arg))) { return arg; } //typename - returns NaN
         if (txt==1) { return 'empty'; } //typename
     } else if (arg==null) {
         res=1;
@@ -1334,7 +1365,7 @@ function VARTYPE(arg,txt) {
         var type='';
         var typ=typeof arg;
         arg=arg.toString();
-        if (type == '' && (arg==1 || arg==0) ) { type='number'; }
+        if (type == '' && (arg==1 || arg==0) ) { type='integer'; }
         if (type == '' && (arg==true || arg==false || arg=='true' || arg=='false') ) { type='boolean'; res=11;}
         if (type == '' && arg.match(/\s*\d{1,2}(\/|-)\d{1,2}(\/|-)\d{2,4}/) && arg != "NaN") { type='date'; }
         if (type == '' && arg.match(/\s*\w{3}\s+\w{3}\s+\d{2}\s+\d{4}\s+\d{2}:\d{2}:\d{2}\s+\w{3}[\+\-]\d{4}/) && arg != "NaN") { type='date'; }
@@ -1868,6 +1899,8 @@ function Ajax(URL, method, data, callback){
   return req
 }
 
+window.GetJSON = $.getJSON;
+
 function nsbDOMAttr(obj, strobj) {
     var parts = strobj.split('.');
     var target = parts[parts.length - 1]
@@ -2096,8 +2129,30 @@ NSB.EULA=function(s){
     localStorage.EULA=true;
     NSB.EULA();
     if (typeof(NSBCurrentForm.onshow)=='function') NSBCurrentForm.onshow(); Main()};
-  NSB.EULAref=new iScroll('NSB_scroller',{bounce:true, zoom:false})
+  NSB.EULAref=new IScroll(NSB_scroller,{mouseWheel:true, scrollbars:true, bounce:true, zoom:false})
   setTimeout(function(){NSB.EULAref.refresh()}, 200)
+}
+
+NSB.WaitCursor=function(s){
+  if (s==false || !s){
+    if (typeof(NSB.WaitCursorobj)==='object' && NSB.WaitCursorobj != null) {
+      if (NSB.WaitCursorobj.parentNode!=undefined){
+        NSB.WaitCursorobj.parentNode.removeChild(NSB.WaitCursorobj);
+        NSB.WaitCursorobj=null;}
+      }
+    return
+  }
+ var height=window.innerHeight
+  NSB.WaitCursorobj=document.createElement('div')
+  NSB.WaitCursorobj.style.position='fixed'
+  NSB.WaitCursorobj.style.width='100%'
+  NSB.WaitCursorobj.style.height=height+'px';
+  NSB.WaitCursorobj.style.backgroundImage='url("nsb/images/ajax-loader.gif")'
+  NSB.WaitCursorobj.style.backgroundPosition='center'
+  NSB.WaitCursorobj.style.backgroundRepeat='no-repeat'
+  NSB.WaitCursorobj.style.zIndex=1
+  NSB.WaitCursorobj.id='NSB_WaitCursor'
+  document.body.appendChild(NSB.WaitCursorobj);
 }
 
 NSB.Print=function(s){
@@ -2674,10 +2729,88 @@ if (typeof document !== 'undefined') {
     var NSBVersion=document.getElementsByName("generator")[0].content.split("$")[0];
     document.ontouchmove = function(e) { e.preventDefault(); };
     /mobile/i.test(navigator.userAgent) && !location.hash && setTimeout(function(){if (!pageYOffset) window.scrollTo(0,0)},500);
-    NSB.MsgBoxStyle = (navigator.userAgent.match(/(android)|(Chrome)/i)) ? '-android' : '';
+    NSB.MsgBoxStyle = '-android';
 
 document.addEventListener(
   (document.hidden==undefined) ? "webkitvisibilitychange" : "visibilitychange", 
   function(){if(typeof onvisibilitychange!=="undefined")
     onvisibilitychange(!(document.hidden || document.webkitHidden) )}, False);
 }  
+
+
+// messages.js          
+// this file can be parsed as JSON if the first 16 lines are truncated
+
+// make string interpolation possible for i18n
+if (!String.prototype.supplant) {
+    String.prototype.supplant = function (o) {
+        return this.replace(/{([^{}]*)}/g,
+            function (a, b) {
+                var r = o[b];
+                return typeof r === 'string' || typeof r === 'number' ? r : a;
+            }
+        );
+    };
+}
+
+var NSB = NSB || {};  // setup the NSB namespace, if needed
+NSB._ = 
+{
+  "Sunday": "Sunday",
+  "Monday": "Monday",
+  "Tuesday": "Tuesday",
+  "Wednesday": "Wednesday",
+  "Thursday": "Thursday",
+  "Friday": "Friday",
+  "Saturday": "Saturday",
+  "Jan": "Jan",
+  "Feb": "Feb",
+  "Mar": "Mar",
+  "Apr": "Apr",
+  "May": "May",
+  "Jun": "Jun",
+  "Jul": "Jul",
+  "Aug": "Aug",
+  "Sep": "Sep",
+  "Oct": "Oct",
+  "Nov": "Nov",
+  "Dec": "Dec",
+  "January": "January",
+  "February": "February",
+  "March": "March",
+  "April": "April",
+  "May": "May",
+  "June": "June",
+  "July": "July",
+  "August": "August",
+  "September": "September",
+  "October": "October",
+  "November": "November",
+  "December": "December",
+  "SQLite not supported.": "SQLite not supported.",
+  "Database name required.": "Database name required.",
+  "Invalid database version: {version}": "Invalid database version: {version}",
+  "Unknown error: {error}": "Unknown error: {error}",
+  "SQLite error: {errmsg} (Code {errcode}) {sql}": "SQLite error: {errmsg} (Code {errcode}) {sql}",
+  "Updating - Please wait": "Updating - Please wait",
+  "Update Complete - Restarting.": "Update Complete - Restarting.",
+  "Error: Index out of range: {array}[{index}]": "Error: Index out of range: {array}[{index}]",
+  "Error: Must be true or false: {array}[{index}] {value}": "Error: Must be true or false: {array}[{index}] {value}",
+  "Overlay() requires Sencha initialization.": "Overlay() requires Sencha initialization.",
+  "Var keyword commented out--cannot be used as a variable!": "Var keyword commented out--cannot be used as a variable!",
+  "Cannot use Var keyword as a variable!": "Cannot use Var keyword as a variable!",
+  "{keyword} statement commented out!": "{keyword} statement commented out!",
+  "No overwrite - new database is same version as old.": "No overwrite - new database is same version as old.",
+  "No database write - database already exists.": "No database write - database already exists.",
+  "OK": "OK",
+  "Cancel": "Cancel",
+  "Retry": "Retry",
+  "Yes": "Yes",
+  "No": "No",
+  "Abort": "Abort",
+  "Ignore": "Ignore",
+  "Accept": "Accept",
+  "Decline": "Decline",
+  "Landscape not supported. Please rotate back.": "Landscape not supported. Please rotate back.",
+  "Portrait not supported. Please rotate back.": "Portrait not supported. Please rotate back."
+}

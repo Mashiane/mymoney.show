@@ -3,11 +3,11 @@
 xmlns = "http://www.w3.org/ns/widgets"
 xmlns:gap = "http://phonegap.com/ns/1.0"
 id = "com.nsbasic.MyMoneyShow"
-version = "1.0.110">
+version = "1.0.113">
 
 <name>MyMoney.Show</name>
 <description>MyMoney.Show, a Personal Finance Management Application</description>
-
+<author email="anele@mbangas.com" href="http://www.mbangas.com/mymoneyshow">Anele Mbanga</author>
 <!-- Icons: Expand this section with sizes required for platforms you are targeting.-->
 <icon src='57.png' width='57' height='57' />
 <icon src='72.png' width='72' height='72' />
@@ -31,6 +31,6 @@ version = "1.0.110">
 <!-- <preference name="autorotate" value="false" readonly="true"/> -->
 <!-- <preference name="orientation" value="default" > -->
 <preference name="fullscreen" value="true" />
-<preference name="SplashScreenDelay" value="10000" />
+<preference name="SplashScreenDelay" value="5000" />
 <gap:plugin name="org.apache.cordova.device" />
 </widget>

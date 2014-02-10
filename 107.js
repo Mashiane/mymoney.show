@@ -1,4 +1,4 @@
 
-frmDatabase.innerHTML=[  NSB.List_jqm("lstWhatToDo2", "ul", "none", "b", "b", '', "", "N,N,N", "style=", 'class=" "', "100%", true, false, false, "arrow-r"),
-  NSB.HeaderBar_jqm("hBar2", "Database", "Home", "home", "", "false", " data-theme=b style='' class=' ' "),
+MyReports1.innerHTML=[  NSB.List_jqm14('myreportsList1', 'ul', 'none', '', 'b', '', '', 'N,N,N', 'style=', 'class=" "', '100%', true, false, '', 'arrow-r', 'false', '', 'false', 'false'),
+  NSB.HeaderBar_jqm14('myreportTitle1', 'Charts', 'Home', 'home', 'left', '', 'false', 'right', ' style="" class=" "'),
   ].join('');

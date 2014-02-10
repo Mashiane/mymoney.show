@@ -1,4 +1,4 @@
 
-FinancialReport.innerHTML=[  NSB.HeaderBar_jqm("finReportTitle", "Financial Report", "Back", "arrow-l", "Refresh", "refresh", " data-theme=b style='' class=' ' "),
-  NSB.Grid("grdFinReport", "1", "3", "", "", "Title,Description,Amount", "left,left,right", "style=", ""),
+Charts.innerHTML=[  "<div id='chartObj_wrapper' style='background-color:white;'><div id='chartObj'></div></div>",
+  NSB.HeaderBar_jqm14('chartsTitle', 'Charts', 'Back', 'arrow-l', 'left', '', 'false', 'right', ' style="" class=" "'),
   ].join('');

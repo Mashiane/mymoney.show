@@ -1,4 +1,4 @@
 
-WhatToDo.innerHTML=[  NSB.List_jqm("lstWhatToDo", "ul", "none", "b", "b", '', "", "N,N,N", "style=", 'class=" "', "100%", true, false, false, "arrow-r"),
-  NSB.HeaderBar_jqm("hBar", "MyMoney.Show", "", "false", "About", "info", " data-theme=b style='' class=' ' "),
+MyAccounts.innerHTML=[  NSB.List_jqm14('myaccountsList', 'ul', 'none', '', 'b', '', '', 'N,N,N', 'style=', 'class=" "', '100%', true, false, '', 'arrow-r', 'false', '', 'false', 'false'),
+  NSB.HeaderBar_jqm14('myaccountTitle', 'Accounts', 'Back', 'arrow-l', 'left', 'Add', 'plus', 'right', ' style="" class=" "'),
   ].join('');

@@ -1,4 +1,4 @@
 
-CategoryList.innerHTML=[  NSB.HeaderBar_jqm("categorieslistTitle", "Categories", "Back", "arrow-l", "Add", "plus", " data-theme=b style='' class=' ' "),
-  NSB.Grid("categoriesListList", "1", "3", "", "", "Category,Edit,Delete", "left,center,center", "style=", ""),
+CategoryMovements.innerHTML=[  NSB.Grid("grdCategoryMovements", "1", "5", "", "", "Year,Category,Total,,", "left,left,right,center,center", "style=", ""),
+  NSB.HeaderBar_jqm14('categoryMovementTitle', 'Category Movements', 'Back', 'arrow-l', 'left', 'Refresh', 'refresh', 'right', ' style="" class=" "'),
   ].join('');

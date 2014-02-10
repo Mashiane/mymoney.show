@@ -1,4 +1,4 @@
 
-MyReports.innerHTML=[  NSB.List_jqm("myreportsList", "ul", "none", "b", "b", '', "", "N,N,N", "style=", 'class=" "', "100%", true, false, false, "arrow-r"),
-  NSB.HeaderBar_jqm("myreportTitle", "Reports", "Home", "home", "", "false", " data-theme=b style='' class=' ' "),
+MyInstitutions.innerHTML=[  NSB.Grid("institutionsList", "1", "3", "", "", "Institution,Edit,Delete", "left,center,center", "style=", ""),
+  NSB.HeaderBar_jqm14('institutionsTitle', 'Institutions', 'Back', 'arrow-l', 'left', 'Add', 'plus', 'right', ' style="" class=" "'),
   ].join('');

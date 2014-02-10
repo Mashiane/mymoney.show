@@ -1,4 +1,4 @@
-// copyright 2013 NS BASIC Corporation. All rights reserved.
+// copyright 2014 NS BASIC Corporation. All rights reserved.
 
 NSB.$=function(id) {return document.getElementById(id)}
 
@@ -523,9 +523,9 @@ NSB.Grid = function(id, rows, cols, rowHeights, colWidths, titles, alignments, s
     styleName=id + "Style"
 	s="<style>"
 	s+="  ." + styleName + "{border-top:1px solid #9bb3cd;border-left:1px solid #9bb3cd;margin-bottom:4em;border-collapse:collapse;}\n";
-	s+="  ." + styleName + " th{padding:.2em .2em .2em .2em;background:#93A5BB;font-weight:normal;color:#fff;border:2px ridge #9bb3cd;}\n";
+	s+="  ." + styleName + " th{padding:.2em .2em .2em .2em;background:#93A5BB;text-shadow:none;color:#fff;border:2px ridge #9bb3cd;}\n";
 	s+="  ." + styleName + " th p{font-weight:bold;margin-bottom:.33em;}\n";
-	s+="  ." + styleName + " td{vertical-align:middle;border:2px ridge #9bb3cd;" + cellstyle + "}\n";
+	s+="  ." + styleName + " td{vertical-align:middle;text-shadow:none;border:2px ridge #9bb3cd;" + cellstyle + "}\n";
 	s+="  ." + styleName + " td p{margin-bottom:0;}." + styleName + " td p+p{margin-top:.417em;}\n";
 	s+="  ." + styleName + " td p+p+p{margin-top:.417em;}\n";
 	s+="</style>\n\n";
@@ -939,19 +939,45 @@ Overlay = function(caption, text){
 }
 
 /**************************************************************************************/
-// jQuery Mobile functions
-// copyright 2012 NS BASIC Corporation. All rights reserved.
+// jqWidgets functions
 
-NSB.Checkbox_jqm = function(id, width, options, html, properties, Theme, klass) {
+NSB.PhotoGallery_jqw = function(id, fotos, photoclassname, photostyle){
+	var i,s, arrItems;
+	arrItems=split(fotos, ",");		
+	if(fotos==''){arrItems=[]};
+	//Man kann vieleicht eingene Class definieren, sonst default Class ".phone" benutzen....
+	if(photoclassname=='') {photoclassname='.photo'};	
+	s = '<style type="text/css">\n' ;
+	s += '.'+id+'_photostyle{ '+photostyle+'}</style>\n' ;
+	s += '<div id="'+id+ '">\n' ;
+	if(photoclassname=='') {
+		for (i=0; i<arrItems.length; i++) {
+			s += '<div><div class="phone" style="background-image: url('+arrItems[i]+');"></div></div>\n';}
+		} else {
+			for (i=0; i<arrItems.length; i++) {
+				s += '<div><div class="'+id+'_photostyle" style="background-image: url('+arrItems[i]+');"></div></div>\n';}
+		}			
+	s += '</div>\n';
+	//console.log(s);
+	return s
+}
+
+/**************************************************************************************/
+// jQuery Mobile 1.3 functions
+// copyright 2014 NS BASIC Corporation. All rights reserved.
+
+NSB.Checkbox_jqm = function(id, width, options, html, properties, Theme, klass, corners, iconPos) {
   var i,s;
   var arrOptions=split(options, ",");
-  s="<fieldset data-role='controlgroup' id='" + id + "' " + enquote(html) + properties + " class='" + klass + "'>\n";
+  if(corners) corners=" data-corners=" + corners;
+  s="<fieldset data-role='controlgroup' id='" + id + "' " + enquote(html) + properties + corners + iconPos +" class='" + klass + "'>\n";
   for (i=0; i<arrOptions.length; i++){
     s=s+"  <input type='checkbox' data-theme=" + Theme + " name='" + id + "_" + (i+1) + "' id='" + id + "_" + (i+1) + "'>\n";
     s=s+"  <label for='" + id + "_" + (i+1) + "'>" + arrOptions[i] + "</label>";
 	}
   s=s+"</fieldset>";
-    return s;
+  //console.log(s)
+  return s;
 }
 
 NSB.Checkbox_jqm_init= function(id, options){
@@ -979,12 +1005,14 @@ NSB.Checkbox_jqm_init= function(id, options){
     }  
 }
 
-NSB.RadioButton_jqm = function(id, width, items, value, html, properties, Theme, klass) {
+NSB.RadioButton_jqm = function(id, width, items, value, html, properties, Theme, klass, corners, iconPos) {
   var i,s;
   var arrOptions=split(items, ",");
-  s="<fieldset data-role='controlgroup' id='" + id + "' " + enquote(html) + properties + " class='" + klass + "'>\n";
+  if(Theme!="") Theme="data-theme="+Theme;
+  if(corners) corners=" data-corners=" + corners;
+  s="<fieldset data-role='controlgroup' id='" + id + "' " + enquote(html) + properties + corners + iconPos + " class='" + klass + "'>\n";
   for (i=0; i<arrOptions.length; i++){
-    s=s+"  <input type='radio' data-theme=" + Theme + " name='" + id + "' id='" + id + "_" + (i+1) + "'";
+    s=s+"  <input type='radio' " + Theme + " name='" + id + "' id='" + id + "_" + (i+1) + "'";
     if (i==value-1) s=s+" checked=checked";
     s=s+" value='" + i + "'>\n";
     s=s+"  <label for='" + id + "_" + (i+1) + "'>" + arrOptions[i] + "</label>\n";
@@ -1217,28 +1245,33 @@ NSB.FooterBar_jqm_init= function(id,items){
   NSB.$(id).style.width="100%";
   NSB.$(id).style.left="0px";
   NSB.$(id).style.height="auto";
+  NSB.$(id).style.top="auto";
+  NSB.$(id).style.bottom="0px";
   NSB.$(id).refresh();
 }
 
 NSB.FooterBarRefresh=function(id){
-  try{id.style.top=(window.innerHeight-id.offsetHeight) + 'px'}
-  catch(err){console.log("Error: " +err.message);debugger}
+  //try{id.style.top=(window.innerHeight-id.offsetHeight) + 'px'}
+  //catch(err){console.log("Error: " +err.message);debugger}
+  //console.log("refreshed: " + window.innerHeight + "," +id.offsetHeight)
   }
 
-NSB.Select_jqm = function(id, items, values, placeholder, selectedIndex, name, html, icon, iconPos, inline, nativeMenu, overlayTheme, Theme, group, multiSelect) {
+NSB.Select_jqm = function(id, items, values, placeholder, selectedIndex, name, html, icon, iconPos, inline, nativeMenu, overlayTheme, Theme, mini, group, multiSelect) {
   var i,s,arrItems,arrValues;
   arrItems=split(items, ",");
   if(items==''){arrItems=[]};
   arrValues=split(values, ",");
   if(values==''){arrValues=[]};
-  s ="<select id="+id+"_inner";
+  s ="<style>.ui-select {margin-top:0px; margin-bottom:0px;}</style>\n"
+  s+="<select id="+id+"_inner";
   s+=" data-icon="+icon;
   s+=" data-iconpos="+iconPos;
   s+=" data-inline="+inline;
   s+=" data-native-menu="+nativeMenu;
-  if (multiSelect=="true") {s+=" multiple=multiple"};
-  s+=" data-overlay-theme="+overlayTheme;
-  s+=" data-theme="+Theme;
+  s+=" " + mini;
+  if(multiSelect=="true") {s+=" multiple=multiple"};
+  if(overlayTheme!='') s+=" data-overlay-theme="+overlayTheme;
+  if(Theme!='') s+=" data-theme="+Theme;
   s+=" " + html + " name='" + id + "'>\n";
   for (i=0; i<arrItems.length; i++) {    
     if ((i<arrValues.length) & (arrValues[i]!="")) 
@@ -1348,14 +1381,16 @@ NSB.Select_jqm_init= function(el, html, group){
      }});
 }  //end select_jqm_init
 
-NSB.PopUp_jqm = function(id, items, text, datatransition){
-	var i,s, arrItems;
+NSB.PopUp_jqm = function(id, items, text, datatransition, theme, corners, arrows, icon){
+	var i,s, arrItems, menu;
 	arrItems=split(items, ",");
 	if(items==''){arrItems=[]};
 
-	s= "<a id="+id+" href='#popupMenu' data-rel='popup' data-role='button' data-inline='true' data-transition='"+datatransition+"' data-icon='gear' data-theme='e'>" + text +"</a>\n" ;
-	s+="<div data-role='popup' id='popupMenu' data-theme='d'>\n" ;
-    s+="<ul data-role='listview' data-inset='true' style='min-width:210px;' data-theme='d'>\n";
+	menu=id + "Menu";
+	s= "<a id="+id+" href='#"+menu+"' data-rel='popup' data-role='button' data-inline='true' data-transition='"+datatransition;
+	s+="' data-icon='"+icon+"' data-theme='" + theme + " data-corners='"+corners+"' data-arrow='"+arrows+"'>" + text +"</a>\n";
+	s+="<div data-role='popup' id='"+menu+"' data-theme='" + theme + "'>\n" ;
+    s+="<ul data-role='listview' data-inset='true' style='min-width:210px;' data-theme='" + theme + "' >\n";
     s+="  <li data-role='divider' data-theme='e'>Choose an action</li>\n"  ;
     for (i=0; i<arrItems.length; i++) {
         s+="  <li id='" + (id+"_"+i) + "' nsbclick='"+id+"' nsbvalue='"+arrItems[i]+"'>"+arrItems[i]+"</li>\n"}  
@@ -1364,42 +1399,234 @@ NSB.PopUp_jqm = function(id, items, text, datatransition){
 	return s;
 }
 
-NSB.PopUp_jqm_init= function(id,items){  
+NSB.PopUp_jqm_init= function(el,items){  
   var arrItems=split(items,",");
   for (var i=0; i<arrItems.length; i++) {
-    NSB.$(id+"_"+i).onclick=function(){NSB.$(this.getAttribute("nsbclick")).onclick(this.getAttribute("nsbvalue"))}};
+    NSB.$(el.id+"_"+i).onclick=function(){NSB.$(this.getAttribute("nsbclick")).onclick(this.getAttribute("nsbvalue"))}};
+  el.close=function(){$("#"+el.id+"Menu").popup("close")};
 }
 
 NSB.ToolTip_jqm = function(id, popupmsg, datatransition, theme, message, style, closeiconposition, icon){
   var s;
-  s = "<a id="+id+" href='#"+id+"_popupInfo' data-rel='popup' data-role='button' class='ui-icon-alt' data-inline='true' data-transition='" +datatransition+ "' data-icon='"+icon+"' data-theme='"+theme+"' data-iconpos='notext'>"+message+"</a></p>" ;
-  s +="<div data-role='popup' id='"+id+"_popupInfo' class='ui-content' data-theme='"+theme+" 'style='"+style+"'>";
+  if(theme != '') theme=" data-theme="+theme;
+  s = "<a id="+id+" href='#"+id+"_popupInfo' data-rel='popup' data-role='button' class='ui-icon-alt' data-inline='true' data-transition='" +datatransition+ "' data-icon="+icon+theme+" data-iconpos='notext' title='"+message+"'>"+message+"</a></p>" ;
+  s +="<div data-role='popup' id='"+id+"_popupInfo' class='ui-content'"+theme+" ' style='"+style+"'>";
   if (closeiconposition=="")
-    s +=" <a href='#' data-rel='back' data-role='button' data-theme='"+theme+"' data-icon='delete' data-iconpos='notext'>Close</a>";
+    s +=" <a href='#' data-rel='back' data-role='button'"+theme+"' data-icon='delete' data-iconpos='notext'>Close</a>";
   else
     s +=" <a href='#' data-rel='back' data-role='button' data-theme='"+theme+"'data-icon='delete' data-iconpos='notext' class='"+closeiconposition+"'>Close</a>";
   s += popupmsg+ "</div>" ;
-  //console.log(s);
+  // console.log(s);
   return s
 }
 
-NSB.PhotoGallery_jqm = function(id, fotos, photoclassname, photostyle){
-	var i,s, arrItems;
-	arrItems=split(fotos, ",");		
-	if(fotos==''){arrItems=[]};
-	//Man kann vieleicht eingene Class definieren, sonst default Class ".phone" benutzen....
-	if(photoclassname=='') {photoclassname='.photo'};	
-	s = '<style type="text/css">\n' ;
-	s += '.'+id+'_photostyle{ '+photostyle+'}</style>\n' ;
-	s += '<div id="'+id+ '">\n' ;
-	if(photoclassname=='') {
-		for (i=0; i<arrItems.length; i++) {
-			s += '<div><div class="phone" style="background-image: url('+arrItems[i]+');"></div></div>\n';}
-		} else {
-			for (i=0; i<arrItems.length; i++) {
-				s += '<div><div class="'+id+'_photostyle" style="background-image: url('+arrItems[i]+');"></div></div>\n';}
-		}			
-	s += '</div>\n';
+/**************************************************************************************/
+// jQuery Mobile 1.4 functions
+
+NSB.HeaderBar_jqm14 = function(id, title, leftButtonName, leftButtonIcon, leftButtonIconPos, rightButtonName, rightButtonIcon, rightButtonIconPos, html) {
+  var name;
+  var s="<div id='" + id + "' data-role='header'" + html + ">\n";
+  if (leftButtonName != "" || leftButtonIcon != "false"){
+    name = (leftButtonName == "") ? leftButtonIcon : leftButtonName;
+    if (leftButtonIconPos == "notext") leftButtonName="";
+    s+="  <div id='"+id+"_left' class='ui-btn ui-btn-left";
+    if (leftButtonIconPos != "none") s+=" ui-btn-icon-left ui-icon-" + leftButtonIcon;
+	s+="' data-iconpos=" + leftButtonIconPos;
+    s+=" nsbclick='"+id+"' nsbvalue='"+name+"'";	
+	s+=" style='height:14px;'>" + leftButtonName + "\n  </div>\n";
+  }
+  if (title != "") s+="  <h1>" + title + "</h1>\n";
+   
+  if (rightButtonName != "" || rightButtonIcon != "false"){
+    name = (rightButtonName == "") ? rightButtonIcon : rightButtonName;
+    if (rightButtonIconPos == "notext") rightButtonName="";
+    s+="  <div id='"+id+"_right' class='ui-btn ui-btn-right";
+    if (rightButtonIconPos != "none") s+=" ui-btn-icon-right ui-icon-" + rightButtonIcon;
+    s+="' data-iconpos=" + rightButtonIconPos
+    s+=" nsbclick='"+id+"' nsbvalue='"+name+"'";
+	s+=" style='height:14px;'>" + rightButtonName + "\n  </div>\n";
+  }
+  s+="</div>\n";
+  //console.log(s);
+  return s;
+}
+
+NSB.FooterBar_jqm14 = function(id, items, fontSize, fontFamily, fontStyle, fontWeight, theme, icons, iconPos, active, klass){
+  var i,s;
+  var arrItems=split(items,",");
+  var arrIcons=split(icons,",");
+  s="<div id="+id + " data-role='footer' class='" + klass + "'>\n";
+  s+="<div data-role=navbar data-iconpos="+iconPos+ ">\n";
+  s+="<ul>\n";
+  for (i=0; i<arrItems.length; i++) {
+    arrItems[i]=Trim(arrItems[i]);
+    s+="  <li>\n";
+    s+="    <a id='" + (id+"_"+i) + "' nsbclick='"+id+"' nsbvalue='"+replace(arrItems[i]," ","_")+"' href='#'";
+    if(theme!="") s+=" data-theme="+theme+"";
+    if ((i<arrIcons.length) & (arrIcons[i]!="")) s+=" data-icon=" + Trim(arrIcons[i]);
+    if (i+1==active) s+=" class='ui-btn-active'";
+    s+=">\n";
+    s+="    " + arrItems[i] + "\n";
+    s+="    </a>\n";
+    }
+  s+="</ul></div></div>\n";
+  //console.log(s);
+  return s;
+}
+
+NSB.NavBar_jqm14 = function(id, items, fontSize, fontFamily, fontStyle, fontWeight, Theme, icons, iconPos, active, klass){
+  var i,s;
+  var arrItems=split(items,",");
+  var arrIcons=split(icons,",");
+  s="<div id="+id + " data-role=navbar data-iconpos="+iconPos+ " class='" + klass + "'>\n";
+  s+="<ul>\n";
+  for (i=0; i<arrItems.length; i++) {
+    arrItems[i]=Trim(arrItems[i]);
+    s+="  <li>\n";
+    s+="    <a id='" + (id+"_"+i) + "' nsbclick='"+id+"' nsbvalue='"+replace(arrItems[i]," ","_")+"' href='#' data-theme="+Theme+" ";
+    if ((i<arrIcons.length) & (arrIcons[i]!="")) s+=" data-icon=" + Trim(arrIcons[i]);
+    if (i+1==active) s+=" class='ui-btn-active'";
+    s+=">\n";
+    s+="    " + arrItems[i] + "\n";
+    s+="    </a>\n";
+    }
+  s+="</ul></div>\n";
+  //console.log(s);
+  return s;
+}
+
+NSB.PopUp_jqm14 = function(id, items, text, datatransition, theme, dataTheme, mini, corners, arrows, icon, iconPos, popup){
+	var i,s, arrItems, menu;
+	arrItems=split(items, ",");
+	if(items==''){arrItems=[]};
+	menu=id + "Menu";
+	s= "<a id="+id+" href='#"+menu+"' data-rel='popup' data-transition='"+datatransition+"' Class='ui-btn";
+	s+=" ui-btn-inline " + mini + " " + corners;
+    if(theme!="") s+=" data-theme="+theme+"";
+    if(icon!='') s+= " ui-icon-" + icon + " ui-btn-icon-" + iconPos; 
+	s+="' data-arrow="+arrows+">" + text +"</a>\n";
+	s+="<div data-role='popup' id='"+menu+"' data-theme='" + dataTheme + "'>\n";
+	if(items!="") {
+        s+="<ul data-role='listview' data-inset='true' style='min-width:210px;'>\n";
+        s+="  <li data-role='divider'>" + popup + "</li>\n"  ;
+        for (i=0; i<arrItems.length; i++) {
+            s+="  <li id='" + (id+"_"+i) + "' nsbclick='"+id+"' nsbvalue='"+arrItems[i]+"'>"+arrItems[i]+"</li>\n"}  
+	    s+=    "</ul></div>"}
+	else {
+	    s+="<p>" + popup + "</div>"}
 	//console.log(s);
-	return s
+	return s;
+}
+
+NSB.List_jqm14 = function(id, showNumbers, imageStyle, dataTheme, dividerTheme, itemList, imageList, dividerList, html, properties, width, scrolling, readonly, corners, icon, filter, filterPlaceholder, filterReveal,autoDividers){
+  var i,s='';
+  if(dataTheme!='') dataTheme = " data-theme=" + dataTheme;
+  filterPlaceholder = ((filterPlaceholder!='') && (filter=='true')) ? filterPlaceholder = " data-filter-placeholder='" + filterPlaceholder + "'": "";
+  filter = (filter=='true') ? " data-filter=true" : '';
+  filterReveal = (filterReveal=='true') ? " data-filter-reveal=true" : '';
+  autoDividers = (autoDividers=='true') ? " data-autodividers=true" : '';
+  if(scrolling)s="<div id='" + id + "_scroller'>\n";
+  s+="<div id='" + id + "'>\n";
+  s+="<" + showNumbers + " id="+id+"_list data-role='listview' class='ui-listview' data-corners='"+corners+"' data-icon="+icon;
+  s+=filter+filterReveal+filterPlaceholder+autoDividers;
+  s+=" data-inset=true"+dataTheme+" data-divider-theme="+dividerTheme+" imageStyle='"+imageStyle+"'" + enquote(html) + ">\n";
+  var arrItems=split(itemList,",");
+  var arrImages=split(imageList,",");
+  var arrDividers=split(dividerList,",");
+  for (i=0; i<arrItems.length; i++) {
+    s+="  <li";
+	if ((i<arrDividers.length) & (arrDividers[i]=="Y")) 
+	  {s+=" data-role='list-divider' role='heading'>\n"}
+	else {
+	  if (!readonly){
+      	s+=">";
+      	s+="<a id='" + (id+"_"+i) + "' nsbclick='"+id+"' nsbvalue='"+i+"' href='#'>"}
+      else s+=">"};
+    if ((i<arrImages.length) & (arrImages[i]!="")) 
+	  {s+="<img src='" + arrImages[i] + "' class='"+imageStyle+"'>"};
+    s+=Trim(arrItems[i]);
+    if (!((i<arrDividers.length) & (arrDividers[i]=="Y")))
+      {s+=readonly ? "\n" : "</a>\n"};
+    }
+  s+="</" + showNumbers + ">";
+  s+="\n</div>\n";
+  if(scrolling)s+="</div>\n";
+  //console.log(s);
+  return s;
+}
+
+NSB.List_jqm_init14= function(id, items, scrolling, width, readonly){ 
+  var arrItems=split(items,",");
+  for (var i=0; i<arrItems.length; i++) {
+    if(NSB.$(id+"_"+i)!=undefined)
+      NSB.$(id+"_"+i).onclick=function(){NSB.$(this.getAttribute("nsbclick")).onclick(this.getAttribute("nsbvalue"))}};
+  NSB.addDisableProperty(NSB.$(id)); 
+  if (scrolling) {
+    NSB.$(id+"_scroller").style.width=IsNumeric(width) ? width + "px" : width;
+    NSB.$(id).style.width="100%"
+  } else NSB.$(id).style.width=IsNumeric(width) ? width + "px" : width;	
+  NSB.$(id).readonly=readonly;
+  NSB.$(id).getItemCount=function(){
+    var elem = NSB.$(id);
+    return elem.getElementsByTagName("li").length;
+  }
+  NSB.$(id).getItem=function(i){
+    return $('#'+this.id+"_"+i).text()}
+  NSB.$(id).deleteItem=function(which){
+    var elem = NSB.$(id+'_list');
+    if (isNull(which)) {
+      which = NSB.$(id).getItemCount() - 1;
+      elem.removeChild(elem.getElementsByTagName("li")[which]);
+      }
+    else if (which.toUpperCase() == "ALL") {
+      $('#'+id+'_list').empty(); 
+    }
+    NSB.$(id).refresh();
+  }
+  NSB.$(id).addItem=function(itemName,imgSrc,itemNo,divider,theme){
+    var s,i,newLi,newSpan,newHref,newImgSrc;
+    if (isNull(itemNo)) {
+      i = NSB.$(id).getItemCount();
+      }
+    else {
+      i = itemNo;
+      }
+    newLi = document.createElement("li");
+    if(divider!=true){
+      if(!this.readonly){
+        if(theme) newLi.setAttribute("data-theme",theme);
+        newLi.setAttribute("onclick", (id + ".onclick(" + i + ")"));
+        s="<a id='" + (id+"_"+i) + "' href='#'>";	
+        if (imgSrc) s+=" <img src='" + imgSrc + "' class='" + NSB.$(id+'_list').getAttribute("imageStyle") + "'>";
+        s+=itemName;
+        newLi.innerHTML+=s + "</a>\n";
+        //console.log(s);
+      } else {
+        newLi.innerHTML+=itemName}
+    }
+    else {
+      newLi.setAttribute("data-role","list-divider");
+      newLi.innerHTML = itemName}
+    if (isNull(itemNo)) {
+      NSB.$(id+'_list').appendChild(newLi); 
+		}
+    else {
+      NSB.$(id+'_list').insertBefore(newLi,NSB.$(id+'_list').getElementsByTagName("li")[itemNo]); 
+      }
+	$(NSB.$(id+'_list')).listview("refresh");
+	NSB.$(id).refresh();
+    } 
+  NSB.$(id).replaceItem=function(itmNo,newItemName,newImgSrc){
+    if ((isNaN(itmNo)) || (itmNo < 0 || itmNo > NSB.$(id).getItemCount() -1)) {
+      return -1;
+    }
+    elem = NSB.$(id+'_list')
+    elem.removeChild(elem.getElementsByTagName("li")[itmNo]);
+    NSB.$(id).addItem(newItemName,newImgSrc,itmNo);
+    return itmNo;
+  }
+  NSB.$(id).setFilter=function(str){
+    $('input[data-type="search"]').val(str);
+    $('input[data-type="search"]').trigger("keyup");
+  }
 }
