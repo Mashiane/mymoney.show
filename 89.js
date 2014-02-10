@@ -1,6 +1,6 @@
 
 frmFinancialNeeds.innerHTML=[  NSB.MultiInput("miFinancialNeeds", 12, "smallfield", "", "Income,Household,Transport,Investments,Loans/Credit,Education,Entertainment,Donations,Support,Communication,Animals/Pets,Available Funds", "", "", " style=  ", false),
-  NSB.HeaderBar_jqm14('finneedsTitle', 'Financial Needs - Percentage', 'Back', 'arrow-l', 'left', 'Calc', 'gear', 'right', ' style="" class=" "'),
+  NSB.HeaderBar_jqm14('finneedsTitle', 'F.N. Percentage', 'Back', 'arrow-l', 'left', 'Calc', 'gear', 'right', ' style="" class=" "'),
   "<div id='fnIncome_wrapper'><input id='fnIncome' type='text' name='' autocorrect='on' autocomplete='on' autocapitalize='on' maxlength='32' value='' placeholder='Income' data-nsb-type='TextBox_jqm'  class='ui-mini ui-btn-  ' /></div>",
   "<div id='fnHousehold_wrapper'><input id='fnHousehold' type='text' name='' autocorrect='on' autocomplete='on' autocapitalize='on' maxlength='32' value='' placeholder='Household' data-nsb-type='TextBox_jqm'  class='ui-mini ui-btn-  ' /></div>",
   "<div id='fnHouseHoldA_wrapper'><input id='fnHouseHoldA' type='text' name='' autocorrect='on' autocomplete='on' autocapitalize='on' maxlength='32' value='' placeholder='Household' data-nsb-type='TextBox_jqm'  class='ui-mini ui-btn- ui-disabled ' /></div>",
