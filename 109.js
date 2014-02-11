@@ -1,4 +1,4 @@
 
-frmProfile.innerHTML=[  NSB.MultiInput("profileM", 4, "smallfield", "First Name,Last Name,Email,Mobile No", "First Name*,Last Name*,Email*,Mobile No", "text,text,text,text", "", " style=  ", false),
-  NSB.HeaderBar_jqm14('profileT', 'Profile', 'Back', 'carat-l', 'left', 'Save', 'check', 'right', ' style="" class=" "'),
+frmReadMe.innerHTML=[  NSB.List_jqm14('readmeL', 'ul', 'none', '', 'b', '', '', 'N,N,N', 'style=', 'class=" "', '100%', true, false, '', 'bullets', 'false', '', 'false', 'false'),
+  NSB.HeaderBar_jqm14('readmeT', 'ReadMe', '', 'arrow-l', 'left', '', 'false', 'none', ' style="" class=" "'),
   ].join('');

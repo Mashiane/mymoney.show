@@ -1,4 +1,4 @@
 
-MaintainInstitutions.innerHTML=[  NSB.MultiInput("institutionEditorI", 1, "smallfield", "Institution", "Institution : ", "text", "", " style=  ", false),
-  NSB.HeaderBar_jqm14('institutionEditorT', 'Institutions', 'Back', 'arrow-l', 'left', 'Save', 'check', 'right', ' style="" class=" "'),
+Charts.innerHTML=[  "<div id='chartObj_wrapper' style='background-color:white;'><div id='chartObj'></div></div>",
+  NSB.HeaderBar_jqm14('chartsTitle', 'Charts', '', 'arrow-l', 'left', '', 'false', 'right', ' style="" class=" "'),
   ].join('');

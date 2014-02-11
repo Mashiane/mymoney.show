@@ -1,4 +1,4 @@
 
-HistoryChart.innerHTML=[  "<div id='historyChart1_wrapper' style='background-color:white;'><div id='historyChart1'></div></div>",
-  NSB.HeaderBar_jqm14('historyTitle', 'History Chart', 'Back', 'arrow-l', 'left', '', 'false', 'right', ' style="" class=" "'),
+MonthlySummary.innerHTML=[  NSB.Grid("grdMS", "1", "5", "", "", "Category,Budget,Amount,Cost Split,Cost 2 Income", "left,left,right,right,right", "style=", ""),
+  NSB.HeaderBar_jqm14('msTitle', 'Monthly Summary', '', 'arrow-l', 'left', '', 'refresh', 'right', ' style="" class=" "'),
   ].join('');

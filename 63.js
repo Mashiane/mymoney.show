@@ -1,4 +1,4 @@
 
-FinancialReport.innerHTML=[  NSB.Grid("grdFinReport", "1", "3", "", "", "Title,Description,Amount", "left,left,right", "style=", ""),
-  NSB.HeaderBar_jqm14('finReportTitle', 'Financial Report', 'Back', 'arrow-l', 'left', 'Refresh', 'refresh', 'right', ' style="" class=" "'),
+PaymentsReport.innerHTML=[  NSB.Grid("grdPayments", "1", "9", "", "", "Date,From Account,To Account,Description,Amount,,,,", "left,left,left,left,right,center,center,center,center", "style=", ""),
+  NSB.HeaderBar_jqm14('paymentsTitle', 'Payments Report', '', 'arrow-l', 'left', '', 'refresh', 'right', ' style="" class=" "'),
   ].join('');

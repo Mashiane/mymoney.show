@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <title>MyMoney.Show</title>
 <meta name="generator" content="NSB/AppStudio 4.0.0.0b5$bhnw" />
-<meta name='date' content='2014-02-11 00:27:22.088000' />
-<meta name='version' content='1.0.123' />
+<meta name='date' content='2014-02-11 12:33:00.239000' />
+<meta name='version' content='1.0.125' />
 <meta name='viewport' content='width=device-width minimum-scale=1.0, maximum-scale=0.6667, user-scalable=no, minimal-ui' />
 <meta name='apple-mobile-web-app-capable' content='YES' />
 <meta name='mobile-web-app-capable' content='yes' />
@@ -64,11 +64,13 @@
 #grdCategoryMovements {position:absolute; left:0px; top:0px; width:100%; height:auto }
 #categoryMovementTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #lblCatName {position:absolute; left:1px; right:auto; top:49px; bottom:auto; height:20px; width:304px}
-#categoryYearlyChart_wrapper {position:absolute; left:0px; top:75px; height:30px; width:320px}
-#categoryYearlyChart {position:relative; left:0px; top:0px; height:100%; width:100%}
 #grdCategoryBudgets_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:75px; right:auto; bottom:auto;}
 #grdCategoryBudgets {position:absolute; left:0px; top:0px; width:100%; height:auto }
 #categoryBudgetsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#lblCategory {position:absolute; left:1px; right:auto; top:49px; bottom:auto; height:20px; width:304px}
+#categoryChartC_wrapper {position:absolute; left:0px; top:75px; height:30px; width:320px}
+#categoryChartC {position:relative; left:0px; top:0px; height:100%; width:100%}
+#categoryChartT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #catPerformanceChart_wrapper {position:absolute; left:0px; top:42px; height:30px; width:320px}
 #catPerformanceChart {position:relative; left:0px; top:0px; height:100%; width:100%}
 #catPerformanceTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
@@ -82,11 +84,13 @@
 #grdAccountMovements {position:absolute; left:0px; top:0px; width:100%; height:auto }
 #accMovementTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #lblAccName {position:absolute; left:1px; right:auto; top:43px; bottom:auto; height:20px; width:304px}
-#accountYearlyChart_wrapper {position:absolute; left:0px; top:75px; height:30px; width:320px}
-#accountYearlyChart {position:relative; left:0px; top:0px; height:100%; width:100%}
 #grdAccountBudgets_scroller {position: absolute; overflow:hidden; width:70px; height:32px; left:0px; top:75px; right:auto; bottom:auto;}
 #grdAccountBudgets {position:absolute; left:0px; top:0px; width:100%; height:auto }
 #accountBudgetsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
+#lblAccount {position:absolute; left:1px; right:auto; top:43px; bottom:auto; height:20px; width:304px}
+#accountChartC_wrapper {position:absolute; left:0px; top:75px; height:30px; width:320px}
+#accountChartC {position:relative; left:0px; top:0px; height:100%; width:100%}
+#accountChartT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #accPerformanceChart_wrapper {position:absolute; left:0px; top:42px; height:30px; width:320px}
 #accPerformanceChart {position:relative; left:0px; top:0px; height:100%; width:100%}
 #accPerformanceTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
@@ -273,33 +277,6 @@
 #fnAvailableFundsAA_wrapper > div { position: absolute; width: 72px; left: 144px; right:auto; top: 531px;  margin:0px;  }
 #fnAvailableFundsP { text-align: left; font-size:14px; font-family: helvetica; font-style: ; font-weight: ;   height: 40px;   }
 #fnAvailableFundsP_wrapper > div { position: absolute; width: 70px; left: 231px; right:auto; top: 531px;  margin:0px;  }
-#miInvestPay_scroller {position: absolute; overflow:hidden; width:300px; height:8px; left:0px; top:42px}
-#miInvestPay {position:absolute; left:0px; top:0px; width:300px; height:auto;}
-#miInvestPay {left:0px; top:42px;}
-#invpayOutput_scroller {position: absolute; overflow:hidden; width:300px; height:8px; left:0px; top:368px}
-#invpayOutput {position:absolute; left:0px; top:0px; width:300px; height:auto;}
-#invpayOutput {left:0px; top:368px;}
-#invpayTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#miBudgets1_scroller {position: absolute; overflow:hidden; width:100px; height:8px; left:96px; top:136px}
-#miBudgets1 {position:absolute; left:0px; top:0px; width:100px; height:auto;}
-#miBudgets1 {left:96px; top:136px;}
-#miBudgets2_scroller {position: absolute; overflow:hidden; width:100px; height:8px; left:200px; top:136px}
-#miBudgets2 {position:absolute; left:0px; top:0px; width:100px; height:auto;}
-#miBudgets2 {left:200px; top:136px;}
-#budgetsInput_scroller {position: absolute; overflow:hidden; width:92px; height:8px; left:0px; top:136px}
-#budgetsInput {position:absolute; left:0px; top:0px; width:92px; height:auto;}
-#budgetsInput {left:0px; top:136px;}
-#MultiInput3_scroller {position: absolute; overflow:hidden; width:300px; height:10px; left:0px; top:42px}
-#MultiInput3 {position:absolute; left:0px; top:0px; width:300px; height:auto;}
-#MultiInput3 {left:0px; top:42px;}
-#cboBudgetAccount {position:absolute; left:104px; right:auto; top:91px; bottom:auto; height:38px; width:196px}
-#budgetsTitle {position: absolute; width:100%; height:40px; left:0px; top:0px;}
-#txtBudgetYear { text-align: left; font-size:14px; font-family: helvetica; font-style: ; font-weight: ;   height: 40px;   }
-#txtBudgetYear_wrapper > div { position: absolute; width: 196px; left: 104px; right:auto; top: 47px;  margin:0px;  }
-#mSignIn_scroller {position: absolute; overflow:hidden; width:303px; height:10px; left:1px; top:46px}
-#mSignIn {position:absolute; left:0px; top:0px; width:303px; height:auto;}
-#mSignIn {left:1px; top:46px;}
-#signInT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #restoreT {position: absolute; width:100%; height:40px; left:0px; top:0px;}
 #txtRestore {position:absolute; left:5px; right:auto; top:44px; bottom:auto; height:185px; width:95%}
 #lstWhatToDo1_scroller {position: absolute; overflow:hidden; width:100%; height:420px; left:0px; top:42px;}
@@ -352,110 +329,107 @@ body * {font-family:helvetica}
 <form id="CategoryBudgets" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="43.js"></script>
 </form>
-<form id="CategoryPerformance" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="CategoryChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="45.js"></script>
 </form>
-<form id="CategoryReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="CategoryPerformance" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="47.js"></script>
 </form>
-<form id="AccountsList" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="CategoryReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="49.js"></script>
 </form>
-<form id="AccountMovements" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="AccountsList" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="51.js"></script>
 </form>
-<form id="AccountBudgets" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="AccountMovements" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="53.js"></script>
 </form>
-<form id="AccountPerformance" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="AccountBudgets" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="55.js"></script>
 </form>
-<form id="AccountReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="AccountChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="57.js"></script>
 </form>
-<form id="PaymentsReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="AccountPerformance" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="59.js"></script>
 </form>
-<form id="PaymentsSelector" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="AccountReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="61.js"></script>
 </form>
-<form id="FinancialReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="PaymentsReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="63.js"></script>
 </form>
-<form id="Charts" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="PaymentsSelector" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="65.js"></script>
 </form>
-<form id="PaymentsYearsChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="FinancialReport" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="67.js"></script>
 </form>
-<form id="MaintainInstitutions" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="Charts" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="69.js"></script>
 </form>
-<form id="FinancialPosition" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="PaymentsYearsChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="71.js"></script>
 </form>
-<form id="PaymentsSingle" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="MaintainInstitutions" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="73.js"></script>
 </form>
-<form id="Account" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="FinancialPosition" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="75.js"></script>
 </form>
-<form id="MonthlySummary" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="PaymentsSingle" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="77.js"></script>
 </form>
-<form id="MonthlySummaryChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="Account" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="79.js"></script>
 </form>
-<form id="HistoryChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="MonthlySummary" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="81.js"></script>
 </form>
-<form id="IEChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="MonthlySummaryChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="83.js"></script>
 </form>
-<form id="Cost2Income" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="HistoryChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="85.js"></script>
 </form>
-<form id="frmAbout" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="IEChart" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="87.js"></script>
 </form>
-<form id="frmFinancialNeeds" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="Cost2Income" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="89.js"></script>
 </form>
-<form id="FinancialNeedsSelector" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="frmAbout" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="91.js"></script>
 </form>
-<form id="frmFinancialNeedsA" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="frmFinancialNeeds" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="93.js"></script>
 </form>
-<form id="InvestPayOff" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="FinancialNeedsSelector" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="95.js"></script>
 </form>
-<form id="Budgets" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="frmFinancialNeedsA" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="97.js"></script>
 </form>
-<form id="frmSignIn" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="frmRestore" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="99.js"></script>
 </form>
-<form id="frmRestore" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="frmSettings" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="101.js"></script>
 </form>
-<form id="frmSettings" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="frmDatabase" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="103.js"></script>
 </form>
-<form id="frmDatabase" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="MyReports1" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="105.js"></script>
 </form>
-<form id="MyReports1" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="frmProfile" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="107.js"></script>
 </form>
-<form id="frmProfile" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
+<form id="frmReadMe" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
 <script src="109.js"></script>
 </form>
-<form id="frmReadMe" action="" method="GET" onsubmit="return false;" style="display:none; height:100%; position:absolute; top:0px; left:0px; width:100%; ">
-<script src="111.js"></script>
-</form>
 </div>
-<script src="113.js"></script><link href="select.css"rel="stylesheet"><script src="115.js"></script>
+<script src="111.js"></script><link href="select.css"rel="stylesheet"><script src="113.js"></script>
 <script src="mymoneyshow.js"></script>
 
 </body>

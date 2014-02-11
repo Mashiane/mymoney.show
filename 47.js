@@ -1,4 +1,4 @@
 
-CategoryReport.innerHTML=[  NSB.Grid("grdCatReport", "1", "3", "", "", "Account,Amount,Percentage", "left,right,right", "style=", ""),
-  NSB.HeaderBar_jqm14('catReportTitle', 'Category Report', 'Back', 'arrow-l', 'left', 'Refresh', 'refresh', 'right', ' style="" class=" "'),
+CategoryPerformance.innerHTML=[  "<div id='catPerformanceChart_wrapper' style='background-color:white;'><div id='catPerformanceChart'></div></div>",
+  NSB.HeaderBar_jqm14('catPerformanceTitle', 'Top 10 Categories', '', 'arrow-l', 'left', '', 'refresh', 'right', ' style="" class=" "'),
   ].join('');
